@@ -48,7 +48,6 @@ ifeq      ($(VERSION),jp)
 else ifeq ($(VERSION),jpu)
   BASE_VERSION ?= jp
   VERBOSE := 1 #TODO: comment out once builds!
-  NOEXTRACT ?= 1
   COMPARE := 0
   DEFINES   += VERSION_JP=1
   DEFINES   += VERSION_JP_ULTIMATE=1
@@ -64,7 +63,6 @@ else ifeq ($(VERSION),us)
 else ifeq ($(VERSION),usu)
   BASE_VERSION ?= us
   VERBOSE := 1 #TODO: comment out once builds!
-  NOEXTRACT ?= 1
   COMPARE := 0
   DEFINES   += VERSION_US=1
   DEFINES   += VERSION_US_ULTIMATE=1
@@ -80,7 +78,6 @@ else ifeq ($(VERSION),eu)
 else ifeq ($(VERSION),euu)
   BASE_VERSION ?= eu
   VERBOSE := 1 #TODO: comment out once builds!
-  NOEXTRACT ?= 1
   COMPARE := 0
   DEFINES   += VERSION_EU=1
   DEFINES   += VERSION_EU_ULTIMATE=1
@@ -96,7 +93,6 @@ else ifeq ($(VERSION),sh)
 else ifeq ($(VERSION),shu)
   BASE_VERSION ?= sh
   VERBOSE := 1 #TODO: comment out once builds!
-  NOEXTRACT ?= 1
   COMPARE := 0
   DEFINES   += VERSION_SH=1
   DEFINES   += VERSION_SH_ULTIMATE=1
