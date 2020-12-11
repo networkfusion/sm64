@@ -94,7 +94,7 @@ else ifeq ($(VERSION),sh)
   GRUCODE   ?= f3d_new
   VERSION_JP_US  ?= false
 else ifeq ($(VERSION),shu)
-BASE_VERSION ?= sh
+  BASE_VERSION ?= sh
   VERBOSE := 1 #TODO: comment out once builds!
   NOEXTRACT ?= 1
   COMPARE := 0
