@@ -65,6 +65,10 @@ build/*
 !/textures/**/*custom*.png
 !/textures/**/*custom*/**/*.png
 !/sound/**/*custom*.m64
+!/sound/sequences/usu/*
+!/sound/sequences/jpu/*
+!/sound/sequences/euu/*
+!/sound/sequences/shu/*
 !/sound/**/*custom*/**/*.m64
 !/sound/**/*custom*.aiff
 !/sound/**/*custom*/**/*.aiff

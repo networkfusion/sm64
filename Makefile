@@ -28,15 +28,15 @@ $(eval $(call validate-option,COMPILER,ido gcc))
 
 
 # VERSION - selects the version of the game to build
-#   jp - builds the 1996 Japanese version
-#   us - builds the 1996 North American version
-#   eu - builds the 1997 PAL version
-#   sh - builds the 1997 Japanese Shindou version, with rumble pak support
+#   jp  - builds the 1996 Japanese version
+#   us  - builds the 1996 North American version
+#   eu  - builds the 1997 PAL version
+#   sh  - builds the 1997 Japanese Shindou version, with rumble pak support
 #   jpu - builds the 1996 Japanese version with f3dzex, optimized build, bug fixes and rumble support
 #   usu - builds the 1996 North American version with f3dzex, optimized build, bug fixes and rumble support
 #   euu - builds the 1997 PAL version with with f3dzex, bug fixes and rumble support
 #   shu - builds the 1997 Japanese Shindou version, with rumble pak support, f3dzex, and bug fixes
-VERSION ?= us
+VERSION ?= usu
 $(eval $(call validate-option,VERSION,jp us eu sh jpu usu euu shu))
 
 ifeq      ($(VERSION),jp)
@@ -48,7 +48,6 @@ else ifeq ($(VERSION),jpu)
   VERBOSE := 1 #TODO: comment out once builds!
   NOEXTRACT ?= 1
   COMPARE := 0
-  NON_MATCHING := 1
   DEFINES   += VERSION_JP=1
   DEFINES   += VERSION_JP_ULTIMATE=1
   OPT_FLAGS := -O2
@@ -63,7 +62,6 @@ else ifeq ($(VERSION),usu)
   VERBOSE := 1 #TODO: comment out once builds!
   NOEXTRACT ?= 1
   COMPARE := 0
-  NON_MATCHING := 1
   DEFINES   += VERSION_US=1
   DEFINES   += VERSION_US_ULTIMATE=1
   OPT_FLAGS := -O2
@@ -78,7 +76,6 @@ else ifeq ($(VERSION),euu)
   VERBOSE := 1 #TODO: comment out once builds!
   NOEXTRACT ?= 1
   COMPARE := 0
-  NON_MATCHING := 1
   DEFINES   += VERSION_EU=1
   DEFINES   += VERSION_EU_ULTIMATE=1
   OPT_FLAGS := -O2
@@ -93,7 +90,6 @@ else ifeq ($(VERSION),shu)
   VERBOSE := 1 #TODO: comment out once builds!
   NOEXTRACT ?= 1
   COMPARE := 0
-  NON_MATCHING := 1
   DEFINES   += VERSION_SH=1
   DEFINES   += VERSION_SH_ULTIMATE=1
   OPT_FLAGS := -O2
@@ -480,7 +476,11 @@ $(BUILD_DIR)/lib/rsp.o:               $(BUILD_DIR)/rsp/rspboot.bin $(BUILD_DIR)/
 $(SOUND_BIN_DIR)/sound_data.o:        $(SOUND_BIN_DIR)/sound_data.ctl.inc.c $(SOUND_BIN_DIR)/sound_data.tbl.inc.c $(SOUND_BIN_DIR)/sequences.bin.inc.c $(SOUND_BIN_DIR)/bank_sets.inc.c
 $(BUILD_DIR)/levels/scripts.o:        $(BUILD_DIR)/include/level_headers.h
 
-ifeq ($(VERSION),sh shu)
+ifeq ($(VERSION),sh)
+  $(BUILD_DIR)/src/audio/load.o: $(SOUND_BIN_DIR)/bank_sets.inc.c $(SOUND_BIN_DIR)/sequences_header.inc.c $(SOUND_BIN_DIR)/ctl_header.inc.c $(SOUND_BIN_DIR)/tbl_header.inc.c
+endif
+
+ifeq ($(VERSION),shu)
   $(BUILD_DIR)/src/audio/load.o: $(SOUND_BIN_DIR)/bank_sets.inc.c $(SOUND_BIN_DIR)/sequences_header.inc.c $(SOUND_BIN_DIR)/ctl_header.inc.c $(SOUND_BIN_DIR)/tbl_header.inc.c
 endif
 
@@ -490,7 +490,7 @@ ifeq ($(COMPILER),gcc)
   $(BUILD_DIR)/lib/src/math/%.o: CFLAGS += -fno-builtin
 endif
 
-ifeq ($(VERSION),eu euu)
+ifeq ($(VERSION),eu)
   TEXT_DIRS := text/de text/us text/fr
 
   # EU encoded text inserted into individual segment 0x19 files,
@@ -503,15 +503,44 @@ ifeq ($(VERSION),eu euu)
   $(BUILD_DIR)/levels/menu/leveldata.o: $(BUILD_DIR)/text/de/define_courses.inc.c
   $(BUILD_DIR)/levels/menu/leveldata.o: $(BUILD_DIR)/text/fr/define_courses.inc.c
 else
-  ifeq ($(VERSION),sh shu)
+    ifeq ($(VERSION),euu)
+    TEXT_DIRS := text/de text/us text/fr
+
+    # EU encoded text inserted into individual segment 0x19 files,
+    # and course data also duplicated in leveldata.c
+    $(BUILD_DIR)/bin/eu/translation_en.o: $(BUILD_DIR)/text/us/define_text.inc.c
+    $(BUILD_DIR)/bin/eu/translation_de.o: $(BUILD_DIR)/text/de/define_text.inc.c
+    $(BUILD_DIR)/bin/eu/translation_fr.o: $(BUILD_DIR)/text/fr/define_text.inc.c
+    $(BUILD_DIR)/levels/menu/leveldata.o: $(BUILD_DIR)/include/text_strings.h
+    $(BUILD_DIR)/levels/menu/leveldata.o: $(BUILD_DIR)/text/us/define_courses.inc.c
+    $(BUILD_DIR)/levels/menu/leveldata.o: $(BUILD_DIR)/text/de/define_courses.inc.c
+    $(BUILD_DIR)/levels/menu/leveldata.o: $(BUILD_DIR)/text/fr/define_courses.inc.c
+    else
+  ifeq ($(VERSION),sh)
     TEXT_DIRS := text/jp
     $(BUILD_DIR)/bin/segment2.o: $(BUILD_DIR)/text/jp/define_text.inc.c
   else
+    ifeq ($(VERSION),shu)
+    TEXT_DIRS := text/jp
+    $(BUILD_DIR)/bin/segment2.o: $(BUILD_DIR)/text/jp/define_text.inc.c
+  else
+    ifeq ($(VERSION),usu)
+    TEXT_DIRS := text/us
+    $(BUILD_DIR)/bin/segment2.o: $(BUILD_DIR)/text/us/define_text.inc.c
+  else
+    ifeq ($(VERSION),jpu)
+    TEXT_DIRS := text/jp
+    $(BUILD_DIR)/bin/segment2.o: $(BUILD_DIR)/text/jp/define_text.inc.c
+    else
     TEXT_DIRS := text/$(VERSION)
     # non-EU encoded text inserted into segment 0x02
     $(BUILD_DIR)/bin/segment2.o: $(BUILD_DIR)/text/$(VERSION)/define_text.inc.c
+            endif
+          endif
+        endif
+      endif
+    endif
   endif
-endif
 
 ALL_DIRS := $(BUILD_DIR) $(addprefix $(BUILD_DIR)/,$(SRC_DIRS) $(GODDARD_SRC_DIRS) $(ULTRA_SRC_DIRS) $(ULTRA_BIN_DIRS) $(BIN_DIRS) $(TEXTURE_DIRS) $(TEXT_DIRS) $(SOUND_SAMPLE_DIRS) $(addprefix levels/,$(LEVEL_DIRS)) rsp include) $(MIO0_DIR) $(addprefix $(MIO0_DIR)/,$(VERSION)) $(SOUND_BIN_DIR) $(SOUND_BIN_DIR)/sequences/$(VERSION)
 
@@ -725,7 +754,21 @@ ifeq ($(COMPILER),ido)
     $(BUILD_DIR)/lib/src/_Ldtob.o: OPT_FLAGS := -O3
     $(BUILD_DIR)/lib/src/osDriveRomInit.o: OPT_FLAGS := -g
   endif
-  ifeq ($(VERSION),eu euu)
+  ifeq ($(VERSION),eu)
+    $(BUILD_DIR)/lib/src/_Litob.o:   OPT_FLAGS := -O3
+    $(BUILD_DIR)/lib/src/_Ldtob.o:   OPT_FLAGS := -O3
+    $(BUILD_DIR)/lib/src/_Printf.o:  OPT_FLAGS := -O3
+    $(BUILD_DIR)/lib/src/sprintf.o:  OPT_FLAGS := -O3
+
+    # Enable loop unrolling except for external.c (external.c might also have used
+    # unrolling, but it makes one loop harder to match).
+    # For all audio files other than external.c and port_eu.c, put string literals
+    # in .data. (In Shindou, the port_eu.c string literals also moved to .data.)
+    $(BUILD_DIR)/src/audio/%.o:        OPT_FLAGS := -O2 -use_readwrite_const
+    $(BUILD_DIR)/src/audio/port_eu.o:  OPT_FLAGS := -O2
+    $(BUILD_DIR)/src/audio/external.o: OPT_FLAGS := -O2 -Wo,-loopunroll,0
+  endif
+    ifeq ($(VERSION),euu)
     $(BUILD_DIR)/lib/src/_Litob.o:   OPT_FLAGS := -O3
     $(BUILD_DIR)/lib/src/_Ldtob.o:   OPT_FLAGS := -O3
     $(BUILD_DIR)/lib/src/_Printf.o:  OPT_FLAGS := -O3
