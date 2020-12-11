@@ -45,6 +45,7 @@ ifeq      ($(VERSION),jp)
   GRUCODE   ?= f3d_old
   VERSION_JP_US  ?= true
 else ifeq ($(VERSION),jpu)
+  VERBOSE := 1 #TODO: comment out once builds!
   NOEXTRACT ?= 1
   COMPARE := 0
   NON_MATCHING := 1
@@ -59,6 +60,7 @@ else ifeq ($(VERSION),us)
   GRUCODE   ?= f3d_old
   VERSION_JP_US  ?= true
 else ifeq ($(VERSION),usu)
+  VERBOSE := 1 #TODO: comment out once builds!
   NOEXTRACT ?= 1
   COMPARE := 0
   NON_MATCHING := 1
@@ -73,6 +75,7 @@ else ifeq ($(VERSION),eu)
   GRUCODE   ?= f3d_new
   VERSION_JP_US  ?= false
 else ifeq ($(VERSION),euu)
+  VERBOSE := 1 #TODO: comment out once builds!
   NOEXTRACT ?= 1
   COMPARE := 0
   NON_MATCHING := 1
@@ -87,6 +90,7 @@ else ifeq ($(VERSION),sh)
   GRUCODE   ?= f3d_new
   VERSION_JP_US  ?= false
 else ifeq ($(VERSION),shu)
+  VERBOSE := 1 #TODO: comment out once builds!
   NOEXTRACT ?= 1
   COMPARE := 0
   NON_MATCHING := 1
@@ -476,7 +480,7 @@ $(BUILD_DIR)/lib/rsp.o:               $(BUILD_DIR)/rsp/rspboot.bin $(BUILD_DIR)/
 $(SOUND_BIN_DIR)/sound_data.o:        $(SOUND_BIN_DIR)/sound_data.ctl.inc.c $(SOUND_BIN_DIR)/sound_data.tbl.inc.c $(SOUND_BIN_DIR)/sequences.bin.inc.c $(SOUND_BIN_DIR)/bank_sets.inc.c
 $(BUILD_DIR)/levels/scripts.o:        $(BUILD_DIR)/include/level_headers.h
 
-ifeq ($(VERSION),sh)
+ifeq ($(VERSION),sh shu)
   $(BUILD_DIR)/src/audio/load.o: $(SOUND_BIN_DIR)/bank_sets.inc.c $(SOUND_BIN_DIR)/sequences_header.inc.c $(SOUND_BIN_DIR)/ctl_header.inc.c $(SOUND_BIN_DIR)/tbl_header.inc.c
 endif
 
@@ -486,7 +490,7 @@ ifeq ($(COMPILER),gcc)
   $(BUILD_DIR)/lib/src/math/%.o: CFLAGS += -fno-builtin
 endif
 
-ifeq ($(VERSION),eu)
+ifeq ($(VERSION),eu euu)
   TEXT_DIRS := text/de text/us text/fr
 
   # EU encoded text inserted into individual segment 0x19 files,
@@ -499,7 +503,7 @@ ifeq ($(VERSION),eu)
   $(BUILD_DIR)/levels/menu/leveldata.o: $(BUILD_DIR)/text/de/define_courses.inc.c
   $(BUILD_DIR)/levels/menu/leveldata.o: $(BUILD_DIR)/text/fr/define_courses.inc.c
 else
-  ifeq ($(VERSION),sh)
+  ifeq ($(VERSION),sh shu)
     TEXT_DIRS := text/jp
     $(BUILD_DIR)/bin/segment2.o: $(BUILD_DIR)/text/jp/define_text.inc.c
   else
@@ -721,7 +725,7 @@ ifeq ($(COMPILER),ido)
     $(BUILD_DIR)/lib/src/_Ldtob.o: OPT_FLAGS := -O3
     $(BUILD_DIR)/lib/src/osDriveRomInit.o: OPT_FLAGS := -g
   endif
-  ifeq ($(VERSION),eu)
+  ifeq ($(VERSION),eu euu)
     $(BUILD_DIR)/lib/src/_Litob.o:   OPT_FLAGS := -O3
     $(BUILD_DIR)/lib/src/_Ldtob.o:   OPT_FLAGS := -O3
     $(BUILD_DIR)/lib/src/_Printf.o:  OPT_FLAGS := -O3
