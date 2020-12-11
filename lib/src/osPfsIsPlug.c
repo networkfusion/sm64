@@ -2,7 +2,7 @@
 #include "controller.h"
 //#include "siint.h"
 
-#ifdef VERSION_SH
+#if defined(VERSION_SH) || defined(VERSION_JP_ULTIMATE) || defined(VERSION_US_ULTIMATE) || defined(VERSION_EU_ULTIMATE)
 OSPifRam __osPfsPifRam;
 
 s32 osPfsIsPlug(OSMesgQueue *queue, u8 *pattern) {

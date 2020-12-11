@@ -123,7 +123,7 @@ const Texture *const game_over_texture_table[] = {
 
 UNUSED static const u64 title_screen_bg_unused_0 = 0;
 
-#ifdef VERSION_SH
+#if defined(VERSION_SH) || defined(VERSION_JP_ULTIMATE) || defined(VERSION_US_ULTIMATE) || defined(VERSION_EU_ULTIMATE)
 const Gfx title_screen_bg_dl_0A0065E8[] = {
     gsDPPipeSync(),
     gsDPSetCycleType(G_CYC_COPY),

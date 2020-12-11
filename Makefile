@@ -32,28 +32,68 @@ $(eval $(call validate-option,COMPILER,ido gcc))
 #   us - builds the 1996 North American version
 #   eu - builds the 1997 PAL version
 #   sh - builds the 1997 Japanese Shindou version, with rumble pak support
+#   jpu - builds the 1996 Japanese version with f3dzex, optimized build, bug fixes and rumble support
+#   usu - builds the 1996 North American version with f3dzex, optimized build, bug fixes and rumble support
+#   euu - builds the 1997 PAL version with with f3dzex, bug fixes and rumble support
+#   shu - builds the 1997 Japanese Shindou version, with rumble pak support, f3dzex, and bug fixes
 VERSION ?= us
-$(eval $(call validate-option,VERSION,jp us eu sh))
+$(eval $(call validate-option,VERSION,jp us eu sh jpu usu euu shu))
 
 ifeq      ($(VERSION),jp)
   DEFINES   += VERSION_JP=1
   OPT_FLAGS := -g
   GRUCODE   ?= f3d_old
   VERSION_JP_US  ?= true
+else ifeq ($(VERSION),jpu)
+  NOEXTRACT ?= 1
+  COMPARE := 0
+  NON_MATCHING := 1
+  DEFINES   += VERSION_JP=1
+  DEFINES   += VERSION_JP_ULTIMATE=1
+  OPT_FLAGS := -O2
+  GRUCODE   ?= f3dzex
+  VERSION_JP_US  ?= true
 else ifeq ($(VERSION),us)
   DEFINES   += VERSION_US=1
   OPT_FLAGS := -g
   GRUCODE   ?= f3d_old
+  VERSION_JP_US  ?= true
+else ifeq ($(VERSION),usu)
+  NOEXTRACT ?= 1
+  COMPARE := 0
+  NON_MATCHING := 1
+  DEFINES   += VERSION_US=1
+  DEFINES   += VERSION_US_ULTIMATE=1
+  OPT_FLAGS := -O2
+  GRUCODE   ?= f3dzex
   VERSION_JP_US  ?= true
 else ifeq ($(VERSION),eu)
   DEFINES   += VERSION_EU=1
   OPT_FLAGS := -O2
   GRUCODE   ?= f3d_new
   VERSION_JP_US  ?= false
+else ifeq ($(VERSION),euu)
+  NOEXTRACT ?= 1
+  COMPARE := 0
+  NON_MATCHING := 1
+  DEFINES   += VERSION_EU=1
+  DEFINES   += VERSION_EU_ULTIMATE=1
+  OPT_FLAGS := -O2
+  GRUCODE   ?= f3dzex
+  VERSION_JP_US  ?= false
 else ifeq ($(VERSION),sh)
   DEFINES   += VERSION_SH=1
   OPT_FLAGS := -O2
   GRUCODE   ?= f3d_new
+  VERSION_JP_US  ?= false
+else ifeq ($(VERSION),shu)
+  NOEXTRACT ?= 1
+  COMPARE := 0
+  NON_MATCHING := 1
+  DEFINES   += VERSION_SH=1
+  DEFINES   += VERSION_SH_ULTIMATE=1
+  OPT_FLAGS := -O2
+  GRUCODE   ?= f3dzex
   VERSION_JP_US  ?= false
 endif
 

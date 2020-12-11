@@ -253,7 +253,7 @@ void handle_vblank(void) {
             start_sptask(M_GFXTASK);
         }
     }
-#ifdef VERSION_SH
+#if defined(VERSION_SH) || defined(VERSION_JP_ULTIMATE) || defined(VERSION_US_ULTIMATE) || defined(VERSION_EU_ULTIMATE)
     rumble_thread_update_vi();
 #endif
 

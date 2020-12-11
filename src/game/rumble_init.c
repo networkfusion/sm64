@@ -5,7 +5,7 @@
 #include "main.h"
 #include "rumble_init.h"
 
-#ifdef VERSION_SH
+#if defined(VERSION_SH) || defined(VERSION_JP_ULTIMATE) || defined(VERSION_US_ULTIMATE) || defined(VERSION_EU_ULTIMATE)
 
 OSThread gRumblePakThread;
 

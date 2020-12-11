@@ -30,7 +30,7 @@ struct Controller
   /*0x12*/ u16 buttonPressed;
   /*0x14*/ OSContStatus *statusData;
   /*0x18*/ OSContPad *controllerData;
-#ifdef VERSION_SH
+#if defined(VERSION_SH) || defined(VERSION_JP_ULTIMATE) || defined(VERSION_US_ULTIMATE) || defined(VERSION_EU_ULTIMATE)
   /*0x1C*/ int port;
 #endif
 };

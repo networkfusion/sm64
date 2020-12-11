@@ -1530,8 +1530,12 @@ void preload_sequence(u32 seqId, u8 preloadMask) {
     }
 
     if (preloadMask & PRELOAD_SEQUENCE) {
+#if defined(VERSION_JP_ULTIMATE) || defined(VERSION_US_ULTIMATE) || defined(VERSION_EU_ULTIMATE)
+        if (IS_SEQ_LOAD_COMPLETE(seqId) == TRUE) {
+#else
         // @bug should be IS_SEQ_LOAD_COMPLETE
         if (IS_BANK_LOAD_COMPLETE(seqId) == TRUE) {
+#endif
             eu_stubbed_printf_1("SEQ  %d ALREADY CACHED\n", seqId);
             sequenceData = get_bank_or_seq(&gSeqLoadedPool, 2, seqId);
         } else {

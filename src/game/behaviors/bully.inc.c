@@ -53,7 +53,7 @@ void bhv_big_bully_init(void) {
 
 void bully_check_mario_collision(void) {
     if (
-#ifdef VERSION_SH
+#if defined(VERSION_SH) || defined(VERSION_JP_ULTIMATE) || defined(VERSION_US_ULTIMATE) || defined(VERSION_EU_ULTIMATE)
     o->oAction != BULLY_ACT_LAVA_DEATH && o->oAction != BULLY_ACT_DEATH_PLANE_DEATH &&
 #endif
     o->oInteractStatus & INT_STATUS_INTERACTED) {
@@ -341,6 +341,9 @@ void bhv_big_bully_with_minions_loop(void) {
 
                 if (o->oTimer >= 91)
                     o->oAction = BULLY_ACT_ACTIVATE_AND_FALL;
+#if BUGFIX_BULLY_KNOCKBACK_TIMER
+                    o->oBullyKBTimerAndMinionKOCounter == 0;
+#endif
             }
             break;
 
