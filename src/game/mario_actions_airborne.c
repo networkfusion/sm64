@@ -1337,7 +1337,7 @@ s32 act_air_hit_wall(struct MarioState *m) {
     }
 
 #ifdef AVOID_UB
-    return;
+    return set_mario_action(m, ACT_SOFT_BONK, 0); //TODO-ultimate: is this right???
 #endif
     set_mario_animation(m, MARIO_ANIM_START_WALLKICK);
 
