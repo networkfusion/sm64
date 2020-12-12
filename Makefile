@@ -228,6 +228,10 @@ ifeq ($(filter clean distclean print-%,$(MAKECMDGOALS)),)
   NOEXTRACT ?= 0
   ifeq ($(NOEXTRACT),0)
     DUMMY != $(PYTHON) extract_assets.py $(BASE_VERSION) >&2 || echo FAIL
+    # If this is an ultimate version: 'jpu', 'usu', 'euu' or 'shu' we also need the SH assets...
+    ifneq ($(filter jpu usu euu shu,$(VERSION)),)
+      DUMMY != $(PYTHON) extract_assets.py $(sh) >&2 || echo FAIL
+    endif
     ifeq ($(DUMMY),FAIL)
       $(error Failed to extract assets)
     endif
