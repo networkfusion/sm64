@@ -190,6 +190,9 @@ COLOR ?= 1
 ifeq ($(filter clean distclean,$(MAKECMDGOALS)),)
   $(info ==== Build Options ====)
   $(info Version:        $(VERSION))
+  ifneq ($(BASE_VERSION), jpu usu euu shu)
+    $(info Base Version:   $(BASE_VERSION))
+  endif
   $(info Microcode:      $(GRUCODE))
   $(info Target:         $(TARGET))
   ifeq ($(COMPARE),1)
