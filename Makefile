@@ -190,6 +190,7 @@ COLOR ?= 1
 ifeq ($(filter clean distclean,$(MAKECMDGOALS)),)
   $(info ==== Build Options ====)
   $(info Version:        $(VERSION))
+  # display the base version only if it is a derived ROM: 'jpu', 'usu', 'euu' or 'shu'
   ifneq ($(filter jpu usu euu shu,$(VERSION)),)
     $(info Base Version:   $(BASE_VERSION))
   endif
