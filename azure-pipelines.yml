@@ -55,10 +55,10 @@ Some of these packages may already be installed, but update just incase (it does
 
 # Build tools.
 - script: |
-    mv $(baserom_us_z64.secureFilePath) $BUILD_SOURCESDIRECTORY
-    mv $(baserom_sh_z64.secureFilePath) $BUILD_SOURCESDIRECTORY
-    mv $(baserom_eu_z64.secureFilePath) $BUILD_SOURCESDIRECTORY
-    mv $(baserom_jp_z64.secureFilePath) $BUILD_SOURCESDIRECTORY
+    mv $(baserom_us_z64.secureFilePath) $BUILD_SOURCESDIRECTORY/baserom.us.z64
+    mv $(baserom_sh_z64.secureFilePath) $BUILD_SOURCESDIRECTORY/baserom.sh.z64
+    mv $(baserom_eu_z64.secureFilePath) $BUILD_SOURCESDIRECTORY/baserom.eu.z64
+    mv $(baserom_jp_z64.secureFilePath) $BUILD_SOURCESDIRECTORY/baserom.jp.z64
   displayName: 'Copy Roms to src dir.'
   continueOnError: false  
 
