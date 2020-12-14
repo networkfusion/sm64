@@ -29,28 +29,38 @@ steps:
 
 # Download ROM's from secure storage:
 - task: DownloadSecureFile@1
-  name: baserom_us.z64
+  name: baserom_us_z64
   displayName: 'Download US ROM'
   inputs:
     secureFile: 'baserom_us.z64'
 
 - task: DownloadSecureFile@1
-  name: baserom_sh.z64
+  name: baserom_sh_z64
   displayName: 'Download SH ROM'
   inputs:
     secureFile: 'baserom_sh.z64'
 
 - task: DownloadSecureFile@1
-  name: baserom_eu.z64
+  name: baserom_eu_z64
   displayName: 'Download EU ROM'
   inputs:
     secureFile: 'baserom_eu.z64'
 
 - task: DownloadSecureFile@1
-  name: baserom_jp.z64
+  name: baserom_jp_z64
   displayName: 'Download JP ROM'
   inputs:
     secureFile: 'baserom_jp.z64'
+
+
+# Build tools.
+- script: |
+    mv $(baserom_us_z64.secureFilePath) $(build.SourceDirectory)
+    mv $(baserom_sh_z64.secureFilePath) $(build.SourceDirectory)
+    mv $(baserom_eu_z64.secureFilePath) $(build.SourceDirectory)
+    mv $(baserom_jp_z64.secureFilePath) $(build.SourceDirectory)
+  displayName: 'Copy BaseRoms'
+  continueOnError: false  
 
 
 # # Build tools.
