@@ -7,19 +7,19 @@ steps:
 #     QEMU_IRIX
 #     ROMS_DIR
 
-- script: |
-    sh '[ -z "$(find {actors,levels,textures}/ -name \'*.png\')" ]'
-    sh '[ -z "$(find assets/ -name \'*.m64\' -or \'*.bin\')" ]'
-    sh './extract_assets.py jp us eu sh'
-  displayName: 'Check Repo for illegal assets' #TODO: remove them?!
-  continueOnError: true #todo: set to false
-
-# Some of these packages may already be installed, but update just incase (it doesn't hurt)!
 # - script: |
-#     sudo apt-get update
-#     sudo apt install -y build-essential git binutils-mips-linux-gnu python3
-#   displayName: 'Install Required Packages'
-#   continueOnError: false
+#     sh '[ -z "$(find {actors,levels,textures}/ -name \'*.png\')" ]'
+#     sh '[ -z "$(find assets/ -name \'*.m64\' -or \'*.bin\')" ]'
+#     sh './extract_assets.py jp us eu sh'
+#   displayName: 'Check Repo for illegal assets' #TODO: remove them?!
+#   continueOnError: true #todo: set to false
+
+Some of these packages may already be installed, but update just incase (it doesn't hurt)!
+- script: |
+    sudo apt-get update
+    sudo apt install -y build-essential git binutils-mips-linux-gnu python3
+  displayName: 'Install Required Packages'
+  continueOnError: false
 
 # Updating the python version available on the linux agent.
 - task: UsePythonVersion@0
@@ -59,7 +59,7 @@ steps:
     mv $(baserom_sh_z64.secureFilePath) $BUILD_SOURCESDIRECTORY
     mv $(baserom_eu_z64.secureFilePath) $BUILD_SOURCESDIRECTORY
     mv $(baserom_jp_z64.secureFilePath) $BUILD_SOURCESDIRECTORY
-  displayName: 'Copy BaseRoms'
+  displayName: 'Copy Roms to src dir.'
   continueOnError: false  
 
 
