@@ -1337,7 +1337,7 @@ s32 act_air_hit_wall(struct MarioState *m) {
     }
 
 #ifdef AVOID_UB
-    return set_mario_action(m, ACT_SOFT_BONK, 0); //TODO-ultimate: is this right???
+    return //TODO-ultimate: is this right, shouldnt it have a semicolon???
 #endif
     set_mario_animation(m, MARIO_ANIM_START_WALLKICK);
 
@@ -1348,7 +1348,7 @@ s32 act_air_hit_wall(struct MarioState *m) {
     // This results in firsties only being possible for a single frame, instead
     // of two.
 #if BUGFIX_AIR_HIT_WALL_ANIMATION
-    return;
+    return set_mario_action(m, ACT_SOFT_BONK, 0); //TODO-ultimate: is this right???
 #endif
 }
 
