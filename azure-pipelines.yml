@@ -32,25 +32,25 @@ steps:
   name: baserom_us.z64
   displayName: 'Download US ROM'
   inputs:
-    secureFile: 'baserom.us.z64'
+    secureFile: 'baserom_us.z64'
 
 - task: DownloadSecureFile@1
   name: baserom_sh.z64
   displayName: 'Download SH ROM'
   inputs:
-    secureFile: 'baserom.sh.z64'
+    secureFile: 'baserom_sh.z64'
 
 - task: DownloadSecureFile@1
   name: baserom_eu.z64
   displayName: 'Download EU ROM'
   inputs:
-    secureFile: 'baserom.eu.z64'
+    secureFile: 'baserom_eu.z64'
 
 - task: DownloadSecureFile@1
   name: baserom_jp.z64
   displayName: 'Download JP ROM'
   inputs:
-    secureFile: 'baserom.jp.z64'
+    secureFile: 'baserom_jp.z64'
 
 
 # # Build tools.
