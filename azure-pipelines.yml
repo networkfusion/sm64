@@ -72,7 +72,7 @@ steps:
 # Build ROM's
 # TODO: at the moment, the first ROM to build will take a while. we should probably make this a matrix!
 - script: |
-    sh 'make -j4 VERSION=us VERBOSE=1 COLOR=0'
+    make -j4 VERSION=us VERBOSE=1 COLOR=0
   displayName: 'Build US Source'
   continueOnError: true
 
