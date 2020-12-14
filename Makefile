@@ -525,6 +525,9 @@ else
 endif
 
 ALL_DIRS := $(BUILD_DIR) $(addprefix $(BUILD_DIR)/,$(SRC_DIRS) $(GODDARD_SRC_DIRS) $(ULTRA_SRC_DIRS) $(ULTRA_BIN_DIRS) $(BIN_DIRS) $(TEXTURE_DIRS) $(TEXT_DIRS) $(SOUND_SAMPLE_DIRS) $(addprefix levels/,$(LEVEL_DIRS)) rsp include) $(MIO0_DIR) $(addprefix $(MIO0_DIR)/,$(BASE_VERSION)) $(SOUND_BIN_DIR) $(SOUND_BIN_DIR)/sequences/$(BASE_VERSION)
+ifneq ($(filter jpu usu euu shu,$(VERSION)),)
+ALL_DIRS += $(SOUND_BIN_DIR)/sequences/sh $(addprefix $(MIO0_DIR)/,$(VERSION))
+endif
 
 # Make sure build directory exists before compiling anything
 DUMMY != mkdir -p $(ALL_DIRS)
