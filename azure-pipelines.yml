@@ -63,11 +63,11 @@ steps:
   continueOnError: false  
 
 
-# # Build tools.
-# - script: |
-#     sh 'make -j4 -C tools/
-#   displayName: 'Build Tools'
-#   continueOnError: false
+# Build tools.
+- script: |
+    make -j4 -C tools/
+  displayName: 'Build Tools'
+  continueOnError: false
 
 # Build ROM's
 # TODO: at the moment, the first ROM to build will take a while. we should probably make this a matrix!
@@ -77,17 +77,17 @@ steps:
   continueOnError: true
 
 - script: |
-    sh 'make -j4 VERSION=sh VERBOSE=1 COLOR=0'
+    make -j4 VERSION=sh VERBOSE=1 COLOR=0
   displayName: 'Build SH Source'
   continueOnError: true
 
 - script: |
-    sh 'make -j4 VERSION=eu VERBOSE=1 COLOR=0'
+    make -j4 VERSION=eu VERBOSE=1 COLOR=0'
   displayName: 'Build EU Source'
   continueOnError: true
 
 - script: |
-    sh 'make -j4 VERSION=jp VERBOSE=1 COLOR=0'
+    make -j4 VERSION=jp VERBOSE=1 COLOR=0
   displayName: 'Build JP Source'
   continueOnError: true
 
