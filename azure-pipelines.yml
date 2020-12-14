@@ -17,7 +17,7 @@ steps:
 # Some of these packages may already be installed, but update just incase (it doesn't hurt)!
 - script: |
     sudo apt-get update
-    sudo apt install -y build-essential git binutils-mips-linux-gnu python3
+    sudo apt install -y binutils-mips-linux-gnu build-essential git libcapstone-dev pkgconf python3
   displayName: 'Install Required Packages'
   continueOnError: false
 
@@ -92,22 +92,22 @@ steps:
   continueOnError: true
 
 # - script: |
-#     sh 'make -j4 VERSION=usu VERBOSE=1'
+#     make -j4 VERSION=usu VERBOSE=1 COLOR=0
 #   displayName: 'Build US Ultimate Source'
 #   continueOnError: true
 
 # - script: |
-#     sh 'make -j4 VERSION=shu VERBOSE=1'
+#     make -j4 VERSION=shu VERBOSE=1 COLOR=0
 #   displayName: 'Build SH Ultimate Source'
 #   continueOnError: true
 
 # - script: |
-#     sh 'make -j4 VERSION=euu VERBOSE=1'
+#     make -j4 VERSION=euu VERBOSE=1 COLOR=0
 #   displayName: 'Build EU Ultimate Source'
 #   continueOnError: true
 
 # - script: |
-#     sh 'make -j4 VERSION=jpu VERBOSE=1'
+#     make -j4 VERSION=jpu VERBOSE=1 COLOR=0
 #   displayName: 'Build JP Ultimate Source'
 #   continueOnError: true
 
