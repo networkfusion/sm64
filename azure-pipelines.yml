@@ -14,7 +14,7 @@ steps:
 #   displayName: 'Check Repo for illegal assets' #TODO: remove them?!
 #   continueOnError: true #todo: set to false
 
-Some of these packages may already be installed, but update just incase (it doesn't hurt)!
+# Some of these packages may already be installed, but update just incase (it doesn't hurt)!
 - script: |
     sudo apt-get update
     sudo apt install -y build-essential git binutils-mips-linux-gnu python3
