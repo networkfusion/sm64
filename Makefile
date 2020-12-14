@@ -293,6 +293,9 @@ SOUND_SAMPLE_AIFFS  := $(foreach dir,$(SOUND_SAMPLE_DIRS),$(wildcard $(dir)/*.ai
 SOUND_SAMPLE_TABLES := $(foreach file,$(SOUND_SAMPLE_AIFFS),$(BUILD_DIR)/$(file:.aiff=.table))
 SOUND_SAMPLE_AIFCS  := $(foreach file,$(SOUND_SAMPLE_AIFFS),$(BUILD_DIR)/$(file:.aiff=.aifc))
 SOUND_SEQUENCE_DIRS := sound/sequences sound/sequences/$(BASE_VERSION)
+ifneq ($(filter jpu usu euu shu,$(VERSION)),)
+SOUND_SEQUENCE_DIRS += sound/sequences sound/sequences/sh
+endif
 # all .m64 files in SOUND_SEQUENCE_DIRS, plus all .m64 files that are generated from .s files in SOUND_SEQUENCE_DIRS
 SOUND_SEQUENCE_FILES := \
   $(foreach dir,$(SOUND_SEQUENCE_DIRS),\

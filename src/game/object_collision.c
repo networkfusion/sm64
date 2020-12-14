@@ -58,7 +58,7 @@ s32 detect_object_hitbox_overlap(struct Object *a, struct Object *b) {
 
     //! no return value
 #if BUGFIX_COLLISION_HITBOX_OVERLAP
-    return 0; //TODO: is this correct?
+    return 0; //TODO-ultimate: is this correct?
 #endif
 }
 
@@ -93,7 +93,7 @@ s32 detect_object_hurtbox_overlap(struct Object *a, struct Object *b) {
 
     //! no return value
 #if BUGFIX_COLLISION_HURTBOX_OVERLAP
-    return 0; //TODO: is this correct?
+    return 0; //TODO-ultimate: is this correct?
 #endif
 }
 
