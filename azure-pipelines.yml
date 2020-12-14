@@ -55,10 +55,10 @@ steps:
 
 # Build tools.
 - script: |
-    mv $(baserom_us_z64.secureFilePath) $(build.SourceDirectory)
-    mv $(baserom_sh_z64.secureFilePath) $(build.SourceDirectory)
-    mv $(baserom_eu_z64.secureFilePath) $(build.SourceDirectory)
-    mv $(baserom_jp_z64.secureFilePath) $(build.SourceDirectory)
+    mv $(baserom_us_z64.secureFilePath) $BUILD_SOURCESDIRECTORY
+    mv $(baserom_sh_z64.secureFilePath) $BUILD_SOURCESDIRECTORY
+    mv $(baserom_eu_z64.secureFilePath) $BUILD_SOURCESDIRECTORY
+    mv $(baserom_jp_z64.secureFilePath) $BUILD_SOURCESDIRECTORY
   displayName: 'Copy BaseRoms'
   continueOnError: false  
 
