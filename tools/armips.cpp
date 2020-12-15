@@ -1584,7 +1584,7 @@ StringList splitString(const std::wstring& str, const wchar_t delim, bool skipEm
 int64_t fileSize(const std::wstring& fileName);
 bool fileExists(const std::wstring& strFilename);
 bool copyFile(const std::wstring& existingFile, const std::wstring& newFile);
-bool deleteFile(const std::wstring& fileName);;
+bool deleteFile(const std::wstring& fileName);
 
 std::wstring toWLowercase(const std::string& str);
 std::wstring getFileNameFromPath(const std::wstring& path);
