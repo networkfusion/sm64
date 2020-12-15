@@ -1,0 +1,104 @@
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+
+# - script: |
+#     sh '[ -z "$(find {actors,levels,textures}/ -name \'*.png\')" ]'
+#     sh '[ -z "$(find assets/ -name \'*.m64\' -or \'*.bin\')" ]'
+#     sh './extract_assets.py jp us eu sh'
+#   displayName: 'Check Repo for illegal assets' #TODO: remove them?!
+#   continueOnError: true #todo: set to false
+
+# Some of these packages may already be installed, but update just incase (it doesn't hurt)!
+- script: |
+    sudo apt-get update
+    sudo apt install -y binutils-mips-linux-gnu build-essential git libcapstone-dev pkgconf python3
+  displayName: 'Install Required Packages'
+  continueOnError: false
+
+# Updating the python version available on the linux agent.
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '3.x'
+    architecture: 'x64'
+
+# Download ROM's from secure storage:
+- task: DownloadSecureFile@1
+  name: baserom_us_z64
+  displayName: 'Download US ROM'
+  inputs:
+    secureFile: 'baserom_us.z64'
+
+- task: DownloadSecureFile@1
+  name: baserom_sh_z64
+  displayName: 'Download SH ROM'
+  inputs:
+    secureFile: 'baserom_sh.z64'
+
+- task: DownloadSecureFile@1
+  name: baserom_eu_z64
+  displayName: 'Download EU ROM'
+  inputs:
+    secureFile: 'baserom_eu.z64'
+
+- task: DownloadSecureFile@1
+  name: baserom_jp_z64
+  displayName: 'Download JP ROM'
+  inputs:
+    secureFile: 'baserom_jp.z64'
+
+
+# Build tools.
+- script: |
+    mv $(baserom_us_z64.secureFilePath) $BUILD_SOURCESDIRECTORY/baserom.us.z64
+    mv $(baserom_sh_z64.secureFilePath) $BUILD_SOURCESDIRECTORY/baserom.sh.z64
+    mv $(baserom_eu_z64.secureFilePath) $BUILD_SOURCESDIRECTORY/baserom.eu.z64
+    mv $(baserom_jp_z64.secureFilePath) $BUILD_SOURCESDIRECTORY/baserom.jp.z64
+  displayName: 'Move base ROM's to the Source Directory.'
+  continueOnError: false  
+
+
+# Build tools.
+- script: |
+    make -j4 -C tools/
+  displayName: 'Build Tools'
+  continueOnError: false
+
+# Build ROM's
+# TODO: at the moment, the first ROM to build will take a while. we should probably make this a matrix!
+- script: |
+    make -j4 VERSION=us VERBOSE=1 COLOR=0
+  displayName: 'Build US Source'
+  continueOnError: true
+
+- script: |
+    make -j4 VERSION=sh VERBOSE=1 COLOR=0
+  displayName: 'Build SH Source'
+  continueOnError: true
+
+- script: |
+    make -j4 VERSION=eu VERBOSE=1 COLOR=0
+  displayName: 'Build EU Source'
+  continueOnError: true
+
+- script: |
+    make -j4 VERSION=jp VERBOSE=1 COLOR=0
+  displayName: 'Build JP Source'
+  continueOnError: true
+
+#- script: |
+#         sh '''
+#           set -e
+#           for f in enhancements/*.patch
+#           do
+#             git clean -fd .
+#             git checkout -- .
+#             echo 'y' | tools/apply_patch.sh "$f"
+#             make -j4 VERSION=us COMPARE=0 VERBOSE=1
+#           done
+#         '''
+#  displayName: 'Test Enhancements'
+#  continueOnError: true
+
+# TODO: upload ROM (DANGEROUS)?!
