@@ -34,8 +34,8 @@ $(eval $(call validate-option,COMPILER,ido gcc))
 #   sh  - builds the 1997 Japanese Shindou version, with rumble pak support
 #   jpu - builds the 1996 Japanese version with f3dzex, optimized build, bug fixes and rumble support
 #   usu - builds the 1996 North American version with f3dzex, optimized build, bug fixes and rumble support
-#   euu - builds the 1997 PAL version with with f3dzex, bug fixes and rumble support
-#   shu - builds the 1997 Japanese Shindou version, with rumble pak support, f3dzex, and bug fixes
+#   euu - builds the 1997 PAL version with bug fixes and rumble support
+#   shu - builds the 1997 Japanese Shindou version, with rumble pak support and bug fixes
 VERSION ?= us
 $(eval $(call validate-option,VERSION,jp us eu sh jpu usu euu shu))
 
@@ -47,8 +47,6 @@ ifeq      ($(VERSION),jp)
   VERSION_JP_US  ?= true
 else ifeq ($(VERSION),jpu)
   BASE_VERSION ?= jp
-  #VERBOSE := 1 #TODO: comment out once builds!
-  #COMPARE := 0 #probably not needed, as this is compared later.
   DEFINES   += VERSION_JP=1
   DEFINES   += VERSION_JP_ULTIMATE=1
   OPT_FLAGS := -O2
@@ -62,8 +60,6 @@ else ifeq ($(VERSION),us)
   VERSION_JP_US  ?= true
 else ifeq ($(VERSION),usu)
   BASE_VERSION ?= us
-  #VERBOSE := 1 #TODO: comment out once builds!
-  #COMPARE := 0 #probably not needed, as this is compared later.
   DEFINES   += VERSION_US=1
   DEFINES   += VERSION_US_ULTIMATE=1
   OPT_FLAGS := -O2
@@ -77,12 +73,10 @@ else ifeq ($(VERSION),eu)
   VERSION_JP_US  ?= false
 else ifeq ($(VERSION),euu)
   BASE_VERSION ?= eu
-  VERBOSE := 1 #TODO: comment out once builds!
-  COMPARE := 0 #probably not needed, as this is compared later.
   DEFINES   += VERSION_EU=1
   DEFINES   += VERSION_EU_ULTIMATE=1
   OPT_FLAGS := -O2
-  GRUCODE   ?= f3d_new #f3dzex
+  GRUCODE   ?= f3d_new #TODO: cannot get to work with f3dzex
   VERSION_JP_US  ?= false
 else ifeq ($(VERSION),sh)
   BASE_VERSION ?= $(VERSION)
@@ -92,12 +86,10 @@ else ifeq ($(VERSION),sh)
   VERSION_JP_US  ?= false
 else ifeq ($(VERSION),shu)
   BASE_VERSION ?= sh
-  VERBOSE := 1 #TODO: comment out once builds!
-  COMPARE := 0 #probably not needed, as this is compared later.
   DEFINES   += VERSION_SH=1
   DEFINES   += VERSION_SH_ULTIMATE=1
   OPT_FLAGS := -O2
-  GRUCODE   ?= f3d_new #f3dzex
+  GRUCODE   ?= f3d_new #TODO: cannot get to work with f3dzex
   VERSION_JP_US  ?= false
 endif
 
