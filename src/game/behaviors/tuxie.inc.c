@@ -94,7 +94,7 @@ void tuxies_mother_act_1(void) {
                 o->prevObj->oInteractionSubtype &= ~INT_SUBTYPE_DROP_IMMEDIATELY;
 #else
                 //! Same bug as above
-                o->prevObj->OBJECT_FIELD_S32(o->oInteractionSubtype) &= ~INT_SUBTYPE_DROP_IMMEDIATELY;            
+                o->prevObj->OBJECT_FIELD_S32(o->oInteractionSubtype) &= ~INT_SUBTYPE_DROP_IMMEDIATELY;
 #endif
                 obj_set_behavior(o->prevObj, bhvPenguinBaby);
                 o->oAction = 2;

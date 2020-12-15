@@ -1345,7 +1345,7 @@ u32 interact_hit_from_below(struct MarioState *m, UNUSED u32 interactType, struc
             if (o->oInteractionSubtype & INT_SUBTYPE_TWIRL_BOUNCE) {
                 bounce_off_object(m, o, 80.0f);
                 reset_mario_pitch(m);
-#if defined(VERSION_SH) || defined(VERSION_JP_ULTIMATE) || defined(VERSION_US_ULTIMATE) || defined(VERSION_EU_ULTIMATE)
+#ifndef VERSION_JP
                 play_sound(SOUND_MARIO_TWIRL_BOUNCE, m->marioObj->header.gfx.cameraToObject);
 #endif
                 return drop_and_set_mario_action(m, ACT_TWIRLING, 0);
