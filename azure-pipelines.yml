@@ -91,25 +91,25 @@ steps:
   displayName: 'Build JP Source'
   continueOnError: true
 
-# - script: |
-#     make -j4 VERSION=usu VERBOSE=1 COLOR=0
-#   displayName: 'Build US Ultimate Source'
-#   continueOnError: true
+- script: |
+    make -j4 VERSION=usu VERBOSE=1 COLOR=0
+  displayName: 'Build US Ultimate Source'
+  continueOnError: true
 
-# - script: |
-#     make -j4 VERSION=shu VERBOSE=1 COLOR=0
-#   displayName: 'Build SH Ultimate Source'
-#   continueOnError: true
+- script: |
+    make -j4 VERSION=shu VERBOSE=1 COLOR=0
+  displayName: 'Build SH Ultimate Source'
+  continueOnError: true
 
-# - script: |
-#     make -j4 VERSION=euu VERBOSE=1 COLOR=0
-#   displayName: 'Build EU Ultimate Source'
-#   continueOnError: true
+- script: |
+    make -j4 VERSION=euu VERBOSE=1 COLOR=0
+  displayName: 'Build EU Ultimate Source'
+  continueOnError: true
 
-# - script: |
-#     make -j4 VERSION=jpu VERBOSE=1 COLOR=0
-#   displayName: 'Build JP Ultimate Source'
-#   continueOnError: true
+- script: |
+    make -j4 VERSION=jpu VERBOSE=1 COLOR=0
+  displayName: 'Build JP Ultimate Source'
+  continueOnError: true
 
 
 
