@@ -65,49 +65,49 @@ steps:
 
 # Build tools.
 - script: |
-    make -j4 -C tools/
+    make -C tools/
   displayName: 'Build Tools'
   continueOnError: false
 
 # Build ROM's
 # TODO: at the moment, the first ROM to build will take a while. we should probably make this a matrix!
 - script: |
-    make -j4 VERSION=us VERBOSE=1 COLOR=0
+    make VERSION=us VERBOSE=1 COLOR=0
   displayName: 'Build US Source'
   continueOnError: true
 
 - script: |
-    make -j4 VERSION=sh VERBOSE=1 COLOR=0
+    make VERSION=sh VERBOSE=1 COLOR=0
   displayName: 'Build SH Source'
   continueOnError: true
 
 - script: |
-    make -j4 VERSION=eu VERBOSE=1 COLOR=0
+    make VERSION=eu VERBOSE=1 COLOR=0
   displayName: 'Build EU Source'
   continueOnError: true
 
 - script: |
-    make -j4 VERSION=jp VERBOSE=1 COLOR=0
+    make VERSION=jp VERBOSE=1 COLOR=0
   displayName: 'Build JP Source'
   continueOnError: true
 
 - script: |
-    make -j4 VERSION=usu VERBOSE=1 COLOR=0
+    make VERSION=usu VERBOSE=1 COLOR=0
   displayName: 'Build US Ultimate Source'
   continueOnError: true
 
 - script: |
-    make -j4 VERSION=shu VERBOSE=1 COLOR=0
+    make VERSION=shu VERBOSE=1 COLOR=0
   displayName: 'Build SH Ultimate Source'
   continueOnError: true
 
 - script: |
-    make -j4 VERSION=euu VERBOSE=1 COLOR=0
+    make VERSION=euu VERBOSE=1 COLOR=0
   displayName: 'Build EU Ultimate Source'
   continueOnError: true
 
 - script: |
-    make -j4 VERSION=jpu VERBOSE=1 COLOR=0
+    make VERSION=jpu VERBOSE=1 COLOR=0
   displayName: 'Build JP Ultimate Source'
   continueOnError: true
 
