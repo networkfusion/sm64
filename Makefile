@@ -82,7 +82,7 @@ else ifeq ($(VERSION),euu)
   DEFINES   += VERSION_EU=1
   DEFINES   += VERSION_EU_ULTIMATE=1
   OPT_FLAGS := -O2
-  GRUCODE   ?= f3dzex
+  GRUCODE   ?= f3d_new #f3dzex
   VERSION_JP_US  ?= false
 else ifeq ($(VERSION),sh)
   BASE_VERSION ?= $(VERSION)
@@ -97,7 +97,7 @@ else ifeq ($(VERSION),shu)
   DEFINES   += VERSION_SH=1
   DEFINES   += VERSION_SH_ULTIMATE=1
   OPT_FLAGS := -O2
-  GRUCODE   ?= f3dzex
+  GRUCODE   ?= f3d_new #f3dzex
   VERSION_JP_US  ?= false
 endif
 
