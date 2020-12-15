@@ -82,7 +82,7 @@ steps:
   continueOnError: true
 
 - script: |
-    make -j4 VERSION=eu VERBOSE=1 COLOR=0'
+    make -j4 VERSION=eu VERBOSE=1 COLOR=0
   displayName: 'Build EU Source'
   continueOnError: true
 
