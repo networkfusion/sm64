@@ -3,10 +3,6 @@ pool:
 
 steps:
 
-#   environment Variables?
-#     QEMU_IRIX
-#     ROMS_DIR
-
 # - script: |
 #     sh '[ -z "$(find {actors,levels,textures}/ -name \'*.png\')" ]'
 #     sh '[ -z "$(find assets/ -name \'*.m64\' -or \'*.bin\')" ]'
@@ -59,7 +55,7 @@ steps:
     mv $(baserom_sh_z64.secureFilePath) $BUILD_SOURCESDIRECTORY/baserom.sh.z64
     mv $(baserom_eu_z64.secureFilePath) $BUILD_SOURCESDIRECTORY/baserom.eu.z64
     mv $(baserom_jp_z64.secureFilePath) $BUILD_SOURCESDIRECTORY/baserom.jp.z64
-  displayName: 'Copy Roms to src dir.'
+  displayName: 'Move base ROM's to the Source Directory.'
   continueOnError: false  
 
 
