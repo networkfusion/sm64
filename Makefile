@@ -47,8 +47,8 @@ ifeq      ($(VERSION),jp)
   VERSION_JP_US  ?= true
 else ifeq ($(VERSION),jpu)
   BASE_VERSION ?= jp
-  VERBOSE := 1 #TODO: comment out once builds!
-  COMPARE := 0 #probably not needed, as this is compared later.
+  #VERBOSE := 1 #TODO: comment out once builds!
+  #COMPARE := 0 #probably not needed, as this is compared later.
   DEFINES   += VERSION_JP=1
   DEFINES   += VERSION_JP_ULTIMATE=1
   OPT_FLAGS := -O2
@@ -62,8 +62,8 @@ else ifeq ($(VERSION),us)
   VERSION_JP_US  ?= true
 else ifeq ($(VERSION),usu)
   BASE_VERSION ?= us
-  VERBOSE := 1 #TODO: comment out once builds!
-  COMPARE := 0 #probably not needed, as this is compared later.
+  #VERBOSE := 1 #TODO: comment out once builds!
+  #COMPARE := 0 #probably not needed, as this is compared later.
   DEFINES   += VERSION_US=1
   DEFINES   += VERSION_US_ULTIMATE=1
   OPT_FLAGS := -O2
