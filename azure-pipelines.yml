@@ -107,8 +107,6 @@ steps:
   displayName: 'Build JP Ultimate Source'
   continueOnError: true
 
-
-
 #- script: |
 #         sh '''
 #           set -e
