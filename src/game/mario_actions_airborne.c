@@ -1337,7 +1337,7 @@ s32 act_air_hit_wall(struct MarioState *m) {
     }
 
 #ifdef AVOID_UB
-    return //TODO-ultimate: is this right, shouldnt it have a semicolon???
+    return;
 #endif
     set_mario_animation(m, MARIO_ANIM_START_WALLKICK);
 

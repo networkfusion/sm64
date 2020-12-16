@@ -1530,7 +1530,7 @@ void preload_sequence(u32 seqId, u8 preloadMask) {
     }
 
     if (preloadMask & PRELOAD_SEQUENCE) {
-#if defined(VERSION_JP_ULTIMATE) || defined(VERSION_US_ULTIMATE) || defined(VERSION_EU_ULTIMATE)
+#if BUGFIX_AUDIO_LOAD_BANK_NOT_SEQUENCE
         if (IS_SEQ_LOAD_COMPLETE(seqId) == TRUE) {
 #else
         // @bug should be IS_SEQ_LOAD_COMPLETE
