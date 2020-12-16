@@ -106,15 +106,16 @@ if version is None:
 if args.make:
     check_call(["make", "-j4", "VERSION=" + version, "COMPARE=0"])
 
-if len(version) == 2
+if len(version) == 2:
     baseimg = f"baserom.{version}.z64"
     basemap = f"sm64.{version}.map"
-else
+    mymap = f"build/{version}/{basemap}"
+else:
     baseimg = f"baserom.{version[:-1]}.z64"
     basemap = f"sm64.{version[:-1]}.map"
+    mymap = f"build/{version}/sm64.{version}.map"
 
 myimg = f"build/{version}/sm64.{version}.z64"
-mymap = f"build/{version}/{basemap}"
 
 if os.path.isfile("expected/" + mymap):
     basemap = "expected/" + mymap
