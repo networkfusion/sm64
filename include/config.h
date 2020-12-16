@@ -30,7 +30,7 @@
 
 // --| EU Version Bug Fixes
 /// This fixes Wiggler reading UB on his first frame of his acceleration, as his health is not set.
-#define BUGFIX_WIGGLER_HEALTH (0 || VERSION_EU || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE)
+#define BUGFIX_WIGGLER_HEALTH (0 || VERSION_EU || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_SH_ULTIMATE)
 
 // --| Ultimate Version Bug Fixes
 /// Fixes bug where it shows burn smoke incorrectly
