@@ -27,6 +27,7 @@
 /// BLJ (Backwards Long Jump) speed build up fix, crushing SimpleFlips's dreams since July 1997
 #define BUGFIX_BACKWARDS_LONGJUMP (0 || VERSION_SH) //most people probably wont like this in any other build!
 #define BUGFIX_CONTROLLABLE_PLATFORM (0 || VERSION_SH || VERSION_US_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_JP_ULTIMATE)
+#define FEATURE_FACE_EASTER_EGG (0 || VERSION_SH || VERSION_US_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_JP_ULTIMATE)
 
 // --| EU Version Bug Fixes
 /// This fixes Wiggler reading UB on his first frame of his acceleration, as his health is not set.

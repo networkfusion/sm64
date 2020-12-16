@@ -12,8 +12,10 @@ Gfx *geo_intro_tm_copyright(s32 sp40, struct GraphNode *sp44, UNUSED void *conte
 Gfx *geo_intro_regular_backdrop(s32 sp48, struct GraphNode *sp4c, UNUSED void *context);
 Gfx *geo_intro_gameover_backdrop(s32 sp40, struct GraphNode *sp44, UNUSED void *context);
 
-#if defined(VERSION_SH) || defined(VERSION_JP_ULTIMATE) || defined(VERSION_US_ULTIMATE) || defined(VERSION_EU_ULTIMATE)
+#if FEATURE_FACE_EASTER_EGG
 Gfx *geo_intro_face_easter_egg(s32 state, struct GraphNode *node, UNUSED void *context);
+#endif
+#if defined(VERSION_SH) || defined(VERSION_JP_ULTIMATE) || defined(VERSION_US_ULTIMATE) || defined(VERSION_EU_ULTIMATE)
 Gfx *geo_intro_rumble_pak_graphic(s32 state, struct GraphNode *node, UNUSED void *context);
 #endif
 
