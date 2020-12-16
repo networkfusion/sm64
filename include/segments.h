@@ -20,9 +20,9 @@
 
 #define SEG_BUFFERS      0x801C1000
 
-#if defined(VERSION_SH) || defined(VERSION_JP_ULTIMATE) || defined(VERSION_US_ULTIMATE) || defined(VERSION_EU_ULTIMATE)
+#if defined(VERSION_SH) || defined(VERSION_JP_ULTIMATE) || defined(VERSION_US_ULTIMATE)
 #define SEG_MAIN         0x80249000
-#elif defined(VERSION_EU)
+#elif defined(VERSION_EU) || defined(VERSION_EU_ULTIMATE)
 #define SEG_MAIN         0x80241800 // TODO: Investigate why it's different?
 #else
 #define SEG_MAIN         0x80246000
