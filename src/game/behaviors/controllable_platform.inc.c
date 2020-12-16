@@ -1,3 +1,5 @@
+#include "config.h"
+
 // controllable_platform.c.inc
 
 static s8 D_80331694 = 0;

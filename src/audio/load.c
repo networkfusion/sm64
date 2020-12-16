@@ -5,6 +5,7 @@
 #include "heap.h"
 #include "load.h"
 #include "seqplayer.h"
+#include "config.h"
 
 #define ALIGN16(val) (((val) + 0xF) & ~0xF)
 

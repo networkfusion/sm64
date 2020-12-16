@@ -1,3 +1,4 @@
+#include "config.h"
 
 /**
  * Behavior for bhvWigglerHead and bhvWigglerBody.

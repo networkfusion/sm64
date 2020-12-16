@@ -1,3 +1,5 @@
+#include "config.h"
+
 /**
  * Behaviors for bhvPyramidTop, bhvPyramidTopFragment, and
  * bhvPyramidPillarTouchDetector.

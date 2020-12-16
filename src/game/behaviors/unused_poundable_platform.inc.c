@@ -1,3 +1,5 @@
+#include "config.h"
+
 /**
  * Behavior for bhvUnusedPoundablePlatform.
  *
