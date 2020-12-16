@@ -1336,19 +1336,17 @@ s32 act_air_hit_wall(struct MarioState *m) {
         return set_mario_action(m, ACT_SOFT_BONK, 0);
     }
 
-#if defined(AVOID_UB)
-    return //no semicolon, since it is specified after this statement, but on a different line.
-#elif BUGFIX_AIR_HIT_WALL_ANIMATION
-    return set_mario_action(m, ACT_SOFT_BONK, 0); //TODO-ultimate: is this right???
-#endif
-    set_mario_animation(m, MARIO_ANIM_START_WALLKICK);
-
+#if BUGFIX_AIR_HIT_WALL_ANIMATION || defined(AVOID_UB)
+    return set_mario_animation(m, MARIO_ANIM_START_WALLKICK);
+#else
     //! Missing return statement. The returned value is the result of the call
     // to set_mario_animation. In practice, this value is nonzero.
     // This results in this action "cancelling" into itself. It is supposed to
     // execute on two frames, but instead it executes twice on the same frame.
     // This results in firsties only being possible for a single frame, instead
     // of two.
+    set_mario_animation(m, MARIO_ANIM_START_WALLKICK);
+#endif
 
 }
 
