@@ -8,7 +8,7 @@ pr:
   autoCancel: true
 
 variables:
-  BuildVerbosity: '0' #speeds up builds. Set to 1 for more verbose output.
+  BuildVerbosity: '1' #speeds up builds. Set to 1 for more verbose output.
 
 pool:
   vmImage: 'ubuntu-latest'
