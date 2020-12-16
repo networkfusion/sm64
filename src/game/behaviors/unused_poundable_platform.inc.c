@@ -19,7 +19,7 @@ void bhv_unused_poundable_platform(void) {
         if (cur_obj_is_mario_ground_pounding_platform()) {
             spawn_mist_particles();
             spawn_triangle_break_particles(20, 56, 3.0f, 0);
-#if defined(VERSION_EU_ULTIMATE) || defined(VERSION_US_ULTIMATE) || defined(VERSION_JP_ULTIMATE) || defined(VERSION_SH_ULTIMATE)
+#if BUGFIX_USE_CRACKED_ICE
             create_sound_spawner(SOUND_GENERAL_BREAK_BOX);
 #endif
             o->oAction++;
