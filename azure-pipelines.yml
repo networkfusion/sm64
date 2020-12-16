@@ -129,7 +129,7 @@ steps:
 #  displayName: 'Test Enhancements'
 #  continueOnError: true
 
-# TODO: upload ROM (DANGEROUS)?!
+# TODO: upload ROM (DANGEROUS)?! perhaps generate and upload patch files instead.
 # Publish build artifacts
 # Publish build artifacts to Azure Pipelines or a Windows file share
 - task: PublishBuildArtifacts@1
