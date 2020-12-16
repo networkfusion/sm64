@@ -208,11 +208,11 @@ An example of using first-diff would be:
 
 ## Using diff
 After running `first-diff` you can track down the issue using `diff`.
-an example of this would be (with the -m -w flags causing it to automatically rebuild and rediff when you modify a source file):
+an example of this would be (with the -m -w -i flags causing it to automatically rebuild and rediff when you modify a source file):
 
 ### Base Rom
-an example using a regular -u (US) version would be `python3 diff.py -umw rspF3DStart`
+an example using a regular -u (US) version would be `python3 diff.py -umwi rspF3DStart`
 
 ### Ultimate Rom
 an example with an sh ultimate version would be:
-`python3 diff.py --shu -mw rspF3DStart`
+`python3 diff.py --shu -mwi rspF3DStart`
