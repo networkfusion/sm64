@@ -220,8 +220,8 @@ ifeq ($(filter clean distclean print-%,$(MAKECMDGOALS)),)
   NOEXTRACT ?= 0
   ifeq ($(NOEXTRACT),0)
     DUMMY != $(PYTHON) extract_assets.py $(BASE_VERSION) >&2 || echo FAIL
-    # If this is an ultimate version: 'jpu', 'usu', 'euu' or 'shu' we also need the SH assets...
-    ifneq ($(filter jpu usu euu shu,$(VERSION)),)
+    # If this is an ultimate version: 'jpu', 'usu', 'euu' we also need the SH assets...
+    ifneq ($(filter jpu usu euu,$(VERSION)),)
       DUMMY != $(PYTHON) extract_assets.py "sh" >&2 || echo FAIL
     endif
     ifeq ($(DUMMY),FAIL)
@@ -519,7 +519,8 @@ else
 endif
 
 ALL_DIRS := $(BUILD_DIR) $(addprefix $(BUILD_DIR)/,$(SRC_DIRS) $(GODDARD_SRC_DIRS) $(ULTRA_SRC_DIRS) $(ULTRA_BIN_DIRS) $(BIN_DIRS) $(TEXTURE_DIRS) $(TEXT_DIRS) $(SOUND_SAMPLE_DIRS) $(addprefix levels/,$(LEVEL_DIRS)) rsp include) $(MIO0_DIR) $(addprefix $(MIO0_DIR)/,$(BASE_VERSION)) $(SOUND_BIN_DIR) $(SOUND_BIN_DIR)/sequences/$(BASE_VERSION)
-ifneq ($(filter jpu usu euu shu,$(VERSION)),)
+# If this is an ultimate version: 'jpu', 'usu', 'euu' we also need the SH assets...
+ifneq ($(filter jpu usu euu,$(VERSION)),)
 ALL_DIRS += $(SOUND_BIN_DIR)/sequences/sh $(addprefix $(MIO0_DIR)/,$(VERSION))
 endif
 
