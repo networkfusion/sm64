@@ -202,15 +202,17 @@ Official Discord: [discord.gg/DuYH3Fh](https://discord.gg/DuYH3Fh)
 
 
 ## Using first-diff
-an example of using first-diff would be:
-python3 first-diff.py --shu
+It should be possible to get a matching ROM (at least against shu) when removing `VERSION_SH_ULTIMATE` from all bug fixes in `config.h`. To find out why non match is occuring, you can run a `first-diff`.
+An example of using first-diff would be:
+`python3 first-diff.py --shu`
 
 ## Using diff
-an example of using diff would be:
-with the -m -w flags causing it to automatically rebuild and rediff when you modify a source file
+After running `first-diff` you can track down the issue using `diff`.
+an example of this would be (with the -m -w flags causing it to automatically rebuild and rediff when you modify a source file):
 
 ### Base Rom
-an example a regular -u (US) version would be `./diff.py -umw rspF3DStart`
+an example using a regular -u (US) version would be `python3 diff.py -umw rspF3DStart`
 
 ### Ultimate Rom
-`./diff.py --shu -mw rspF3DStart`
+an example with an sh ultimate version would be:
+`python3 diff.py --shu -mw rspF3DStart`
