@@ -27,6 +27,7 @@
 /// BLJ (Backwards Long Jump) speed build up fix, crushing SimpleFlips's dreams since July 1997
 #define BUGFIX_BACKWARDS_LONGJUMP (0 || VERSION_SH) //most people probably wont like this in any other build!
 #define BUGFIX_CONTROLLABLE_PLATFORM (0 || VERSION_SH || VERSION_US_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_JP_ULTIMATE)
+#define BUGFIX_POLE_INTERACTION_FORWARD_VELOCITY (0 || VERSION_SH || VERSION_US_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_JP_ULTIMATE)
 #define FEATURE_FACE_EASTER_EGG (0 || VERSION_SH || VERSION_US_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_JP_ULTIMATE)
 /// TODO: Some RumblePak functions might still be defined explicitly, including linker file.
 #define FEATURE_RUMBLE_PAK_SUPPORT (0 || VERSION_SH || VERSION_US_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_JP_ULTIMATE)
