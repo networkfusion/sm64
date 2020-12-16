@@ -52,6 +52,10 @@ The build system has the following package requirements:
  * pkgconf
  * python3 >= 3.6
 
+The diff system also requires:
+* python3-pip
+* pip packages: colorama ansiwrap watchdog python-Levenshtein cxxfilt
+
 Dependency installation instructions for common Linux distros are provided below:
 
 ##### Debian / Ubuntu
@@ -195,3 +199,18 @@ discuss what you would like to change.
 Run `clang-format` on your code to ensure it meets the project's coding standards.
 
 Official Discord: [discord.gg/DuYH3Fh](https://discord.gg/DuYH3Fh)
+
+
+## Using first-diff
+an example of using first-diff would be:
+python3 first-diff.py --shu
+
+## Using diff
+an example of using diff would be:
+with the -m -w flags causing it to automatically rebuild and rediff when you modify a source file
+
+### Base Rom
+an example a regular -u (US) version would be `./diff.py -umw rspF3DStart`
+
+### Ultimate Rom
+`./diff.py --shu -mw rspF3DStart`
