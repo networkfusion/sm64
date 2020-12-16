@@ -1,6 +1,7 @@
 #include <ultra64.h>
 #include "macros.h"
 
+#include "config.h"
 #include "buffers/buffers.h"
 #include "main.h"
 #include "rumble_init.h"
