@@ -2,7 +2,7 @@
 #include "PR/rcp.h"
 #include "controller.h"
 
-#if defined(VERSION_SH) || defined(VERSION_JP_ULTIMATE) || defined(VERSION_US_ULTIMATE) || defined(VERSION_EU_ULTIMATE)
+#if FEATURE_RUMBLE_PAK_SUPPORT
 extern s32 func_8030A5C0(OSMesgQueue *, s32);
 void __osPackRamWriteData(int channel, u16 address, u8 *buffer);
 

@@ -78,7 +78,7 @@ void exclamation_box_act_2(void) {
         o->oGravity = -8.0f;
         o->oFloorHeight = o->oPosY;
         o->oAction = 3;
-#if defined(VERSION_SH) || defined(VERSION_JP_ULTIMATE) || defined(VERSION_US_ULTIMATE) || defined(VERSION_EU_ULTIMATE)
+#if FEATURE_RUMBLE_PAK_SUPPORT
         queue_rumble_data(5, 80);
 #endif
     }
