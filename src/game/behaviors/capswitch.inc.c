@@ -1,5 +1,7 @@
 // capswitch.c.inc
 
+#include "config.h"
+
 void cap_switch_act_0(void) {
     o->oAnimState = o->oBehParams2ndByte;
     cur_obj_scale(0.5f);

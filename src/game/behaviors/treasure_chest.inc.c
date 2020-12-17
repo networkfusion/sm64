@@ -1,5 +1,7 @@
 // treasure_chest.c.inc
 
+#include "config.h"
+
 /**
  * Hitbox for treasure chest bottom.
  */

@@ -1,5 +1,7 @@
 // wdw_water_level.c.inc
 
+#include "config.h"
+
 // called when WDW is loaded.
 void bhv_init_changing_water_level_loop(void) {
     if (gCurrentObject->oAction == 0) {
