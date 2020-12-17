@@ -97,7 +97,7 @@ void bhv_pyramid_top_loop(void) {
         case PYRAMID_TOP_ACT_CHECK_IF_SOLVED:
             if (o->oPyramidTopPillarsTouched == 4) {
                 play_puzzle_jingle();
-#if BUGFIX_USE_PYRAMID_EXPLODE_CUTSCENE
+#if RESURRECT_PYRAMID_EXPLODE_CUTSCENE
                 gCamera->cutscene = CUTSCENE_SSL_PYRAMID_EXPLODE;
 #endif
                 o->oAction = PYRAMID_TOP_ACT_SPINNING;
