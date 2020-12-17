@@ -4,6 +4,7 @@
 #include "macros.h"
 #include "surface_terrains.h"
 #include "types.h"
+#include "config.h"
 
 #ifdef VERSION_EU
 #include "text_strings.h"

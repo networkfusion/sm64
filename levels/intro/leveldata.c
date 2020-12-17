@@ -3,6 +3,7 @@
 
 #include "macros.h"
 #include "types.h"
+#include "config.h"
 
 #include "make_const_nonconst.h"
 
