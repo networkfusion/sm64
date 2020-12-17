@@ -1,7 +1,7 @@
 #ifndef OBJECT_CONSTANTS_H
 #define OBJECT_CONSTANTS_H
 
-#include "config.h"
+#include "sm64.h"
 
 // This file contains macros that provide descriptive names for
 // field-specific and object-specific constants, e.g. actions.

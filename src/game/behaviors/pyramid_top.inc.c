@@ -1,5 +1,3 @@
-#include "config.h"
-
 /**
  * Behaviors for bhvPyramidTop, bhvPyramidTopFragment, and
  * bhvPyramidPillarTouchDetector.
@@ -11,6 +9,8 @@
  * bhvPyramidPillarTouchDetector controls the intangible collision boxes that
  *      Mario touches when on top of each pillar.
  */
+
+#include "sm64.h"
 
 /**
  * Spawn the four pillars' touch detectors.

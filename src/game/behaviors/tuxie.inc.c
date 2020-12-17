@@ -1,6 +1,7 @@
-#include "config.h"
-
 // tuxie.c.inc
+
+#include "sm64.h"
+
 
 void play_penguin_walking_sound(s32 walk) {
     s32 sound;

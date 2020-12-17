@@ -1,5 +1,3 @@
-#include "config.h"
-
 /**
  * Behavior for bhvUnusedPoundablePlatform.
  *
@@ -13,6 +11,8 @@
  * Curiously, the triangles spawned when the platform breaks use a model that
  * is not used anywhere else.
  */
+
+#include "sm64.h"
 
 void bhv_unused_poundable_platform(void) {
     cur_obj_scale(1.02f);

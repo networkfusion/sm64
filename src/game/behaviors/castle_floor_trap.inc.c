@@ -1,6 +1,7 @@
-#include "config.h"
-
 // castle_floor_trap.c.inc
+
+#include "sm64.h"
+
 
 void bhv_floor_trap_in_castle_loop(void) {
     if (gMarioObject->platform == o)
