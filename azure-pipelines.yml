@@ -79,7 +79,6 @@ steps:
   continueOnError: true
 
 - script: |
-    python3 extract_assets.py --clean
     make -j4 VERSION=sh VERBOSE=$BUILDVERBOSITY COLOR=0
   displayName: 'Build SH ROM'
   continueOnError: true
@@ -101,8 +100,7 @@ steps:
   continueOnError: true
 
 - script: |
-    python3 extract_assets.py --clean
-    make -j4 VERSION=shu VERBOSE=$BUILDVERBOSITY COMPARE=1 COLOR=0
+    make -j4 VERSION=shu VERBOSE=$BUILDVERBOSITY COLOR=0
     mv "$BUILD_SOURCESDIRECTORY/build/shu/sm64.shu.z64" "$BUILD_ARTIFACTSTAGINGDIRECTORY/sm64.shu.z64"
   displayName: 'Build SH Ultimate ROM'
   continueOnError: true
