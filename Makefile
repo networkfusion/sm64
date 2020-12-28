@@ -221,9 +221,9 @@ ifeq ($(filter clean distclean print-%,$(MAKECMDGOALS)),)
   ifeq ($(NOEXTRACT),0)
     DUMMY != $(PYTHON) extract_assets.py $(BASE_VERSION) >&2 || echo FAIL
     # If this is an ultimate version: 'jpu', 'usu', 'euu' we also need the SH assets...
-    ifneq ($(filter jpu usu euu,$(VERSION)),)
-      DUMMY != $(PYTHON) extract_assets.py "sh" >&2 || echo FAIL
-    endif
+    #ifneq ($(filter jpu usu euu,$(VERSION)),)
+    #  DUMMY != $(PYTHON) extract_assets.py "sh" >&2 || echo FAIL
+    #endif
     ifeq ($(DUMMY),FAIL)
       $(error Failed to extract assets)
     endif
@@ -251,8 +251,8 @@ ROM            := $(BUILD_DIR)/$(TARGET).z64
 ELF            := $(BUILD_DIR)/$(TARGET).elf
 LIBULTRA       := $(BUILD_DIR)/libultra.a
 LD_SCRIPT      := sm64.ld
-MIO0_DIR       := $(BUILD_DIR_BASE)/$(BASE_VERSION)/bin
-SOUND_BIN_DIR  := $(BUILD_DIR_BASE)/$(BASE_VERSION)/sound
+MIO0_DIR       := $(BUILD_DIR)/bin
+SOUND_BIN_DIR  := $(BUILD_DIR)/sound
 TEXTURE_DIR    := textures
 ACTOR_DIR      := actors
 LEVEL_DIRS     := $(patsubst levels/%,%,$(dir $(wildcard levels/*/header.h)))
@@ -284,12 +284,12 @@ SOUND_SAMPLE_DIRS   := $(wildcard sound/samples/*)
 SOUND_SAMPLE_AIFFS  := $(foreach dir,$(SOUND_SAMPLE_DIRS),$(wildcard $(dir)/*.aiff))
 SOUND_SAMPLE_TABLES := $(foreach file,$(SOUND_SAMPLE_AIFFS),$(BUILD_DIR)/$(file:.aiff=.table))
 SOUND_SAMPLE_AIFCS  := $(foreach file,$(SOUND_SAMPLE_AIFFS),$(BUILD_DIR)/$(file:.aiff=.aifc))
-ifneq ($(filter jp us eu sh,$(VERSION)),)
+#ifneq ($(filter jp us eu sh,$(VERSION)),)
 SOUND_SEQUENCE_DIRS := sound/sequences sound/sequences/$(BASE_VERSION)
-else 
+#else 
 # use sh version for ultimate editions
-SOUND_SEQUENCE_DIRS := sound/sequences sound/sequences/sh
-endif
+#SOUND_SEQUENCE_DIRS := sound/sequences sound/sequences/sh
+#endif
 # all .m64 files in SOUND_SEQUENCE_DIRS, plus all .m64 files that are generated from .s files in SOUND_SEQUENCE_DIRS
 SOUND_SEQUENCE_FILES := \
   $(foreach dir,$(SOUND_SEQUENCE_DIRS),\
@@ -519,10 +519,10 @@ else
 endif
 
 ALL_DIRS := $(BUILD_DIR) $(addprefix $(BUILD_DIR)/,$(SRC_DIRS) $(GODDARD_SRC_DIRS) $(ULTRA_SRC_DIRS) $(ULTRA_BIN_DIRS) $(BIN_DIRS) $(TEXTURE_DIRS) $(TEXT_DIRS) $(SOUND_SAMPLE_DIRS) $(addprefix levels/,$(LEVEL_DIRS)) rsp include) $(MIO0_DIR) $(addprefix $(MIO0_DIR)/,$(BASE_VERSION)) $(SOUND_BIN_DIR) $(SOUND_BIN_DIR)/sequences/$(BASE_VERSION)
-# If this is an ultimate version: 'jpu', 'usu', 'euu' we also need the SH assets...
-ifneq ($(filter jpu usu euu,$(VERSION)),)
-ALL_DIRS += $(SOUND_BIN_DIR)/sequences/sh $(addprefix $(MIO0_DIR)/,$(VERSION))
-endif
+## If this is an ultimate version: 'jpu', 'usu', 'euu' we also need the SH assets...
+#ifneq ($(filter jpu usu euu,$(VERSION)),)
+#ALL_DIRS += $(SOUND_BIN_DIR)/sequences/sh $(addprefix $(MIO0_DIR)/,$(VERSION))
+#endif
 
 # Make sure build directory exists before compiling anything
 DUMMY != mkdir -p $(ALL_DIRS)
