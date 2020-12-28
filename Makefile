@@ -219,6 +219,7 @@ ifeq ($(filter clean distclean print-%,$(MAKECMDGOALS)),)
   # Make sure assets exist
   NOEXTRACT ?= 0
   ifeq ($(NOEXTRACT),0)
+    $(info Extracting $(BASE_VERSION) ROM assets...)
     DUMMY != $(PYTHON) extract_assets.py $(BASE_VERSION) >&2 || echo FAIL
     # If this is an ultimate version: 'jpu', 'usu', 'euu' we also need the SH assets...
     #ifneq ($(filter jpu usu euu,$(VERSION)),)
