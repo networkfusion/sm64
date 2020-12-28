@@ -47,8 +47,7 @@ ifeq      ($(VERSION),jp)
   VERSION_JP_US  ?= true
 else ifeq ($(VERSION),jpu)
   BASE_VERSION ?= jp
-  DEFINES   += VERSION_JP=1
-  DEFINES   += VERSION_JP_ULTIMATE=1
+  DEFINES   += VERSION_JP=1 VERSION_JP_ULTIMATE=1
   OPT_FLAGS := -O2
   GRUCODE   ?= f3dzex
   VERSION_JP_US  ?= true
@@ -60,8 +59,7 @@ else ifeq ($(VERSION),us)
   VERSION_JP_US  ?= true
 else ifeq ($(VERSION),usu)
   BASE_VERSION ?= us
-  DEFINES   += VERSION_US=1
-  DEFINES   += VERSION_US_ULTIMATE=1
+  DEFINES   += VERSION_US=1 VERSION_US_ULTIMATE=1
   OPT_FLAGS := -O2
   GRUCODE   ?= f3dzex
   VERSION_JP_US  ?= true
@@ -73,10 +71,10 @@ else ifeq ($(VERSION),eu)
   VERSION_JP_US  ?= false
 else ifeq ($(VERSION),euu)
   BASE_VERSION ?= eu
-  DEFINES   += VERSION_EU=1
-  DEFINES   += VERSION_EU_ULTIMATE=1
+  DEFINES   += VERSION_EU=1 VERSION_EU_ULTIMATE=1
   OPT_FLAGS := -O2
-  GRUCODE   ?= f3d_new #TODO: cannot get to work with f3dzex
+  #TODO: cannot get to work with f3dzex
+  GRUCODE   ?= f3d_new
   VERSION_JP_US  ?= false
 else ifeq ($(VERSION),sh)
   BASE_VERSION ?= $(VERSION)
@@ -86,10 +84,10 @@ else ifeq ($(VERSION),sh)
   VERSION_JP_US  ?= false
 else ifeq ($(VERSION),shu)
   BASE_VERSION ?= sh
-  DEFINES   += VERSION_SH=1
-  DEFINES   += VERSION_SH_ULTIMATE=1
+  DEFINES   += VERSION_SH=1 VERSION_SH_ULTIMATE=1
   OPT_FLAGS := -O2
-  GRUCODE   ?= f3d_new #TODO: cannot get to work with f3dzex
+  #TODO: cannot get to work with f3dzex
+  GRUCODE   ?= f3d_new
   VERSION_JP_US  ?= false
 endif
 

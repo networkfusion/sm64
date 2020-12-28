@@ -1,3 +1,6 @@
+#Log folder
+/logs
+
 # Object files
 *.o
 *.obj
