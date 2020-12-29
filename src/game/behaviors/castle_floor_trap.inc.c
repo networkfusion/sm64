@@ -1,6 +1,6 @@
 // castle_floor_trap.c.inc
 
-#include "sm64.h"
+#include "config.h"
 
 
 void bhv_floor_trap_in_castle_loop(void) {

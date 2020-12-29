@@ -10,7 +10,7 @@
  *      Mario touches when on top of each pillar.
  */
 
-#include "sm64.h"
+#include "config.h"
 
 /**
  * Spawn the four pillars' touch detectors.

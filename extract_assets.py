@@ -82,7 +82,7 @@ def main():
         print("Usage: " + sys.argv[0] + " " + langs_str)
         print("For each version, baserom.<version>.z64 must exist")
         sys.exit(1)
-    
+
     asset_map = read_asset_map()
     all_assets = []
     any_missing_assets = False

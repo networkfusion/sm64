@@ -1,6 +1,6 @@
 // bully.c.inc
 
-#include "sm64.h"
+#include "config.h"
 
 
 static struct ObjectHitbox sSmallBullyHitbox = {

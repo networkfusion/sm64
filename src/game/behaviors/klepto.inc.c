@@ -1,4 +1,4 @@
-#include "sm64.h"
+#include "config.h"
 
 static struct ObjectHitbox sKleptoHitbox = {
     /* interactType:      */ INTERACT_HIT_FROM_BELOW,

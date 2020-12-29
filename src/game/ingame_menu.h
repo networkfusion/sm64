@@ -1,7 +1,6 @@
 #ifndef INGAME_MENU_H
 #define INGAME_MENU_H
 
-
 #include <PR/ultratypes.h>
 
 #define ASCII_TO_DIALOG(asc)                                       \
