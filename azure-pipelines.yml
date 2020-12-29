@@ -78,25 +78,25 @@ steps:
 
 # Build ROM's
 # TODO: we should probably make this a matrix!
-#- script: |
-#    make -j4 VERSION=us VERBOSE=$BUILDVERBOSITY COLOR=0
-#  displayName: 'Build US ROM'
-#  continueOnError: true
+- script: |
+   make -j4 VERSION=us VERBOSE=$BUILDVERBOSITY COLOR=0
+ displayName: 'Build US ROM'
+ continueOnError: true
 
-#- script: |
-#    make -j4 VERSION=sh VERBOSE=$BUILDVERBOSITY COLOR=0
-#  displayName: 'Build SH ROM'
-#  continueOnError: true
+- script: |
+   make -j4 VERSION=sh VERBOSE=$BUILDVERBOSITY COLOR=0
+ displayName: 'Build SH ROM'
+ continueOnError: true
 
-#- script: |
-#    make -j4 VERSION=eu VERBOSE=$BUILDVERBOSITY COLOR=0
-#  displayName: 'Build EU ROM'
-#  continueOnError: true
+- script: |
+   make -j4 VERSION=eu VERBOSE=$BUILDVERBOSITY COLOR=0
+ displayName: 'Build EU ROM'
+ continueOnError: true
 
-#- script: |
-#    make -j4 VERSION=jp VERBOSE=$BUILDVERBOSITY COLOR=0
-#  displayName: 'Build JP ROM'
-#  continueOnError: true
+- script: |
+   make -j4 VERSION=jp VERBOSE=$BUILDVERBOSITY COLOR=0
+ displayName: 'Build JP ROM'
+ continueOnError: true
 
 - script: |
     make -j4 VERSION=usu VERBOSE=$BUILDVERBOSITY COLOR=0
