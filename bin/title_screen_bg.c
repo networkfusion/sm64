@@ -143,7 +143,11 @@ const Gfx title_screen_bg_dl_0A006618[] = {
 };
 
 ALIGNED8 static const u8 title_texture_rumble_pak[] = {
+#if defined(VERSION_US_ULTIMATE) || defined(VERSION_EU_ULTIMATE)
+#include "ultimate/textures/title_screen_bg/custom_ultimate_en_rumble_logo.06648.rgba16.inc.c"
+#else
 #include "textures/title_screen_bg/title_screen_bg.06648.rgba16.inc.c"
+#endif
 };
 
 const Gfx title_screen_bg_dl_0A007548[] = {
