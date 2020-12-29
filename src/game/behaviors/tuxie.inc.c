@@ -303,29 +303,29 @@ Gfx *geo_switch_tuxie_mother_eyes(s32 run, struct GraphNode *node, UNUSED Mat4 *
         obj = (struct Object *) gCurGraphNodeObject;
         switchCase = (struct GraphNodeSwitchCase *) node;
 
-#if RESURRECT_TUXIES_MOTHER_SAD_EYES
-        int babyDelivered = obj->oAction == 2;
-        if (obj->behavior == segmented_to_virtual(bhvTuxiesMother)) {
-            switchCase->selectedCase = babyDelivered ? 0 : 4;
-        } else {
-            switchCase->selectedCase = 0;
-        }
-#else
+// #if RESURRECT_TUXIES_MOTHER_SAD_EYES
+//         int babyDelivered = obj->oAction == 2;
+//         if (obj->behavior == segmented_to_virtual(bhvTuxiesMother)) {
+//             switchCase->selectedCase = babyDelivered ? 0 : 4;
+//         } else {
+//             switchCase->selectedCase = 0;
+//         }
+// #else
         switchCase->selectedCase = 0;
-#endif
+// #endif
 
         // timer logic for blinking. uses cases 0-2.
         timer = gGlobalTimer % 50;
         if (timer < 43)
-#if RESURRECT_TUXIES_MOTHER_SAD_EYES
-            if (obj->behavior == segmented_to_virtual(bhvTuxiesMother)) {
-                switchCase->selectedCase = babyDelivered ? 0 : 4;
-            } else {
-                switchCase->selectedCase = 0;
-            }
-#else
+// #if RESURRECT_TUXIES_MOTHER_SAD_EYES
+//             if (obj->behavior == segmented_to_virtual(bhvTuxiesMother)) {
+//                 switchCase->selectedCase = babyDelivered ? 0 : 4;
+//             } else {
+//                 switchCase->selectedCase = 0;
+//             }
+// #else
             switchCase->selectedCase = 0;
-#endif
+// #endif
         else if (timer < 45)
             switchCase->selectedCase = 1;
         else if (timer < 47)
