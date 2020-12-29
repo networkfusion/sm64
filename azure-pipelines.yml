@@ -29,6 +29,11 @@ steps:
     versionSpec: '3.x'
     architecture: 'x64'
 
+- script: |      
+    python -m pip install --upgrade pip      
+    pip install -r ips-util    
+  displayName: 'Install dependencies'
+
 # Download ROM's from secure storage:
 - task: DownloadSecureFile@1
   name: baserom_us_z64
@@ -95,24 +100,28 @@ steps:
 
 - script: |
     make -j4 VERSION=usu VERBOSE=$BUILDVERBOSITY COLOR=0
+    python3 ips_util "$BUILD_SOURCESDIRECTORY/baserom.us.z64" "$BUILD_SOURCESDIRECTORY/build/usu/sm64.usu.z64" -o $BUILD_ARTIFACTSTAGINGDIRECTORY/sm64.usu.ips
     mv "$BUILD_SOURCESDIRECTORY/build/usu/sm64.usu.z64" "$BUILD_ARTIFACTSTAGINGDIRECTORY/sm64.usu.z64"
   displayName: 'Build US Ultimate ROM'
   continueOnError: true
 
 - script: |
     make -j4 VERSION=shu VERBOSE=$BUILDVERBOSITY COLOR=0
+    python3 ips_util "$BUILD_SOURCESDIRECTORY/baserom.sh.z64" "$BUILD_SOURCESDIRECTORY/build/shu/sm64.shu.z64" -o $BUILD_ARTIFACTSTAGINGDIRECTORY/sm64.shu.ips
     mv "$BUILD_SOURCESDIRECTORY/build/shu/sm64.shu.z64" "$BUILD_ARTIFACTSTAGINGDIRECTORY/sm64.shu.z64"
   displayName: 'Build SH Ultimate ROM'
   continueOnError: true
 
 - script: |
     make -j4 VERSION=euu VERBOSE=$BUILDVERBOSITY COLOR=0
+    python3 ips_util "$BUILD_SOURCESDIRECTORY/baserom.eu.z64" "$BUILD_SOURCESDIRECTORY/build/euu/sm64.euu.z64" -o $BUILD_ARTIFACTSTAGINGDIRECTORY/sm64.euu.ips
     mv "$BUILD_SOURCESDIRECTORY/build/euu/sm64.euu.z64" "$BUILD_ARTIFACTSTAGINGDIRECTORY/sm64.euu.z64"
   displayName: 'Build EU Ultimate ROM'
   continueOnError: true
 
 - script: |
     make -j4 VERSION=jpu VERBOSE=$BUILDVERBOSITY COLOR=0
+    python3 ips_util "$BUILD_SOURCESDIRECTORY/baserom.jp.z64" "$BUILD_SOURCESDIRECTORY/build/jpu/sm64.jpu.z64" -o $BUILD_ARTIFACTSTAGINGDIRECTORY/sm64.jpu.ips
     mv "$BUILD_SOURCESDIRECTORY/build/jpu/sm64.jpu.z64" "$BUILD_ARTIFACTSTAGINGDIRECTORY/sm64.jpu.z64"
   displayName: 'Build JP Ultimate ROM'
   continueOnError: true
