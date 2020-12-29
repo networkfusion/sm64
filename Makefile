@@ -73,7 +73,7 @@ else ifeq ($(VERSION),euu)
   BASE_VERSION ?= eu
   DEFINES   += VERSION_EU=1 VERSION_EU_ULTIMATE=1
   OPT_FLAGS := -O2
-  #TODO: cannot get to work with f3dzex
+  #TODO: does not work with f3dzex (guLookAtReflect defined in discarded section .text)
   GRUCODE   ?= f3d_new
   VERSION_JP_US  ?= false
 else ifeq ($(VERSION),sh)
@@ -86,7 +86,7 @@ else ifeq ($(VERSION),shu)
   BASE_VERSION ?= sh
   DEFINES   += VERSION_SH=1 VERSION_SH_ULTIMATE=1
   OPT_FLAGS := -O2
-  #TODO: cannot get to work with f3dzex
+  #TODO: does not work with f3dzex (guLookAtReflect defined in discarded section .text)
   GRUCODE   ?= f3d_new
   VERSION_JP_US  ?= false
 endif
@@ -518,10 +518,6 @@ else
 endif
 
 ALL_DIRS := $(BUILD_DIR) $(addprefix $(BUILD_DIR)/,$(SRC_DIRS) $(GODDARD_SRC_DIRS) $(ULTRA_SRC_DIRS) $(ULTRA_BIN_DIRS) $(BIN_DIRS) $(TEXTURE_DIRS) $(TEXT_DIRS) $(SOUND_SAMPLE_DIRS) $(addprefix levels/,$(LEVEL_DIRS)) rsp include) $(MIO0_DIR) $(addprefix $(MIO0_DIR)/,$(BASE_VERSION)) $(SOUND_BIN_DIR) $(SOUND_BIN_DIR)/sequences/$(BASE_VERSION)
-## If this is an ultimate version: 'jpu', 'usu', 'euu' we also need the SH assets...
-#ifneq ($(filter jpu usu euu,$(VERSION)),)
-#ALL_DIRS += $(SOUND_BIN_DIR)/sequences/sh $(addprefix $(MIO0_DIR)/,$(VERSION))
-#endif
 
 # Make sure build directory exists before compiling anything
 DUMMY != mkdir -p $(ALL_DIRS)
