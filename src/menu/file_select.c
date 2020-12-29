@@ -1629,7 +1629,7 @@ void handle_cursor_button_input(void) {
         || sSelectedButtonID == MENU_BUTTON_SCORE_FILE_C
         || sSelectedButtonID == MENU_BUTTON_SCORE_FILE_D) {
         if (gPlayer3Controller->buttonPressed
-#ifdef VERSION_EU
+#if FEATURE_Z_BUTTON_MENU_ACTION
             & (B_BUTTON | START_BUTTON | Z_TRIG)) {
 #else
             & (B_BUTTON | START_BUTTON)) {
@@ -1643,7 +1643,7 @@ void handle_cursor_button_input(void) {
         }
     } else { // If cursor is clicked
         if (gPlayer3Controller->buttonPressed
-#ifdef VERSION_EU
+#if FEATURE_Z_BUTTON_MENU_ACTION
             & (A_BUTTON | B_BUTTON | START_BUTTON | Z_TRIG)) {
 #else
             & (A_BUTTON | B_BUTTON | START_BUTTON)) {
