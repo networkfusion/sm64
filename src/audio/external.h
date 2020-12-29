@@ -4,7 +4,6 @@
 #include <PR/ultratypes.h>
 
 #include "types.h"
-#include "config.h"
 
 // Sequence arguments, passed to seq_player_play_sequence. seqId may be bit-OR'ed with
 // SEQ_VARIATION; this will load the same sequence, but set a variation

@@ -1,6 +1,5 @@
 #include "libultra_internal.h"
 #include "macros.h"
-#include "config.h"
 
 #if defined(VERSION_EU) || defined(VERSION_SH)
 #include "new_func.h"

@@ -1,6 +1,5 @@
 #include "libultra_internal.h"
 #include "osContInternal.h"
-#include "config.h"
 
 void __osPackRequestData(u8);
 void __osContGetInitData(u8 *, OSContStatus *);

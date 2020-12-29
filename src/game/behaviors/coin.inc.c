@@ -1,5 +1,3 @@
-#include "config.h"
-
 // coin.c.inc
 
 struct ObjectHitbox sYellowCoinHitbox = {

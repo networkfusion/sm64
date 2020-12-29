@@ -7,7 +7,6 @@
 #include "seqplayer.h"
 #include "internal.h"
 #include "external.h"
-#include "config.h"
 
 
 #ifndef VERSION_SH

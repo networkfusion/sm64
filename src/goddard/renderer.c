@@ -1,7 +1,6 @@
 #include <ultra64.h>
 #include <stdarg.h>
 #include <stdio.h>
-#include "config.h"
 
 #if defined(VERSION_JP) || defined(VERSION_US)
 #include "prevent_bss_reordering.h"

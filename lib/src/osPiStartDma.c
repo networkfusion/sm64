@@ -1,5 +1,4 @@
 #include "libultra_internal.h"
-#include "config.h"
 
 extern OSMgrArgs __osPiDevMgr;
 

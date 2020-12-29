@@ -4,7 +4,6 @@
 #include <PR/ultratypes.h>
 
 #include "internal.h"
-#include "config.h"
 
 #define AUDIO_FRAME_DMA_QUEUE_SIZE 0x40
 

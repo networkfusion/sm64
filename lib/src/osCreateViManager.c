@@ -1,5 +1,4 @@
 #include "libultra_internal.h"
-#include "config.h"
 
 #define OS_VI_MANAGER_MESSAGE_BUFF_SIZE 5
 
