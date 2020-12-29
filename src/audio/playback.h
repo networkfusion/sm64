@@ -4,7 +4,6 @@
 #include <PR/ultratypes.h>
 
 #include "internal.h"
-#include "config.h"
 
 // Mask bits denoting where to allocate notes from, according to a channel's
 // noteAllocPolicy. Despite being checked as bitmask bits, the bits are not

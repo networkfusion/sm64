@@ -2,7 +2,6 @@
 
 #include "data.h"
 #include "effects.h"
-#include "config.h"
 
 extern struct OSMesgQueue OSMesgQueue0;
 extern struct OSMesgQueue OSMesgQueue1;

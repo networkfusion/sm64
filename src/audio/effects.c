@@ -4,7 +4,6 @@
 #include "load.h"
 #include "data.h"
 #include "seqplayer.h"
-#include "config.h"
 
 #ifdef VERSION_JP
 #define US_FLOAT2(x) x##.0

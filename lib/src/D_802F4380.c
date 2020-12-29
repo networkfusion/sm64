@@ -2,7 +2,6 @@
 #include "hardware.h"
 #include "new_func.h"
 #include "macros.h"
-#include "config.h"
 
 #if defined(VERSION_EU)
 u32 D_802F4380() {
