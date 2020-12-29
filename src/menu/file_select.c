@@ -43,7 +43,7 @@ static s16 sSoundTextX;
 //! @Bug (UB Array Access) For EU, more buttons were added than the array was extended.
 //! This causes no currently known issues on console (as the other variables are not changed
 //! while this is used) but can cause issues with other compilers.
-#if defined(VERSION_EU) && !defined(AVOID_UB)
+#if defined(VERSION_EU) && (!defined(VERSION_EU_ULTIMATE) || !defined(AVOID_UB))
 #define NUM_BUTTONS (MENU_BUTTON_OPTION_MAX - 1)
 #else
 #define NUM_BUTTONS MENU_BUTTON_OPTION_MAX
