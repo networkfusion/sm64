@@ -1493,9 +1493,13 @@ void update_mario_health(struct MarioState *m) {
         }
 
         // Play a noise to alert the player when Mario is close to drowning.
-        if (((m->action & ACT_GROUP_MASK) == ACT_GROUP_SUBMERGED) && (m->health < 0x300)) {
+        if (((m->action & ACT_GROUP_MASK) == ACT_GROUP_SUBMERGED) && (m->health < 0x300)
+#if BUGFIX_DROWING_SOUND_METAL
+        && !((m->flags & (MARIO_METAL_CAP)) > 0)
+#endif
+        ) {
             play_sound(SOUND_MOVING_ALMOST_DROWNING, gGlobalSoundSource);
-#if defined(VERSION_SH) || defined(VERSION_JP_ULTIMATE) || defined(VERSION_US_ULTIMATE) || defined(VERSION_EU_ULTIMATE)
+#if FEATURE_RUMBLE_PAK_SUPPORT
             if (!gRumblePakTimer) {
                 gRumblePakTimer = 36;
                 if (is_rumble_finished_and_queue_empty()) {
@@ -1677,7 +1681,7 @@ static void debug_update_mario_cap(u16 button, s32 flags, u16 capTimer, u16 capM
     }
 }
 
-#if defined(VERSION_SH) || defined(VERSION_JP_ULTIMATE) || defined(VERSION_US_ULTIMATE) || defined(VERSION_EU_ULTIMATE)
+#if FEATURE_RUMBLE_PAK_SUPPORT
 void func_sh_8025574C(void) {
     if (gMarioState->particleFlags & PARTICLE_HORIZONTAL_STAR) {
         queue_rumble_data(5, 80);
@@ -1770,7 +1774,7 @@ s32 execute_mario_action(UNUSED struct Object *o) {
 
         play_infinite_stairs_music();
         gMarioState->marioObj->oInteractStatus = 0;
-#if defined(VERSION_SH) || defined(VERSION_JP_ULTIMATE) || defined(VERSION_US_ULTIMATE) || defined(VERSION_EU_ULTIMATE)
+#if FEATURE_RUMBLE_PAK_SUPPORT
         func_sh_8025574C();
 #endif
 
@@ -1854,7 +1858,11 @@ void init_mario(void) {
     vec3f_copy(gMarioState->marioObj->header.gfx.pos, gMarioState->pos);
     vec3s_set(gMarioState->marioObj->header.gfx.angle, 0, gMarioState->faceAngle[1], 0);
 
-    if (save_file_get_cap_pos(capPos)) {
+    if (save_file_get_cap_pos(capPos)
+#if BUGFIX_HAT_CLONE_FADE
+    && (count_objects_with_behavior(bhvNormalCap) > 1)
+#endif
+    ) {
         capObject = spawn_object(gMarioState->marioObj, MODEL_MARIOS_CAP, bhvNormalCap);
 
         capObject->oPosX = capPos[0];

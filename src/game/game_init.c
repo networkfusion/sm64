@@ -481,7 +481,7 @@ void read_controller_inputs(void) {
     if (gControllerBits) {
         osRecvMesg(&gSIEventMesgQueue, &D_80339BEC, OS_MESG_BLOCK);
         osContGetReadData(&gControllerPads[0]);
-#if defined(VERSION_SH) || defined(VERSION_JP_ULTIMATE) || defined(VERSION_US_ULTIMATE) || defined(VERSION_EU_ULTIMATE)
+#if FEATURE_RUMBLE_PAK_SUPPORT
         release_rumble_pak_control();
 #endif
     }
@@ -585,7 +585,7 @@ void thread5_game_loop(UNUSED void *arg) {
     struct LevelCommand *addr;
 
     setup_game_memory();
-#if defined(VERSION_SH) || defined(VERSION_JP_ULTIMATE) || defined(VERSION_US_ULTIMATE) || defined(VERSION_EU_ULTIMATE)
+#if FEATURE_RUMBLE_PAK_SUPPORT
     init_rumble_pak_scheduler_queue();
 #endif
     init_controllers();
@@ -614,7 +614,7 @@ void thread5_game_loop(UNUSED void *arg) {
         // if any controllers are plugged in, start read the data for when
         // read_controller_inputs is called later.
         if (gControllerBits) {
-#if defined(VERSION_SH) || defined(VERSION_JP_ULTIMATE) || defined(VERSION_US_ULTIMATE) || defined(VERSION_EU_ULTIMATE)
+#if FEATURE_RUMBLE_PAK_SUPPORT
             block_until_rumble_pak_free();
 #endif
             osContStartReadData(&gSIEventMesgQueue);

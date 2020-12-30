@@ -5,7 +5,7 @@
 # obtain a list of segments from the *.c files in bin directory
 SEGMENTS := \
     $(notdir $(basename $(wildcard bin/*.c))) \
-    $(addprefix $(VERSION)/,$(notdir $(basename $(wildcard bin/$(VERSION)/*.c)))) \
+    $(addprefix $(BASE_VERSION)/,$(notdir $(basename $(wildcard bin/$(BASE_VERSION)/*.c)))) \
     $(addsuffix _skybox,$(notdir $(basename $(wildcard textures/skyboxes/*.png))))
 
 # Directories containing PNG files

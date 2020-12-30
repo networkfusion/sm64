@@ -1,5 +1,8 @@
 // tuxie.c.inc
 
+#include "config.h"
+
+
 void play_penguin_walking_sound(s32 walk) {
     s32 sound;
     if (o->oSoundStateID == 0) {
@@ -94,7 +97,7 @@ void tuxies_mother_act_1(void) {
                 o->prevObj->oInteractionSubtype &= ~INT_SUBTYPE_DROP_IMMEDIATELY;
 #else
                 //! Same bug as above
-                o->prevObj->OBJECT_FIELD_S32(o->oInteractionSubtype) &= ~INT_SUBTYPE_DROP_IMMEDIATELY;            
+                o->prevObj->OBJECT_FIELD_S32(o->oInteractionSubtype) &= ~INT_SUBTYPE_DROP_IMMEDIATELY;
 #endif
                 obj_set_behavior(o->prevObj, bhvPenguinBaby);
                 o->oAction = 2;
@@ -299,12 +302,30 @@ Gfx *geo_switch_tuxie_mother_eyes(s32 run, struct GraphNode *node, UNUSED Mat4 *
     if (run == TRUE) {
         obj = (struct Object *) gCurGraphNodeObject;
         switchCase = (struct GraphNodeSwitchCase *) node;
+
+// #if RESURRECT_TUXIES_MOTHER_SAD_EYES
+//         int babyDelivered = obj->oAction == 2;
+//         if (obj->behavior == segmented_to_virtual(bhvTuxiesMother)) {
+//             switchCase->selectedCase = babyDelivered ? 0 : 4;
+//         } else {
+//             switchCase->selectedCase = 0;
+//         }
+// #else
         switchCase->selectedCase = 0;
+// #endif
 
         // timer logic for blinking. uses cases 0-2.
         timer = gGlobalTimer % 50;
         if (timer < 43)
+// #if RESURRECT_TUXIES_MOTHER_SAD_EYES
+//             if (obj->behavior == segmented_to_virtual(bhvTuxiesMother)) {
+//                 switchCase->selectedCase = babyDelivered ? 0 : 4;
+//             } else {
+//                 switchCase->selectedCase = 0;
+//             }
+// #else
             switchCase->selectedCase = 0;
+// #endif
         else if (timer < 45)
             switchCase->selectedCase = 1;
         else if (timer < 47)

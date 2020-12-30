@@ -61,6 +61,8 @@ def main():
     # revision ID in the local asset file.
     new_version = 6
 
+    print("Starting asset extraction...")
+
     try:
         local_asset_file = open(".assets-local.txt")
         local_asset_file.readline()
@@ -277,6 +279,8 @@ def main():
     )
     with open(".assets-local.txt", "w") as f:
         f.write(output)
+
+    print("Finished asset extraction.")
 
 
 main()

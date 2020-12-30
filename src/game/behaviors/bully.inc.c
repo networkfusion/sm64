@@ -1,5 +1,8 @@
 // bully.c.inc
 
+#include "config.h"
+
+
 static struct ObjectHitbox sSmallBullyHitbox = {
     /* interactType:      */ INTERACT_BULLY,
     /* downOffset:        */ 0,
@@ -53,7 +56,7 @@ void bhv_big_bully_init(void) {
 
 void bully_check_mario_collision(void) {
     if (
-#if defined(VERSION_SH) || defined(VERSION_JP_ULTIMATE) || defined(VERSION_US_ULTIMATE) || defined(VERSION_EU_ULTIMATE)
+#if FEATURE_RUMBLE_PAK_SUPPORT
     o->oAction != BULLY_ACT_LAVA_DEATH && o->oAction != BULLY_ACT_DEATH_PLANE_DEATH &&
 #endif
     o->oInteractStatus & INT_STATUS_INTERACTED) {

@@ -1,7 +1,9 @@
 #ifndef RUMBLE_INIT_H
 #define RUMBLE_INIT_H
 
-#if defined(VERSION_SH) || defined(VERSION_JP_ULTIMATE) || defined(VERSION_US_ULTIMATE) || defined(VERSION_EU_ULTIMATE)
+#include "config.h"
+
+#if FEATURE_RUMBLE_PAK_SUPPORT
 
 extern s32 gRumblePakTimer;
 

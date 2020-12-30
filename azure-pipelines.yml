@@ -1,0 +1,153 @@
+trigger:
+  branches:
+    include: ["master", "develop*", "release-*", "refs/tags/*" ]
+  paths:
+    exclude: [ "doc", "*.md", ".gitignore", "README.md" ]
+
+pr:
+  autoCancel: true
+
+variables:
+  BuildVerbosity: '1' #speeds up builds. Set to 1 for more verbose output.
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+
+# Some of these packages may already be installed, but update just incase (it doesn't hurt)!
+- script: |
+    sudo apt-get update
+    sudo apt install -y binutils-mips-linux-gnu build-essential git libcapstone-dev pkgconf python3
+  displayName: 'Install Required Packages'
+  continueOnError: false
+
+# Updating the python version available on the linux agent.
+- task: UsePythonVersion@0
+  displayName: 'Update python version'
+  inputs:
+    versionSpec: '3.x'
+    architecture: 'x64'
+
+- script: |      
+    python3 -m pip install --upgrade pip      
+    python3 -m pip install --user ips_util    
+  displayName: 'Install dependencies'
+
+# Download ROM's from secure storage:
+- task: DownloadSecureFile@1
+  name: baserom_us_z64
+  displayName: 'Download US ROM'
+  inputs:
+    secureFile: 'baserom_us.z64'
+
+- task: DownloadSecureFile@1
+  name: baserom_sh_z64
+  displayName: 'Download SH ROM'
+  inputs:
+    secureFile: 'baserom_sh.z64'
+
+- task: DownloadSecureFile@1
+  name: baserom_eu_z64
+  displayName: 'Download EU ROM'
+  inputs:
+    secureFile: 'baserom_eu.z64'
+
+- task: DownloadSecureFile@1
+  name: baserom_jp_z64
+  displayName: 'Download JP ROM'
+  inputs:
+    secureFile: 'baserom_jp.z64'
+
+
+# Build tools.
+- script: |
+    mv $(baserom_us_z64.secureFilePath) $BUILD_SOURCESDIRECTORY/baserom.us.z64
+    mv $(baserom_sh_z64.secureFilePath) $BUILD_SOURCESDIRECTORY/baserom.sh.z64
+    mv $(baserom_eu_z64.secureFilePath) $BUILD_SOURCESDIRECTORY/baserom.eu.z64
+    mv $(baserom_jp_z64.secureFilePath) $BUILD_SOURCESDIRECTORY/baserom.jp.z64
+  displayName: 'Move base ROMs to the Source Directory.'
+  continueOnError: false  
+
+
+# Build tools.
+- script: |
+    make -j4 -C tools/
+  displayName: 'Build Tools'
+  continueOnError: false
+
+# Build ROM's
+# TODO: we should probably make this a matrix!
+- script: |
+    make -j4 VERSION=us VERBOSE=$BUILDVERBOSITY COLOR=0
+  displayName: 'Build US ROM'
+  continueOnError: true
+
+- script: |
+    make -j4 VERSION=sh VERBOSE=$BUILDVERBOSITY COLOR=0
+  displayName: 'Build SH ROM'
+  continueOnError: true
+
+- script: |
+    make -j4 VERSION=eu VERBOSE=$BUILDVERBOSITY COLOR=0
+  displayName: 'Build EU ROM'
+  continueOnError: true
+
+- script: |
+    make -j4 VERSION=jp VERBOSE=$BUILDVERBOSITY COLOR=0
+  displayName: 'Build JP ROM'
+  continueOnError: true
+
+- script: |
+    make -j4 VERSION=usu VERBOSE=$BUILDVERBOSITY COLOR=0
+    python3 -m ips_util create "$BUILD_SOURCESDIRECTORY/baserom.us.z64" "$BUILD_SOURCESDIRECTORY/build/usu/sm64.usu.z64" -o $BUILD_ARTIFACTSTAGINGDIRECTORY/sm64.usu.ips
+    mv "$BUILD_SOURCESDIRECTORY/build/usu/sm64.usu.z64" "$BUILD_ARTIFACTSTAGINGDIRECTORY/sm64.usu.z64"
+  displayName: 'Build US Ultimate ROM'
+  continueOnError: true
+
+- script: |
+    make -j4 VERSION=shu VERBOSE=$BUILDVERBOSITY COLOR=0
+    python3 -m ips_util create "$BUILD_SOURCESDIRECTORY/baserom.sh.z64" "$BUILD_SOURCESDIRECTORY/build/shu/sm64.shu.z64" -o $BUILD_ARTIFACTSTAGINGDIRECTORY/sm64.shu.ips
+    mv "$BUILD_SOURCESDIRECTORY/build/shu/sm64.shu.z64" "$BUILD_ARTIFACTSTAGINGDIRECTORY/sm64.shu.z64"
+  displayName: 'Build SH Ultimate ROM'
+  continueOnError: true
+
+- script: |
+    make -j4 VERSION=euu VERBOSE=$BUILDVERBOSITY COLOR=0
+    python3 -m ips_util create "$BUILD_SOURCESDIRECTORY/baserom.eu.z64" "$BUILD_SOURCESDIRECTORY/build/euu/sm64.euu.z64" -o $BUILD_ARTIFACTSTAGINGDIRECTORY/sm64.euu.ips
+    mv "$BUILD_SOURCESDIRECTORY/build/euu/sm64.euu.z64" "$BUILD_ARTIFACTSTAGINGDIRECTORY/sm64.euu.z64"
+  displayName: 'Build EU Ultimate ROM'
+  continueOnError: true
+
+- script: |
+    make -j4 VERSION=jpu VERBOSE=$BUILDVERBOSITY COLOR=0
+    python3 -m ips_util create "$BUILD_SOURCESDIRECTORY/baserom.jp.z64" "$BUILD_SOURCESDIRECTORY/build/jpu/sm64.jpu.z64" -o $BUILD_ARTIFACTSTAGINGDIRECTORY/sm64.jpu.ips
+    mv "$BUILD_SOURCESDIRECTORY/build/jpu/sm64.jpu.z64" "$BUILD_ARTIFACTSTAGINGDIRECTORY/sm64.jpu.z64"
+  displayName: 'Build JP Ultimate ROM'
+  continueOnError: true
+
+#- script: |
+#     set -e
+#     for f in enhancements/*.patch
+#     do
+#       git clean -fd .
+#       git checkout -- .
+#       echo 'y' | tools/apply_patch.sh "$f"
+#       make -j4 VERSION=us COMPARE=0 VERBOSE=1
+#     done
+#  displayName: 'Test Enhancements'
+#  continueOnError: true
+
+# TODO: upload ROM (DANGEROUS)?! perhaps generate and upload patch files instead.
+# Publish build artifacts
+# Publish build artifacts to Azure Pipelines or a Windows file share
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathToPublish: '$(Build.ArtifactStagingDirectory)' 
+    artifactName: 'roms' 
+    publishLocation: 'Container' # Options: container, filePath
+    #targetPath: # Required when publishLocation == FilePath
+    parallel: true # Optional
+    #parallelCount: # Optional
+    #fileCopyOptions: #Optional
+

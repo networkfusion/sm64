@@ -805,9 +805,20 @@ s32 act_walking(struct MarioState *m) {
         return begin_braking_action(m);
     }
 
+#if BUGFIX_TURN_CIRCLE
+    if (analog_stick_held_back(m)) {
+        if (m->forwardVel >= 16.0f){
+            return set_mario_action(m, ACT_TURNING_AROUND, 0);
+        } else if ((m->forwardVel) < 10.0f && (m->forwardVel > 0.0f)){
+            m->faceAngle[1] = m->intendedYaw;
+            return set_mario_action(m, ACT_TURNING_AROUND, 0);
+        }
+    }
+#else
     if (analog_stick_held_back(m) && m->forwardVel >= 16.0f) {
         return set_mario_action(m, ACT_TURNING_AROUND, 0);
     }
+#endif
 
     if (m->input & INPUT_Z_PRESSED) {
         return set_mario_action(m, ACT_CROUCH_SLIDE, 0);
@@ -1243,7 +1254,7 @@ s32 act_riding_shell_ground(struct MarioState *m) {
     }
 
     adjust_sound_for_speed(m);
-#if defined(VERSION_SH) || defined(VERSION_JP_ULTIMATE) || defined(VERSION_US_ULTIMATE) || defined(VERSION_EU_ULTIMATE)
+#if FEATURE_RUMBLE_PAK_SUPPORT
     reset_rumble_timers();
 #endif
     return FALSE;
@@ -1352,7 +1363,7 @@ s32 act_burning_ground(struct MarioState *m) {
     }
 
     m->marioBodyState->eyeState = MARIO_EYES_DEAD;
-#if defined(VERSION_SH) || defined(VERSION_JP_ULTIMATE) || defined(VERSION_US_ULTIMATE) || defined(VERSION_EU_ULTIMATE)
+#if FEATURE_RUMBLE_PAK_SUPPORT
     reset_rumble_timers();
 #endif
     return FALSE;
@@ -1370,7 +1381,7 @@ void common_slide_action(struct MarioState *m, u32 endAction, u32 airAction, s32
     vec3f_copy(pos, m->pos);
     play_sound(SOUND_MOVING_TERRAIN_SLIDE + m->terrainSoundAddend, m->marioObj->header.gfx.cameraToObject);
 
-#if defined(VERSION_SH) || defined(VERSION_JP_ULTIMATE) || defined(VERSION_US_ULTIMATE) || defined(VERSION_EU_ULTIMATE)
+#if FEATURE_RUMBLE_PAK_SUPPORT
     reset_rumble_timers();
 #endif
 
@@ -1496,7 +1507,7 @@ s32 act_crouch_slide(struct MarioState *m) {
 
 s32 act_slide_kick_slide(struct MarioState *m) {
     if (m->input & INPUT_A_PRESSED) {
-#if defined(VERSION_SH) || defined(VERSION_JP_ULTIMATE) || defined(VERSION_US_ULTIMATE) || defined(VERSION_EU_ULTIMATE)
+#if FEATURE_RUMBLE_PAK_SUPPORT
         queue_rumble_data(5, 80);
 #endif
         return set_jumping_action(m, ACT_FORWARD_ROLLOUT, 0);
@@ -1528,7 +1539,7 @@ s32 act_slide_kick_slide(struct MarioState *m) {
 s32 stomach_slide_action(struct MarioState *m, u32 stopAction, u32 airAction, s32 animation) {
     if (m->actionTimer == 5) {
         if (!(m->input & INPUT_ABOVE_SLIDE) && (m->input & (INPUT_A_PRESSED | INPUT_B_PRESSED))) {
-#if defined(VERSION_SH) || defined(VERSION_JP_ULTIMATE) || defined(VERSION_US_ULTIMATE) || defined(VERSION_EU_ULTIMATE)
+#if FEATURE_RUMBLE_PAK_SUPPORT
             queue_rumble_data(5, 80);
 #endif
             return drop_and_set_mario_action(
@@ -1564,7 +1575,7 @@ s32 act_hold_stomach_slide(struct MarioState *m) {
 
 s32 act_dive_slide(struct MarioState *m) {
     if (!(m->input & INPUT_ABOVE_SLIDE) && (m->input & (INPUT_A_PRESSED | INPUT_B_PRESSED))) {
-#if defined(VERSION_SH) || defined(VERSION_JP_ULTIMATE) || defined(VERSION_US_ULTIMATE) || defined(VERSION_EU_ULTIMATE)
+#if FEATURE_RUMBLE_PAK_SUPPORT
         queue_rumble_data(5, 80);
 #endif
         return set_mario_action(m, m->forwardVel > 0.0f ? ACT_FORWARD_ROLLOUT : ACT_BACKWARD_ROLLOUT,

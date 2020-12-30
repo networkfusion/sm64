@@ -1,3 +1,5 @@
+#include "config.h"
+
 static struct ObjectHitbox sKleptoHitbox = {
     /* interactType:      */ INTERACT_HIT_FROM_BELOW,
     /* downOffset:        */ 0,
@@ -75,7 +77,7 @@ static void klepto_anim_dive(void) {
 
 void bhv_klepto_init(void) {
     if (o->oBehParams2ndByte != 0) {
-#if BUGFIX_KLEPTO_STAR_ANIMATION
+#if RESURRECT_KLEPTO_STAR_ANIMATION
         if(save_file_get_star_flags(gCurrSaveFileNum - 1, COURSE_SSL) & 1) {
             o->oAnimState = KLEPTO_ANIM_STATE_HOLDING_BLUE_STAR;
         }
@@ -373,7 +375,7 @@ void bhv_klepto_update(void) {
                 spawn_object(o, MODEL_MARIOS_CAP, bhvNormalCap);
             } else if (o->oAnimState == KLEPTO_ANIM_STATE_HOLDING_STAR) {
                 spawn_default_star(-5550.0f, 300.0f, -930.0f);
-#if BUGFIX_KLEPTO_STAR_ANIMATION
+#if RESURRECT_KLEPTO_STAR_ANIMATION
             } else if (o->oAnimState == KLEPTO_ANIM_STATE_HOLDING_BLUE_STAR) {
     			spawn_default_star(-5550.0f, 300.0f, -930.0f);
 #endif

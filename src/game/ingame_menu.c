@@ -2631,7 +2631,7 @@ s16 render_pause_courses_and_castle(void) {
                 render_pause_course_options(99, 93, &gDialogLineNum, 15);
             }
 
-#ifdef VERSION_EU
+#if FEATURE_Z_BUTTON_MENU_ACTION
             if (gPlayer3Controller->buttonPressed & (A_BUTTON | Z_TRIG | START_BUTTON))
 #else
             if (gPlayer3Controller->buttonPressed & A_BUTTON
@@ -2658,7 +2658,7 @@ s16 render_pause_courses_and_castle(void) {
             render_pause_castle_menu_box(160, 143);
             render_pause_castle_main_strings(104, 60);
 
-#ifdef VERSION_EU
+#if FEATURE_Z_BUTTON_MENU_ACTION
             if (gPlayer3Controller->buttonPressed & (A_BUTTON | Z_TRIG | START_BUTTON))
 #else
             if (gPlayer3Controller->buttonPressed & A_BUTTON
@@ -2768,7 +2768,11 @@ void print_hud_course_complete_coins(s16 x, s16 y) {
             gCourseCompleteCoins++;
             play_sound(SOUND_MENU_YOSHI_GAIN_LIVES, gGlobalSoundSource);
 
+#if BUGFIX_COURSE_COMPLETE_50_COINS
+            if (gCourseCompleteCoins % 50 == 0) {
+#else
             if (gCourseCompleteCoins == 50 || gCourseCompleteCoins == 100 || gCourseCompleteCoins == 150) {
+#endif
                 play_sound(SOUND_GENERAL_COLLECT_1UP, gGlobalSoundSource);
                 gMarioState[0].numLives++;
             }

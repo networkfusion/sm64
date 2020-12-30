@@ -1,11 +1,12 @@
 #include <ultra64.h>
 #include "macros.h"
 
+#include "config.h"
 #include "buffers/buffers.h"
 #include "main.h"
 #include "rumble_init.h"
 
-#if defined(VERSION_SH) || defined(VERSION_JP_ULTIMATE) || defined(VERSION_US_ULTIMATE) || defined(VERSION_EU_ULTIMATE)
+#if FEATURE_RUMBLE_PAK_SUPPORT
 
 OSThread gRumblePakThread;
 

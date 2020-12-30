@@ -1610,7 +1610,7 @@ s32 update_boss_fight_camera(struct Camera *c, Vec3f focus, Vec3f pos) {
                 pos[1] += 125.f;
 #if BUGFIX_CAMERA_BOSS_FIGHT_HEIGHT
                 break;
-#endif;
+#endif
                 //! fall through, makes the BoB boss fight camera move up twice as high as it should
             case AREA_WF:
                 pos[1] += 125.f;
@@ -11226,9 +11226,13 @@ void play_cutscene(struct Camera *c) {
 #undef CUTSCENE
 
     if ((cutsceneDuration != 0) && !(gCutsceneTimer & CUTSCENE_STOP)) {
+#if BUGFIX_CUTSCENE_LOOP
+        if (gCutsceneTimer < 0x7FFF) {
+#else
         //! @bug This should check for 0x7FFF (CUTSCENE_LOOP)
         //! instead, cutscenes that last longer than 0x3FFF frames will never end on their own
         if (gCutsceneTimer < 0x3FFF) {
+#endif
             gCutsceneTimer += 1;
         }
         //! Because gCutsceneTimer is often set to 0x7FFF (CUTSCENE_LOOP), this conditional can only
