@@ -570,12 +570,21 @@ static Gfx gd_dl_red_sparkle_4[] = {
     gsSPBranchList(gd_dl_sparkle),
 };
 
-static Gfx gd_dl_red_sparkle_4_dup[] ={
+#if !BUGFIX_DUPPLICATED_RED_SPARKLE_GD_DL
+static Gfx gd_dl_red_sparkle_4_dup[] = {
     gsDPPipeSync(),
     gsSPDisplayList(gd_dl_sparkle_red_color),
     gsDPSetTextureImage(G_IM_FMT_RGBA, G_IM_SIZ_16b, 1, gd_texture_sparkle_4), // 4 again, correct texture would be 5
     gsSPBranchList(gd_dl_sparkle),
 };
+#else
+static Gfx gd_dl_red_sparkle_5[] = {
+    gsDPPipeSync(),
+    gsSPDisplayList(gd_dl_sparkle_red_color),
+    gsDPSetTextureImage(G_IM_FMT_RGBA, G_IM_SIZ_16b, 1, gd_texture_sparkle_5),
+    gsSPBranchList(gd_dl_sparkle),
+};
+#endif
 
 static Gfx gd_dl_silver_sparkle_0[] = {
     gsDPPipeSync(),
