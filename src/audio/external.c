@@ -89,7 +89,7 @@ s32 sGameLoopTicked = 0;
 #define YOSHI 10
 #define _ 0xFF
 
-#if BUGFIX_DIALOG_SOUND_KTQ_WIN
+#if !BUGFIX_DIALOG_SOUND_KTQ_WIN
 #define DIFF KOOPA
 #else
 #define DIFF TUXIE
