@@ -106,6 +106,8 @@
 //#define BUGFIX_IMPOSSIBLE_COINS (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE) // Commented out as not implemented yet.
 /// Corrects hud texture fillter, only noticeable on N64 old plugins
 //#define BUGFIX_HUD_TEXTURE_FILTER (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE) // Commented out as not implemented yet.
+/// Removes extra close tags from GEO_NODEs
+#define BUGFIX_GEO_NODE_CLOSE (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE)
 
 // --| Ultimate Version resurrection of lost features
 /// Correctly changes blue star model when Klepto is holding it (First star in SSL)
