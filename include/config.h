@@ -100,6 +100,8 @@
 #define BUGFIX_MISSING_SOUNDS_KEY_EXIT_BREAK (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE)
 /// Fixes duplicated red/white display list in goddard and properly uses the next ones
 #define BUGFIX_DUPPLICATED_RED_SPARKLE_GD_DL (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE)
+/// Fixes or rather align manta's water rings to match where it looks
+#define BUGFIX_ALIGN_WATER_RING (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE)
 
 // --| Ultimate Version resurrection of lost features
 /// Correctly changes blue star model when Klepto is holding it (First star in SSL)
