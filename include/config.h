@@ -86,6 +86,8 @@
 #define BUGFIX_DOOR_KEY_CUTSCENE (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE)
 /// Fixes cap cloning when Mario takes a fade warp
 #define BUGFIX_HAT_CLONE_FADE (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE)
+/// Fixes completed course not giving lives every 50 coins after 150 coins
+#define BUGFIX_COURSE_COMPLETE_50_COINS (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE)
 
 // --| Ultimate Version resurrection of lost features
 /// Correctly changes blue star model when Klepto is holding it (First star in SSL)
