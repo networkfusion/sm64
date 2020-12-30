@@ -22,6 +22,8 @@
 #define BUGFIX_PIRANHA_PLANT_SLEEP_DAMAGE (0 || VERSION_US || VERSION_SH || VERSION_EU_ULTIMATE || VERSION_JP_ULTIMATE)
 /// Fixes bug where it shows a star when you grab a key in bowser battle stages
 #define BUGFIX_STAR_BOWSER_KEY (0 || VERSION_US || VERSION_EU || VERSION_SH || VERSION_JP_ULTIMATE)
+/// Fixes bug in KTQ win dialog which makes it sounds like a penguin instead of a Koopa
+#define BUGFIX_DIALOG_SOUND_KTQ_WIN (0 || VERSION_US || VERSION_EU || VERSION_SH || VERSION_JP_ULTIMATE)
 
 // --| Shindou Version Nintendo Bug Fixes
 /// BLJ (Backwards Long Jump) speed build up fix, crushing SimpleFlips's dreams since July 1997
