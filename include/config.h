@@ -72,8 +72,8 @@
 #define BUGFIX_CAMERA_BOSS_FIGHT_HEIGHT (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE)
 /// Fixes Koopa's pink shorts caused by a miscalled light value
 #define BUGFIX_KOOPA_PINK_SHORTS (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE)
-/// 
-#define BUGFIX_AUDIO_LOAD_BANK_NOT_SEQUENCE (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE)
+/// Fixes audio code preload sequence so it checks sequences instead of banks
+#define BUGFIX_AUDIO_LOAD_SEQUENCE_NOT_BANK (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE)
 /// Corrects the first word of Yoshi's dialogue
 #define BUGFIX_YOSHI_DIALOG (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE)
 /// Fixes object counter so it correctly gets proper value when updating objects
