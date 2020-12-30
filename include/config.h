@@ -90,6 +90,8 @@
 #define BUGFIX_COURSE_COMPLETE_50_COINS (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE)
 /// Fixes drowing sound continously playing while metal mario
 #define BUGFIX_DROWING_SOUND_METAL (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE)
+/// Fixes turn circle when starting to move
+#define BUGFIX_TURN_CIRCLE (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE)
 
 // --| Ultimate Version resurrection of lost features
 /// Correctly changes blue star model when Klepto is holding it (First star in SSL)
