@@ -94,6 +94,8 @@
 #define BUGFIX_TURN_CIRCLE (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE)
 /// Fixes fake pole grab on the bottom of it, allowing to be grabbed anywhere
 #define BUGFIX_POLE_BOTTOM_GRAB (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE)
+/// Fixes missing sounds in key exit cutscene caused by missing "break"s in code
+#define BUGFIX_MISSING_SOUNDS_KEY_EXIT_BREAK (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE)
 
 // --| Ultimate Version resurrection of lost features
 /// Correctly changes blue star model when Klepto is holding it (First star in SSL)

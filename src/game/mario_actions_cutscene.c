@@ -1124,15 +1124,27 @@ s32 act_exit_land_save_dialog(struct MarioState *m) {
                 case -1:
                     spawn_obj_at_mario_rel_yaw(m, MODEL_BOWSER_KEY_CUTSCENE, bhvBowserKeyCourseExit, -32768);
                     //! fall through
+#if BUGFIX_MISSING_SOUNDS_KEY_EXIT_BREAK
+                    break;
+#endif
                 case 67:
                     play_sound(SOUND_ACTION_KEY_SWISH, m->marioObj->header.gfx.cameraToObject);
                     //! fall through
+#if BUGFIX_MISSING_SOUNDS_KEY_EXIT_BREAK
+                    break;
+#endif
                 case 83:
                     play_sound(SOUND_ACTION_PAT_BACK, m->marioObj->header.gfx.cameraToObject);
                     //! fall through
+#if BUGFIX_MISSING_SOUNDS_KEY_EXIT_BREAK
+                    break;
+#endif
                 case 111:
                     play_sound(SOUND_ACTION_UNKNOWN45C, m->marioObj->header.gfx.cameraToObject);
                     // no break
+#if BUGFIX_MISSING_SOUNDS_KEY_EXIT_BREAK
+                    break;
+#endif
             }
             handle_save_menu(m);
             break;
