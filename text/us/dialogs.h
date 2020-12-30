@@ -1987,8 +1987,8 @@ Enjoy!!!"
 #endif
 
 DEFINE_DIALOG(DIALOG_161, 1, 4, 30, 200, _("\
-Mario!!!\n\
-" YOSHI_IT " that really you???\n\
+Mario!!!\n" \
+YOSHI_IT " that really you???\n\
 It has been so long since\n\
 our last adventure!\n\
 They told me that I might\n\
