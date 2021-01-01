@@ -1,5 +1,4 @@
 // Burn Smoke
-#include "sm64.h"
 
 // 0x040217C0
 static const Vtx burn_smoke_seg4_vertex_040217C0[] = {

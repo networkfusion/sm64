@@ -1310,7 +1310,7 @@ s32 act_air_hit_wall(struct MarioState *m) {
     if (++(m->actionTimer) <= 2) {
         if (m->input & INPUT_A_PRESSED) {
 #if BUGFIX_AIR_HIT_WALL_VELOCITY
-            m->forwardVel == 0;
+            m->forwardVel = 0;
 #endif
             m->vel[1] = 52.0f;
             m->faceAngle[1] += 0x8000;

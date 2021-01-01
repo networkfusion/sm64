@@ -47,25 +47,25 @@
 
 // --| Ultimate Version Bug Fixes
 /// Fixes bug where it shows burn smoke incorrectly
-#define BUGFIX_BURN_SMOKE (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE)
+#define BUGFIX_BURN_SMOKE (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE) //verified correct
 /// Fixes an oddly defined interaction sub type in penguin mother behavior
 #define BUGFIX_TUXIE_HELD_STATE (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE)
 /// Fixes bug where the castle trap sound in the entrance of Bowser 1 doesn't play
 #define BUGFIX_CASTLE_TRAP_OPEN_SOUND (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE)
 /// Fixes Bully minion knockback timer by reseting it, more info in the fix itself
-#define BUGFIX_BULLY_KNOCKBACK_TIMER (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE)
+#define BUGFIX_BULLY_KNOCKBACK_TIMER (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE) //verified correct
 /// Fixes Shadow water height level return code
 #define BUGFIX_SHADOW_WATERLEVEL (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE)
 /// Fixes last missing return in hitbox overlap detection code
-#define BUGFIX_COLLISION_HITBOX_OVERLAP (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE)
+#define BUGFIX_COLLISION_HITBOX_OVERLAP (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE) //verified correct.
 /// Fixes last missing return in hurtbox overlap detection code
-#define BUGFIX_COLLISION_HURTBOX_OVERLAP (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE)
+#define BUGFIX_COLLISION_HURTBOX_OVERLAP (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE) //verified correct.
 /// TODO: add comment!
 #define BUGFIX_SHELL_BACKWARDS_HYPERSPEED (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE)
 /// TODO: add comment!
 #define BUGFIX_MARIO_CRAWLING_FALLTHROUGH (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE)
 /// TODO: add comment!
-#define BUGFIX_AIR_HIT_WALL_VELOCITY (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE)
+#define BUGFIX_AIR_HIT_WALL_VELOCITY (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE) //verified correct
 /// TODO: add comment!
 #define BUGFIX_AIR_HIT_WALL_ANIMATION (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE)
 /// Fixes camera height in water while being metal mario
@@ -73,19 +73,19 @@
 /// Fixes camera height in BOB and adds missing breaks in code
 #define BUGFIX_CAMERA_BOSS_FIGHT_HEIGHT (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE)
 /// Fixes Koopa's pink shorts caused by a miscalled light value
-#define BUGFIX_KOOPA_PINK_SHORTS (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE)
+#define BUGFIX_KOOPA_PINK_SHORTS (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE) //verified correct
 /// Fixes audio code preload sequence so it checks sequences instead of banks
 #define BUGFIX_AUDIO_LOAD_SEQUENCE_NOT_BANK (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE)
 /// Corrects the first word of Yoshi's dialogue
-#define BUGFIX_YOSHI_DIALOG (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE)
+#define BUGFIX_YOSHI_DIALOG (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE) //verified correct
 /// Fixes object counter so it correctly gets proper value when updating objects
 #define BUGFIX_SURFACE_OBJECT_COUNTER (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE)
 /// TODO: add comment!
 #define BUGFIX_CUTSCENE_LOOP (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE)
 /// TODO: add comment!
-#define BUGFIX_RESOLVE_OBJECT_COLLISIONS (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE)
+#define BUGFIX_RESOLVE_OBJECT_COLLISIONS (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE) // - Fixing the atan2s actually causes more issues than it helps. In my own fix I ended up having to rewrite the entire function lol
 /// Fixes open door key cutscene on 90-270 degrees
-// #define BUGFIX_DOOR_KEY_CUTSCENE (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE) // Fails compile, so commented out
+#define BUGFIX_DOOR_KEY_CUTSCENE (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE) // Fails compile, so commented out, angle is used uninitialized. It should probably be angle = -75.0f and angle = 75.0f instead of -=/+=.
 /// Fixes cap cloning when Mario takes a fade warp
 #define BUGFIX_HAT_CLONE_FADE (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE)
 /// Fixes completed course not giving lives every 50 coins after 150 coins
@@ -95,13 +95,13 @@
 /// Fixes turn circle when starting to move
 #define BUGFIX_TURN_CIRCLE (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE)
 /// Fixes fake pole grab on the bottom of it, allowing to be grabbed anywhere
-#define BUGFIX_POLE_BOTTOM_GRAB (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE)
+#define BUGFIX_POLE_BOTTOM_GRAB (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE) //starts mario higher up on the pole than it should.
 /// Fixes missing sounds in key exit cutscene caused by missing "break"s in code
 #define BUGFIX_MISSING_SOUNDS_KEY_EXIT_BREAK (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE)
 /// Fixes duplicated red/white display list in goddard and properly uses the next ones
 #define BUGFIX_DUPPLICATED_RED_SPARKLE_GD_DL (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE)
 /// Fixes or rather align manta's water rings to match where it looks
-#define BUGFIX_ALIGN_WATER_RING (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE)
+#define BUGFIX_ALIGN_WATER_RING (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE) //currently uses the commented code in decomp, which changes the graphical orientation instead of the collision orientation, causing them all to be horizontal in-game.
 /// Fixes impossible coins (also fixes impossible goomba since it's related)
 //#define BUGFIX_IMPOSSIBLE_COINS (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE) // Commented out as not implemented yet.
 /// Corrects hud texture fillter, only noticeable on N64 old plugins
@@ -116,7 +116,7 @@
 /// More information in 'unused_poundable_platform.inc.c' comment
 #define RESURRECT_CRACKED_ICE (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE)
 /// Properly adds unused SSL Pyramid cutscene after standing on the 4 pillars
-#define RESURRECT_PYRAMID_EXPLODE_CUTSCENE (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE)
+#define RESURRECT_PYRAMID_EXPLODE_CUTSCENE (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE) //// - The pyramid cutscene completely breaks if you ride on the last pillar on a shell, since it doesn't enable time stop. Since it uses the dialog state to make mario look in the direction of the pyramid, just enabling time stop isn't enough to fix it.
 /// Changes how Mario grabs a star/key by calling his interactObj define
 /// This also makes it so a blue star is shown when grabbing it
 #define RESURRECT_PROPER_SHOW_COLLECTABLE (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE)
