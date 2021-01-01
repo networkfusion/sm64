@@ -16,6 +16,20 @@ void water_ring_init(void) {
     o->oWaterRingScalePhaseY = (s32)(random_float() * 4096.0f) + 0x1000;
     o->oWaterRingScalePhaseZ = (s32)(random_float() * 4096.0f) + 0x1000;
 
+#if BUGFIX_ALIGN_WATER_RING
+    // borrowed from https://github.com/coleferg/dolphio/blob/dolphio/src/game/behaviors/water_ring.inc.c
+    if (!o->oFaceAnglePitch) {
+        o->oWaterRingNormalX = coss(o->oFaceAngleYaw * -1) * sins(o->oFaceAngleRoll);
+        o->oWaterRingNormalY = coss(o->oFaceAngleYaw * -1) * coss(o->oFaceAngleRoll);
+        o->oWaterRingNormalZ = sins(o->oFaceAngleYaw * -1);
+    } else {
+        o->oWaterRingNormalX = coss(o->oFaceAnglePitch * -1) * sins(o->oFaceAngleRoll);
+        o->oWaterRingNormalY = coss(o->oFaceAnglePitch * -1) * coss(o->oFaceAngleRoll);
+        o->oWaterRingNormalZ = sins(o->oFaceAnglePitch * -1);
+        o->oFaceAngleYaw = o->oFaceAnglePitch;
+        o->oFaceAnglePitch = 0;
+    }
+#else
     //! This normal calculation assumes a facing yaw of 0, which is not the case
     //  for the manta ray rings. It also errs by multiplying the normal X by -1.
     //  This cause the ring's orientation for the purposes of collision to be
@@ -24,15 +38,15 @@ void water_ring_init(void) {
     o->oWaterRingNormalX = coss(o->oFaceAnglePitch) * sins(o->oFaceAngleRoll) * -1.0f;
     o->oWaterRingNormalY = coss(o->oFaceAnglePitch) * coss(o->oFaceAngleRoll);
     o->oWaterRingNormalZ = sins(o->oFaceAnglePitch);
+#endif
 
     o->oWaterRingMarioDistInFront = water_ring_calc_mario_dist();
 
-#if BUGFIX_ALIGN_WATER_RING
+
     // Adding this code will alter the ring's graphical orientation to align with the faulty
     // collision orientation:
-    o->oFaceAngleYaw = 0;
-    o->oFaceAngleRoll *= -1;
-#endif
+    // o->oFaceAngleYaw = 0;
+    // o->oFaceAngleRoll *= -1;
 }
 
 void bhv_jet_stream_water_ring_init(void) {
