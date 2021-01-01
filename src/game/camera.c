@@ -11227,7 +11227,7 @@ void play_cutscene(struct Camera *c) {
 
     if ((cutsceneDuration != 0) && !(gCutsceneTimer & CUTSCENE_STOP)) {
 #if BUGFIX_CUTSCENE_LOOP
-        if (gCutsceneTimer < 0x7FFF) {
+        if (gCutsceneTimer < CUTSCENE_LOOP) {
 #else
         //! @bug This should check for 0x7FFF (CUTSCENE_LOOP)
         //! instead, cutscenes that last longer than 0x3FFF frames will never end on their own

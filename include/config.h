@@ -116,7 +116,7 @@
 /// More information in 'unused_poundable_platform.inc.c' comment
 #define RESURRECT_CRACKED_ICE (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE)
 /// Properly adds unused SSL Pyramid cutscene after standing on the 4 pillars
-#define RESURRECT_PYRAMID_EXPLODE_CUTSCENE (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE) //TODO: fixme,  - The pyramid cutscene completely breaks if you ride on the last pillar on a shell, since it doesn't enable time stop. Since it uses the dialog state to make mario look in the direction of the pyramid, just enabling time stop isn't enough to fix it.
+#define RESURRECT_PYRAMID_EXPLODE_CUTSCENE (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE) //TODO: verify fix.
 /// Changes how Mario grabs a star/key by calling his interactObj define
 /// This also makes it so a blue star is shown when grabbing it
 #define RESURRECT_PROPER_SHOW_COLLECTABLE (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE)
