@@ -779,12 +779,9 @@ s32 launch_mario_until_land(struct MarioState *m, s32 endAction, s32 animation, 
 }
 
 s32 act_unlocking_key_door(struct MarioState *m) {
-    m->faceAngle[1] = m->usedObj->oMoveAngleYaw;
-
 #if BUGFIX_DOOR_KEY_CUTSCENE
-
     f32 currentAngle;
-
+    m->faceAngle[1] = m->usedObj->oMoveAngleYaw;
     if (m->faceAngle[1] >= -0x4000 && m->faceAngle[1] <= 0x4000) {
         currentAngle = -75.0f;
     } else {
@@ -794,6 +791,7 @@ s32 act_unlocking_key_door(struct MarioState *m) {
     m->pos[0] = m->usedObj->oPosX + coss(m->faceAngle[1]) * currentAngle;
     m->pos[2] = m->usedObj->oPosZ + sins(m->faceAngle[1]) * currentAngle;
 #else
+    m->faceAngle[1] = m->usedObj->oMoveAngleYaw;
     m->pos[0] = m->usedObj->oPosX + coss(m->faceAngle[1]) * 75.0f;
     m->pos[2] = m->usedObj->oPosZ + sins(m->faceAngle[1]) * 75.0f;
 #endif
