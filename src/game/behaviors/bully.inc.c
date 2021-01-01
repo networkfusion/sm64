@@ -345,7 +345,7 @@ void bhv_big_bully_with_minions_loop(void) {
                 if (o->oTimer >= 91)
                     o->oAction = BULLY_ACT_ACTIVATE_AND_FALL;
 #if BUGFIX_BULLY_KNOCKBACK_TIMER
-                    o->oBullyKBTimerAndMinionKOCounter == 0;
+                    o->oBullyKBTimerAndMinionKOCounter = 0;
 #endif
             }
             break;

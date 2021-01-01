@@ -49,6 +49,8 @@ const GeoLayout dorrie_geo[] = {
          GEO_CLOSE_NODE(),
       GEO_CLOSE_NODE(),
    GEO_CLOSE_NODE(),
+#if !BUGFIX_GEO_NODE_CLOSE
 GEO_CLOSE_NODE(), //! more close than open nodes
+#endif
 GEO_END(),
 };
