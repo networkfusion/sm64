@@ -1,4 +1,5 @@
 #include "libultra_internal.h"
+#include "config.h"
 
 #if defined(VERSION_SH) || defined(VERSION_JP_ULTIMATE) || defined(VERSION_US_ULTIMATE) || defined(VERSION_EU_ULTIMATE)
 u8 __osContAddressCrc(u16 addr) {

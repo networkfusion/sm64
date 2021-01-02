@@ -1,6 +1,7 @@
 #ifndef RUMBLE_INIT_H
 #define RUMBLE_INIT_H
 
+#include "config.h"
 
 #if FEATURE_RUMBLE_PAK_SUPPORT
 
