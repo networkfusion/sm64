@@ -121,7 +121,7 @@
 /// This also makes it so a blue star is shown when grabbing it
 #define RESURRECT_PROPER_SHOW_COLLECTABLE (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE)
 /// Adds unused sad eyes for the penguin mother when he lost it's baby
-//#define RESURRECT_TUXIES_MOTHER_SAD_EYES (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE) // Fails compile, so commented out see tuxie.inc.c. 
+#define RESURRECT_TUXIES_MOTHER_SAD_EYES (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE) //TODO: verify fix.
 /// Adds more actions to the special triple jump such as wallkick and grabbing
 #define RESURRECT_MORE_SPECIAL_TRIPLE_JUMP_ACTIONS (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE)
 
