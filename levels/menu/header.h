@@ -39,7 +39,7 @@ extern const Gfx dl_menu_texture_course_upper[];
 extern const Gfx dl_menu_texture_niveau_upper[];
 extern const Gfx dl_menu_texture_kurs_upper[];
 extern const Collision main_menu_seg7_collision[];
-#ifdef VERSION_EU
+#if TRANSLATION_EU_TEXT_SUPPORT
 extern const u8 eu_course_strings_en_table[];
 extern const u8 eu_course_strings_fr_table[];
 extern const u8 eu_course_strings_de_table[];

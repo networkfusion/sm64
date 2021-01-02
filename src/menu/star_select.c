@@ -204,7 +204,7 @@ void bhv_act_selector_loop(void) {
 /**
  * Print the course number selected with the wood rgba16 course texture.
  */
-#ifdef VERSION_EU
+#if TRANSLATION_EU_TEXT_SUPPORT
 void print_course_number(s16 language) {
 #else
 void print_course_number(void) {
@@ -216,7 +216,7 @@ void print_course_number(void) {
     // Full wood texture in JP & US, lower part of it on EU
     gSPDisplayList(gDisplayListHead++, dl_menu_rgba16_wood_course);
 
-#ifdef VERSION_EU
+#if TRANSLATION_EU_TEXT_SUPPORT
     // Change upper part of the wood texture depending of the language defined
     switch (language) {
         case LANGUAGE_ENGLISH:
@@ -280,13 +280,13 @@ void print_act_selector_strings(void) {
     s16 actNameX;
 #endif
     s8 i;
-#ifdef VERSION_EU
+#if TRANSLATION_EU_TEXT_SUPPORT
     s16 language = eu_get_language();
 #endif
 
     create_dl_ortho_matrix();
 
-#ifdef VERSION_EU
+#if TRANSLATION_EU_TEXT_SUPPORT
     switch (language) {
         case LANGUAGE_ENGLISH:
             actNameTbl = segmented_to_virtual(act_name_table_eu_en);
@@ -314,14 +314,14 @@ void print_act_selector_strings(void) {
     gDPSetEnvColor(gDisplayListHead++, 0, 0, 0, 255);
     // Print the "MY SCORE" text if the coin score is more than 0
     if (save_file_get_course_coin_score(gCurrSaveFileNum - 1, gCurrCourseNum - 1) != 0) {
-#ifdef VERSION_EU
+#if TRANSLATION_EU_TEXT_SUPPORT
         print_generic_string(95, 118, myScore[language]);
 #else
         print_generic_string(102, 118, myScore);
 #endif
     }
 
-#ifdef VERSION_EU
+#if TRANSLATION_EU_TEXT_SUPPORT
     print_generic_string(get_str_x_pos_from_center(160, currLevelName + 3, 10.0f), 33, currLevelName + 3);
 #else
     lvlNameX = get_str_x_pos_from_center(160, currLevelName + 3, 10.0f);
@@ -330,7 +330,7 @@ void print_act_selector_strings(void) {
 
     gSPDisplayList(gDisplayListHead++, dl_ia_text_end);
 
-#ifdef VERSION_EU
+#if TRANSLATION_EU_TEXT_SUPPORT
     print_course_number(language);
 #else
     print_course_number();
@@ -342,7 +342,7 @@ void print_act_selector_strings(void) {
     if (sVisibleStars != 0) {
         selectedActName = segmented_to_virtual(actNameTbl[(gCurrCourseNum - 1) * 6 + sSelectedActIndex]);
 
-#ifdef VERSION_EU
+#if TRANSLATION_EU_TEXT_SUPPORT
         print_menu_generic_string(get_str_x_pos_from_center(ACT_NAME_X, selectedActName, 8.0f), 81, selectedActName);
 #else
         actNameX = get_str_x_pos_from_center(ACT_NAME_X, selectedActName, 8.0f);
@@ -353,7 +353,7 @@ void print_act_selector_strings(void) {
     // Print the numbers above each star.
     for (i = 1; i <= sVisibleStars; i++) {
         starNumbers[0] = i;
-#ifdef VERSION_EU
+#if TRANSLATION_EU_TEXT_SUPPORT
         print_menu_generic_string(143 - sVisibleStars * 15 + i * 30, 38, starNumbers);
 #else
         print_menu_generic_string(139 - sVisibleStars * 17 + i * 34, 38, starNumbers);

@@ -54,6 +54,8 @@
 /// Beta Key was removed by EU, so glyph slot reused.
 /// This produces a colorful Ü.
 #define TRANSLATION_EU_GLYPH_BETA_KEY (0 || VERSION_EU)
+/// Various fixes required for supporting multiple languages
+#define TRANSLATION_EU_TEXT_SUPPORT (0 || VERSION_EU)
 
 // --| Ultimate Version Bug Fixes
 /// Fixes bug where it shows burn smoke incorrectly

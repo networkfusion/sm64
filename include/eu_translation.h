@@ -3,7 +3,7 @@
 
 // EU changes most text to arrays for each language. This define allows these
 // differences to be combined.
-#ifdef VERSION_EU
+#if TRANSLATION_EU_TEXT_SUPPORT
     #define LANGUAGE_ARRAY(cmd) cmd[LANGUAGE_FUNCTION]
 #else
     #define LANGUAGE_ARRAY(cmd) cmd

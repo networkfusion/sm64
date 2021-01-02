@@ -453,14 +453,14 @@ void print_generic_string(s16 x, s16 y, const u8 *str) {
 #endif
                 break;
             case DIALOG_CHAR_MULTI_THE:
-#ifdef VERSION_EU
+#if TRANSLATION_EU_TEXT_SUPPORT
                 render_multi_text_string(&xCoord, &yCoord, STRING_THE);
 #else
                 render_multi_text_string(STRING_THE);
 #endif
                 break;
             case DIALOG_CHAR_MULTI_YOU:
-#ifdef VERSION_EU
+#if TRANSLATION_EU_TEXT_SUPPORT
                 render_multi_text_string(&xCoord, &yCoord, STRING_YOU);
 #else
                 render_multi_text_string(STRING_YOU);
@@ -478,7 +478,7 @@ void print_generic_string(s16 x, s16 y, const u8 *str) {
 #endif
                 break; // ? needed to match
             default:
-#ifdef VERSION_EU
+#if TRANSLATION_EU_TEXT_SUPPORT
                 render_generic_char_at_pos(xCoord, yCoord, str[strPos]);
                 xCoord += gDialogCharWidths[str[strPos]];
                 break;
