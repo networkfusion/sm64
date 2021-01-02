@@ -1,8 +1,6 @@
 #ifndef SEGMENTS_H
 #define SEGMENTS_H
 
-#include "config.h"
-
 /*
  * Memory addresses for segments. Ideally, this header file would not be
  * needed, and the addresses would be defined in sm64.ld and linker-inserted
