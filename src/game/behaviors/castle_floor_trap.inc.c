@@ -1,8 +1,5 @@
 // castle_floor_trap.c.inc
 
-#include "config.h"
-
-
 void bhv_floor_trap_in_castle_loop(void) {
     if (gMarioObject->platform == o)
         o->parentObj->oInteractStatus |= INT_STATUS_TRAP_TURN;

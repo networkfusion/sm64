@@ -1,7 +1,5 @@
 // mushroom_1up.c.inc
 
-#include "config.h"
-
 void bhv_1up_interact(void) {
     UNUSED s32 sp1C;
 

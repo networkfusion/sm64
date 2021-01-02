@@ -1,7 +1,5 @@
 // water_pillar.c.inc
 
-#include "config.h"
-
 void water_level_pillar_undrained(void) {
     struct Object *otherWaterPillar;
     switch (o->oAction) {

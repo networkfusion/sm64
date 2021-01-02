@@ -1,5 +1,3 @@
-#include "config.h"
-
 /**
  * Behavior for bhvWigglerHead and bhvWigglerBody.
  * The bhvWigglerHead object controls the wiggler's behavior, and physically manifests

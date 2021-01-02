@@ -6,8 +6,6 @@
  * the environment.
  */
 
-#include "config.h"
-
 void bhv_purple_switch_loop(void) {
     UNUSED s32 unused;
     switch (o->oAction) {

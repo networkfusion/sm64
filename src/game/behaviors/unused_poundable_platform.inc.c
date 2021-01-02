@@ -12,8 +12,6 @@
  * is not used anywhere else.
  */
 
-#include "config.h"
-
 void bhv_unused_poundable_platform(void) {
     cur_obj_scale(1.02f);
 
