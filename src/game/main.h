@@ -1,8 +1,6 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-#include "config.h"
-
 struct RumbleData {
     u8 unk00;
     u8 unk01;
