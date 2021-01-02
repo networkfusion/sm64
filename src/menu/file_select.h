@@ -5,6 +5,7 @@
 #include <PR/gbi.h>
 
 #include "types.h"
+#include "config.h"
 
 #define MENU_LAYER_MAIN 1
 #define MENU_LAYER_SUBMENU 2
@@ -78,7 +79,7 @@ enum MenuButtonTypes {
     MENU_BUTTON_MONO,
     MENU_BUTTON_HEADSET,
 
-#if TRANSLATION_EU_TEXT_SUPPORT
+#if FEATURE_MULTI_LANGUAGE_SUPPORT
     // Language Menu
     MENU_BUTTON_LANGUAGE_MIN,
     MENU_BUTTON_LANGUAGE_ENGLISH = MENU_BUTTON_LANGUAGE_MIN,

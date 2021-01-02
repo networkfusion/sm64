@@ -5,7 +5,7 @@
 #include "surface_terrains.h"
 #include "types.h"
 
-#if TRANSLATION_EU_TEXT_SUPPORT
+#if FEATURE_MULTI_LANGUAGE_SUPPORT
 #include "text_strings.h"
 #endif
 #include "make_const_nonconst.h"

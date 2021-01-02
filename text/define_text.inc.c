@@ -1,6 +1,6 @@
 // == debug table ==
 
-#if !TRANSLATION_EU_TEXT_SUPPORT
+#if !FEATURE_MULTI_LANGUAGE_SUPPORT
 
 // (this wasn't translated for US, and was removed in EU)
 
