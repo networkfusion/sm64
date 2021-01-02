@@ -1,6 +1,7 @@
 #include "libultra_internal.h"
 #include "PR/rcp.h"
 #include "controller.h"
+#include "config.h"
 
 #if FEATURE_RUMBLE_PAK_SUPPORT
 extern s32 func_8030A5C0(OSMesgQueue *, s32);
