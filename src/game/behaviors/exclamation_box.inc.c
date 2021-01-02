@@ -1,7 +1,5 @@
 // exclamation_box.c.inc
 
-#include "config.h"
-
 struct ObjectHitbox sExclamationBoxHitbox = {
     /* interactType: */ INTERACT_BREAKABLE,
     /* downOffset: */ 5,

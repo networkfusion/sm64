@@ -1,8 +1,5 @@
 // controllable_platform.c.inc
 
-#include "config.h"
-
-
 static s8 D_80331694 = 0;
 
 void controllable_platform_act_1(void) {

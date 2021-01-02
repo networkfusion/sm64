@@ -1,7 +1,5 @@
 // bully.c.inc
 
-#include "config.h"
-
 
 static struct ObjectHitbox sSmallBullyHitbox = {
     /* interactType:      */ INTERACT_BULLY,
