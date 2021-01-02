@@ -1480,7 +1480,7 @@ struct GdDisplayList *create_child_gdl(s32 id, struct GdDisplayList *srcDl) {
 //! @bug No return statement, despite return value being used.
 //!      Goddard lucked out that `v0` return from alloc_displaylist()
 //!      is not overwriten, as that pointer is what should be returned
-#ifdef AVOID_UB
+#if BUGFIX_GODDARD_DISPLAYLIST_RETURN || defined(AVOID_UB)
     return newDl;
 #endif
 }

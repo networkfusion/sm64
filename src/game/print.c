@@ -433,7 +433,7 @@ void render_text_labels(void) {
             glyphIndex = char_to_glyph_index(sTextLabels[i]->buffer[j]);
 
             if (glyphIndex != GLYPH_SPACE) {
-#ifdef VERSION_EU
+#if TRANSLATION_EU_GLYPH_BETA_KEY
                 // Beta Key was removed by EU, so glyph slot reused.
                 // This produces a colorful Ü.
                 if (glyphIndex == GLYPH_BETA_KEY) {

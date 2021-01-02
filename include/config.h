@@ -24,10 +24,15 @@
 #define BUGFIX_STAR_BOWSER_KEY (0 || VERSION_US || VERSION_EU || VERSION_SH || VERSION_JP_ULTIMATE)
 /// Fixes bug in KTQ win dialog which makes it sounds like a penguin instead of a Koopa
 #define BUGFIX_DIALOG_SOUND_KTQ_WIN (0 || VERSION_US || VERSION_EU || VERSION_SH || VERSION_JP_ULTIMATE)
+/// TODO: add comment!
+#define BUGFIX_HOLDING_POLE (0 || VERSION_US || VERSION_EU || VERSION_SH || VERSION_JP_ULTIMATE)
+/// TODO: add comment!
+#define BUGFIX_SOUND_MARIO_OOOF (0 || VERSION_US || VERSION_EU || VERSION_SH || VERSION_JP_ULTIMATE)
+
 
 // --| Shindou Version Nintendo Bug Fixes
 /// BLJ (Backwards Long Jump) speed build up fix, crushing SimpleFlips's dreams since July 1997
-#define BUGFIX_BACKWARDS_LONGJUMP (0 || VERSION_SH) //most people probably wont like this in any other build!
+#define BUGFIX_BACKWARDS_LONGJUMP (0 || (VERSION_SH && !VERSION_SH_ULTIMATE)) //most people probably wont like this in any other build!
 /// Fixes bug where standing a controllable platform in HMC be invisible while it blinks
 #define BUGFIX_CONTROLLABLE_PLATFORM (0 || VERSION_SH || VERSION_US_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_JP_ULTIMATE)
 /// Fixes bug where the angle speed isn't preserved while in a pole
@@ -44,6 +49,11 @@
 #define BUGFIX_WIGGLER_HEALTH (0 || VERSION_EU || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_SH_ULTIMATE)
 /// This allows the Z button to perform an action in various menus
 #define FEATURE_Z_BUTTON_MENU_ACTION (0 || VERSION_EU || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_SH_ULTIMATE)
+/// This stops you from slow climbing up ledges while holding A.
+#define BUGFIX_NO_SLOW_CLIMB_LEDGES_A_BUTTON (0 || VERSION_EU)
+/// Beta Key was removed by EU, so glyph slot reused.
+/// This produces a colorful Ü.
+#define TRANSLATION_EU_GLYPH_BETA_KEY (0 || VERSION_EU)
 
 // --| Ultimate Version Bug Fixes
 /// Fixes bug where it shows burn smoke incorrectly
@@ -60,9 +70,9 @@
 #define BUGFIX_COLLISION_HITBOX_OVERLAP (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE) //verified correct.
 /// Fixes last missing return in hurtbox overlap detection code
 #define BUGFIX_COLLISION_HURTBOX_OVERLAP (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE) //verified correct.
-/// TODO: add comment!
+/// Fixes no backward speed cap (shell hyperspeed)
 #define BUGFIX_SHELL_BACKWARDS_HYPERSPEED (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE)
-/// TODO: add comment!
+/// Fixes wall fallthrough when mario is crawling
 #define BUGFIX_MARIO_CRAWLING_FALLTHROUGH (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE)
 /// TODO: add comment!
 #define BUGFIX_AIR_HIT_WALL_VELOCITY (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE) //verified correct
@@ -108,6 +118,11 @@
 #define BUGFIX_HUD_TEXTURE_FILTER (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE) // TODO: test the change is valid. Possibily should be split into 2 and added to the rom bugfixes.
 /// Removes extra close tags from GEO_NODEs
 #define BUGFIX_GEO_NODE_CLOSE (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE)
+/// No return statement was specified, despite return value being used. Goddard lucked out that `v0` return from alloc_displaylist() 
+/// is not overwriten, as that pointer is what should be returned. (Un-necessary if using AVOID_UB)
+#define BUGFIX_GODDARD_DISPLAYLIST_RETURN (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE) // Verified original fix
+/// Pointer casting is technically UB, and avoiding it gets rid of endian issues as well as a nice side effect.
+#define BUGFIX_POINTER_CAST_AND_ENDIAN (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE) // Verified original fix
 
 // --| Ultimate Version resurrection of lost features
 /// Correctly changes blue star model when Klepto is holding it (First star in SSL)
