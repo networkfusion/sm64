@@ -103,7 +103,7 @@
 /// Fixes or rather align manta's water rings to match where it looks
 #define BUGFIX_ALIGN_WATER_RING (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE) //TODO: fixme, or at least test the change is valid.
 /// Fixes impossible coins (also fixes impossible goomba since it's related)
-//#define BUGFIX_IMPOSSIBLE_COINS (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE) // Commented out as not implemented yet.
+#define BUGFIX_IMPOSSIBLE_COINS (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE) // TODO: test the change is valid.
 /// Corrects hud texture fillter, only noticeable on N64 old plugins
 //#define BUGFIX_HUD_TEXTURE_FILTER (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE) // Commented out as not implemented yet.
 /// Removes extra close tags from GEO_NODEs
