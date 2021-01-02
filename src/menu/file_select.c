@@ -22,9 +22,9 @@
 #include "sm64.h"
 #include "text_strings.h"
 
-#if TRANSLATION_EU_TEXT_SUPPORT
 #include "eu_translation.h"
 
+#if TRANSLATION_EU_TEXT_SUPPORT
 #undef LANGUAGE_FUNCTION
 #define LANGUAGE_FUNCTION sLanguageMode
 #endif
