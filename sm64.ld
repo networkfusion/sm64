@@ -3,7 +3,6 @@ OUTPUT_ARCH (mips)
 /* include/segments.h defines SEG_POOL_START, SEG_POOL_END, SEG_BUFFERS,
  * SEG_GODDARD, SEG_MAIN, SEG_ENGINE, SEG_FRAMEBUFFERS */
 #include "segments.h"
-#include "config.h"
 
 #define BEGIN_SEG(name, addr) \
     _##name##SegmentStart = ADDR(.name); \
