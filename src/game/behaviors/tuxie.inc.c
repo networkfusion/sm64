@@ -296,7 +296,7 @@ Gfx *geo_switch_tuxie_mother_eyes(s32 run, struct GraphNode *node, UNUSED Mat4 *
     struct GraphNodeSwitchCase *switchCase;
     s32 timer;
 #if RESURRECT_TUXIES_MOTHER_SAD_EYES
-    s32 babyDelivered
+    s32 babyDelivered;
 #endif
 
     if (run == TRUE) {
