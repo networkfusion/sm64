@@ -2097,12 +2097,12 @@ const Gfx dl_hud_img_begin[] = {
     gsDPSetTexturePersp(G_TP_NONE),
     gsDPSetAlphaCompare(G_AC_THRESHOLD),
     gsDPSetBlendColor(255, 255, 255, 255),
-#if defined(VERSION_EU) || defined(VERSION_SH)
+#if defined(VERSION_EU) || defined(VERSION_SH) || BUGFIX_HUD_TEXTURE_FILTER
     gsDPSetRenderMode(G_RM_NOOP, G_RM_NOOP2),
 #endif
-#ifdef VERSION_EU
+#if defined(VERSION_EU) || BUGFIX_HUD_TEXTURE_FILTER
     gsDPSetTextureFilter(G_TF_POINT),
-#elif defined(VERSION_JP) || defined(VERSION_US)
+#elif (defined(VERSION_JP) || defined(VERSION_US)) && !BUGFIX_HUD_TEXTURE_FILTER
     gsDPSetRenderMode(G_RM_AA_XLU_SURF, G_RM_AA_XLU_SURF2),
 #endif
     gsSPEndDisplayList(),
@@ -2124,11 +2124,11 @@ const Gfx dl_hud_img_end[] = {
     gsDPSetTexturePersp(G_TP_PERSP),
     gsDPSetRenderMode(G_RM_AA_ZB_OPA_SURF, G_RM_AA_ZB_OPA_SURF2),
     gsDPSetAlphaCompare(G_AC_NONE),
-#ifdef VERSION_EU
+#if defined(VERSION_EU) || BUGFIX_HUD_TEXTURE_FILTER
     gsDPSetTextureFilter(G_TF_BILERP),
 #endif
     gsDPSetCycleType(G_CYC_1CYCLE),
-#if defined(VERSION_JP) || defined(VERSION_US)
+#if (defined(VERSION_JP) || defined(VERSION_US)) && !BUGFIX_HUD_TEXTURE_FILTER
     gsSPTexture(0xFFFF, 0xFFFF, 0, G_TX_RENDERTILE, G_OFF),
 #endif
     gsSPEndDisplayList(),
