@@ -83,7 +83,7 @@
 /// TODO: add comment!
 #define BUGFIX_CUTSCENE_LOOP (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE)
 /// TODO: add comment!
-#define BUGFIX_RESOLVE_OBJECT_COLLISIONS (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE) // TODO: fixme, Fixing the atan2s actually causes more issues than it helps. In my own fix I ended up having to rewrite the entire function lol
+#define BUGFIX_RESOLVE_OBJECT_COLLISIONS 0 // TODO: fixme, Fixing the atan2s actually causes more issues than it helps. In my own fix I ended up having to rewrite the entire function lol
 /// Fixes open door key cutscene on 90-270 degrees
 #define BUGFIX_DOOR_KEY_CUTSCENE (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE)
 /// Fixes cap cloning when Mario takes a fade warp
