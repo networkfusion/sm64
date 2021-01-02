@@ -1,7 +1,5 @@
 // star_door.c.inc
 
-#include "config.h"
-
 void star_door_update_pos(void) {
     o->oVelX = (o->oUnkBC) * coss(o->oMoveAngleYaw);
     o->oVelZ = (o->oUnkBC) * -sins(o->oMoveAngleYaw);

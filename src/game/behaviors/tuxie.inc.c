@@ -1,8 +1,5 @@
 // tuxie.c.inc
 
-#include "config.h"
-
-
 void play_penguin_walking_sound(s32 walk) {
     s32 sound;
     if (o->oSoundStateID == 0) {
