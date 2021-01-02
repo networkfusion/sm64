@@ -951,9 +951,9 @@ s32 act_ground_pound(struct MarioState *m) {
                 queue_rumble_data(5, 80);
 #endif
 #if BUGFIX_SOUND_MARIO_OOOF
-        play_sound(SOUND_MARIO_OOOF2, m->marioObj->header.gfx.cameraToObject);
+                play_sound(SOUND_MARIO_OOOF2, m->marioObj->header.gfx.cameraToObject);
 #else
-        play_sound(SOUND_MARIO_OOOF, m->marioObj->header.gfx.cameraToObject);
+                play_sound(SOUND_MARIO_OOOF, m->marioObj->header.gfx.cameraToObject);
 #endif
                 m->particleFlags |= PARTICLE_MIST_CIRCLE;
                 set_mario_action(m, ACT_BUTT_STUCK_IN_GROUND, 0);
