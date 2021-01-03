@@ -1,8 +1,6 @@
 #ifndef EU_TRANSLATION_H
 #define EU_TRANSLATION_H
 
-#include "config.h"
-
 // EU changes most text to arrays for each language. This define allows these
 // differences to be combined.
 #if FEATURE_MULTI_LANGUAGE_SUPPORT
