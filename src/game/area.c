@@ -105,12 +105,12 @@ void set_warp_transition_rgb(u8 red, u8 green, u8 blue) {
 }
 
 void print_intro_text(void) {
-#ifdef VERSION_EU
+#if FEATURE_MULTI_LANGUAGE_SUPPORT
     s32 language = eu_get_language();
 #endif
     if ((gGlobalTimer & 0x1F) < 20) {
         if (gControllerBits == 0) {
-#ifdef VERSION_EU
+#if FEATURE_MULTI_LANGUAGE_SUPPORT
             print_text_centered(SCREEN_WIDTH / 2, 20, gNoControllerMsg[language]);
 #else
             print_text_centered(SCREEN_WIDTH / 2, 20, "NO CONTROLLER");

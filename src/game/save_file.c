@@ -582,7 +582,7 @@ void save_file_move_cap_to_default_location(void) {
     }
 }
 
-#ifdef VERSION_EU
+#if FEATURE_MULTI_LANGUAGE_SUPPORT
 void eu_set_language(u16 language) {
     gSaveBuffer.menuData[0].language = language;
     gMainMenuDataModified = TRUE;

@@ -1681,7 +1681,7 @@ void render_dialog_entries(void) {
 #if defined(VERSION_US) || defined(VERSION_SH)
     s8 lowerBound;
 #endif
-#ifdef VERSION_EU
+#if FEATURE_MULTI_LANGUAGE_SUPPORT
     gInGameLanguage = eu_get_language();
     switch (gInGameLanguage) {
         case LANGUAGE_ENGLISH:
@@ -2003,7 +2003,7 @@ void print_peach_letter_message(void) {
     void **dialogTable;
     struct DialogEntry *dialog;
     u8 *str;
-#ifdef VERSION_EU
+#if FEATURE_MULTI_LANGUAGE_SUPPORT
     gInGameLanguage = eu_get_language();
     switch (gInGameLanguage) {
         case LANGUAGE_ENGLISH:
@@ -2599,7 +2599,7 @@ s8 gHudFlash = 0;
 s16 render_pause_courses_and_castle(void) {
     s16 num;
 
-#ifdef VERSION_EU
+#if FEATURE_MULTI_LANGUAGE_SUPPORT
     gInGameLanguage = eu_get_language();
 #endif
 
@@ -2990,7 +2990,7 @@ void render_save_confirmation(s16 x, s16 y, s8 *index, s16 sp6e)
 
 s16 render_course_complete_screen(void) {
     s16 num;
-#ifdef VERSION_EU
+#if FEATURE_MULTI_LANGUAGE_SUPPORT
     gInGameLanguage = eu_get_language();
 #endif
 
