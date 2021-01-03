@@ -1,6 +1,8 @@
 #ifndef SEGMENT_SYMBOLS_H
 #define SEGMENT_SYMBOLS_H
 
+#include "config.h"
+
 #ifndef NO_SEGMENTED_MEMORY
 #define DECLARE_SEGMENT(name) \
     extern u8 _##name##SegmentRomStart[]; \

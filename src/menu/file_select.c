@@ -23,7 +23,6 @@
 #include "text_strings.h"
 
 #include "eu_translation.h"
-
 #if FEATURE_MULTI_LANGUAGE_SUPPORT
 #undef LANGUAGE_FUNCTION
 #define LANGUAGE_FUNCTION sLanguageMode
