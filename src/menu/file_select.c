@@ -1596,9 +1596,9 @@ void bhv_menu_button_manager_loop(void) {
             check_sound_mode_menu_clicked_buttons(sMainMenuButtons[MENU_BUTTON_SOUND_MODE]);
             break;
 
+#if FEATURE_MULTI_LANGUAGE_SUPPORT // TODO: is this a bug?
         // STEREO, MONO and HEADSET buttons are undefined so they can be selected without
         // exiting the Options menu, as a result they added a return button
-#if FEATURE_MULTI_LANGUAGE_SUPPORT
         case MENU_BUTTON_LANGUAGE_RETURN:
             return_to_main_menu(MENU_BUTTON_SOUND_MODE, sMainMenuButtons[MENU_BUTTON_LANGUAGE_RETURN]);
             break;

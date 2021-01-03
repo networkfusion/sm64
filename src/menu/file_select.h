@@ -5,6 +5,7 @@
 #include <PR/gbi.h>
 
 #include "types.h"
+#include "config.h"
 
 #define MENU_LAYER_MAIN 1
 #define MENU_LAYER_SUBMENU 2
