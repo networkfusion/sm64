@@ -333,7 +333,7 @@ void render_hud_timer(void) {
 
     hudLUT = segmented_to_virtual(&main_hud_lut);
     timerValFrames = gHudDisplay.timer;
-#ifdef VERSION_EU
+#if FEATURE_MULTI_LANGUAGE_SUPPORT
     switch (eu_get_language()) {
         case LANGUAGE_ENGLISH:
             print_text(GFX_DIMENSIONS_RECT_FROM_RIGHT_EDGE(150), 185, "TIME");

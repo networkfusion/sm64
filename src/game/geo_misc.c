@@ -208,7 +208,7 @@ Gfx *geo_exec_cake_end_screen(s32 callContext, struct GraphNode *node, UNUSED f3
 #else
         gSPDisplayList(displayListHead++, dl_proj_mtx_fullscreen);
 #endif
-#ifdef VERSION_EU
+#if FEATURE_MULTI_LANGUAGE_SUPPORT
         switch (eu_get_language()) {
             case LANGUAGE_ENGLISH:
                 gSPDisplayList(displayListHead++, dl_cake_end_screen_eu_070296F8);
