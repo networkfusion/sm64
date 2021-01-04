@@ -1859,7 +1859,7 @@ const Texture *const main_hud_lut[] = {
 
 // Main small font print table 0x02008338-0x02008737
 const Texture *const main_font_lut[] = {
-#ifdef VERSION_EU // EU Font Table
+#if FEATURE_MULTI_LANGUAGE_SUPPORT // EU Font Table
     texture_font_char_eu_0, texture_font_char_eu_1, texture_font_char_eu_2, texture_font_char_eu_3,
     texture_font_char_eu_4, texture_font_char_eu_5, texture_font_char_eu_6, texture_font_char_eu_7,
     texture_font_char_eu_8, texture_font_char_eu_9, texture_font_char_eu_A, texture_font_char_eu_B,

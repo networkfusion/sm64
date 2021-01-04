@@ -2,6 +2,7 @@
 #define MENU_HEADER_H
 
 #include "types.h"
+#include "config.h"
 
 // geo
 extern const GeoLayout geo_menu_mario_save_button[];

@@ -50,6 +50,7 @@ DECLARE_LEVEL_SEGMENT(ending)
 #define DEFINE_LEVEL(_0, _1, _2, folder, _4, _5, _6, _7, _8, _9, _10) DECLARE_LEVEL_SEGMENT(folder)
 
 #include "levels/level_defines.h"
+#include "config.h"
 
 #undef STUB_LEVEL
 #undef DEFINE_LEVEL
