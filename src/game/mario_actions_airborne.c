@@ -127,9 +127,9 @@ s32 should_get_stuck_in_ground(struct MarioState *m) {
 s32 check_fall_damage_or_get_stuck(struct MarioState *m, u32 hardFallAction) {
     if (should_get_stuck_in_ground(m)) {
 #if BUGFIX_SOUND_MARIO_OOOF
-        play_sound(SOUND_MARIO_OOOF, m->marioObj->header.gfx.cameraToObject);
-#else
         play_sound(SOUND_MARIO_OOOF2, m->marioObj->header.gfx.cameraToObject);
+#else
+        play_sound(SOUND_MARIO_OOOF, m->marioObj->header.gfx.cameraToObject);
 #endif
         m->particleFlags |= PARTICLE_MIST_CIRCLE;
         drop_and_set_mario_action(m, ACT_FEET_STUCK_IN_GROUND, 0);
@@ -753,9 +753,9 @@ s32 act_dive(struct MarioState *m) {
                 queue_rumble_data(5, 80);
 #endif
 #if BUGFIX_SOUND_MARIO_OOOF
-                play_sound(SOUND_MARIO_OOOF, m->marioObj->header.gfx.cameraToObject);
-#else
                 play_sound(SOUND_MARIO_OOOF2, m->marioObj->header.gfx.cameraToObject);
+#else
+                play_sound(SOUND_MARIO_OOOF, m->marioObj->header.gfx.cameraToObject);
 #endif
                 m->particleFlags |= PARTICLE_MIST_CIRCLE;
                 drop_and_set_mario_action(m, ACT_HEAD_STUCK_IN_GROUND, 0);
@@ -951,9 +951,9 @@ s32 act_ground_pound(struct MarioState *m) {
                 queue_rumble_data(5, 80);
 #endif
 #if BUGFIX_SOUND_MARIO_OOOF
-                play_sound(SOUND_MARIO_OOOF, m->marioObj->header.gfx.cameraToObject);
-#else
                 play_sound(SOUND_MARIO_OOOF2, m->marioObj->header.gfx.cameraToObject);
+#else
+                play_sound(SOUND_MARIO_OOOF, m->marioObj->header.gfx.cameraToObject);
 #endif
                 m->particleFlags |= PARTICLE_MIST_CIRCLE;
                 set_mario_action(m, ACT_BUTT_STUCK_IN_GROUND, 0);
