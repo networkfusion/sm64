@@ -192,7 +192,7 @@ s32 act_climbing_pole(struct MarioState *m) {
     struct Object *marioObj = m->marioObj;
     s16 cameraAngle = m->area->camera->yaw;
 
-#ifndef VERSION_JP
+#if BUGFIX_HOLDING_POLE_HEALTH
     if (m->health < 0x100) {
         add_tree_leaf_particles(m);
         m->forwardVel = -2.0f;
