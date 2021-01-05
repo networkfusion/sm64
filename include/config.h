@@ -51,6 +51,13 @@
 /// This allows the Z button to perform an action in various menus
 #define FEATURE_Z_BUTTON_MENU_ACTION (0 || VERSION_EU || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_SH_ULTIMATE)
 
+// --| UB Bug Fixes (These can also be defined independently)
+/// No return statement was specified, despite return value being used. Goddard lucked out that `v0` return from alloc_displaylist() 
+/// is not overwriten, as that pointer is what should be returned. (Un-necessary if using AVOID_UB)
+#define BUGFIX_GODDARD_DISPLAYLIST_RETURN (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE) // Verified original fix
+/// Pointer casting is technically UB, and avoiding it gets rid of endian issues as well as a nice side effect.
+#define BUGFIX_POINTER_CAST_AND_ENDIAN (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE) // Verified original fix
+
 // --| Ultimate Version Bug Fixes
 /// Fixes bug where it shows burn smoke incorrectly
 #define BUGFIX_BURN_SMOKE (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE) //verified correct
