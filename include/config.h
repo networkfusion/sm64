@@ -26,6 +26,8 @@
 #define BUGFIX_DIALOG_SOUND_KTQ_WIN (0 || VERSION_US || VERSION_EU || VERSION_SH || VERSION_JP_ULTIMATE)
 /// Correct "OOOF" sound
 #define BUGFIX_SOUND_MARIO_OOOF (0 || VERSION_US || VERSION_EU || VERSION_SH || VERSION_JP_ULTIMATE)
+/// TODO: Add Comment (healthcheck)
+#define BUGFIX_HOLDING_POLE_HEALTH (0 || VERSION_US || VERSION_EU || VERSION_SH || VERSION_JP_ULTIMATE)
 
 // --| Shindou Version Nintendo Bug Fixes
 /// BLJ (Backwards Long Jump) speed build up fix, crushing SimpleFlips's dreams since July 1997
