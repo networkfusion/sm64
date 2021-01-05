@@ -569,7 +569,7 @@ s32 act_ledge_grab(struct MarioState *m) {
         }
         return let_go_of_ledge(m);
     }
-#ifdef VERSION_EU
+#if BUGFIX_NO_SLOW_CLIMB_LEDGES_A_BUTTON
     // On EU, you can't slow climb up ledges while holding A.
     if (m->actionTimer == 10 && (m->input & INPUT_NONZERO_ANALOG) && !(m->input & INPUT_A_DOWN))
 #else

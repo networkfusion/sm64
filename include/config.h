@@ -31,7 +31,7 @@
 
 // --| Shindou Version Nintendo Bug Fixes
 /// BLJ (Backwards Long Jump) speed build up fix, crushing SimpleFlips's dreams since July 1997
-#define BUGFIX_BACKWARDS_LONGJUMP (0 || VERSION_SH) //most people probably wont like this in any other build!
+#define BUGFIX_BACKWARDS_LONGJUMP (0 || (VERSION_SH && !VERSION_SH_ULTIMATE)) //most people probably wont like this in any other build!
 /// Fixes bug where standing a controllable platform in HMC be invisible while it blinks
 #define BUGFIX_CONTROLLABLE_PLATFORM (0 || VERSION_SH || VERSION_US_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_JP_ULTIMATE)
 /// Fixes bug where the angle speed isn't preserved while in a pole
@@ -46,6 +46,8 @@
 // --| EU Version Bug Fixes
 /// This fixes Wiggler reading UB on his first frame of his acceleration, as his health is not set.
 #define BUGFIX_WIGGLER_HEALTH (0 || VERSION_EU || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_SH_ULTIMATE)
+/// This stops you from slow climbing up ledges while holding A.
+#define BUGFIX_NO_SLOW_CLIMB_LEDGES_A_BUTTON (0 || VERSION_EU)
 /// This allows the Z button to perform an action in various menus
 #define FEATURE_Z_BUTTON_MENU_ACTION (0 || VERSION_EU || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_SH_ULTIMATE)
 
