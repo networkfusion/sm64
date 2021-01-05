@@ -57,6 +57,10 @@
 #define BUGFIX_GODDARD_DISPLAYLIST_RETURN (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE) // Verified original fix
 /// Pointer casting is technically UB, and avoiding it gets rid of endian issues as well as a nice side effect.
 #define BUGFIX_POINTER_CAST_AND_ENDIAN (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE) // Verified original fix
+// level_script.c assumes that the frame buffers are adjacent, while game.c's
+// -g codegen implies that they are separate variables. This is impossible to
+// reconcile without undefined behavior. Avoid that when possible.
+#define BUGFIX_FRAMEBUFFER (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE) // Verified original fix
 
 // --| Ultimate Version Bug Fixes
 /// Fixes bug where it shows burn smoke incorrectly
