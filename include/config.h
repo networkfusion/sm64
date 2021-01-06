@@ -28,9 +28,9 @@
 #define BUGFIX_SOUND_MARIO_OOOF (0 || VERSION_US || VERSION_EU || VERSION_SH || VERSION_JP_ULTIMATE)
 /// TODO: Add Comment (healthcheck)
 #define BUGFIX_HOLDING_POLE_HEALTH (0 || VERSION_US || VERSION_EU || VERSION_SH || VERSION_JP_ULTIMATE)
-/// TODO: Add Comment 
+/// TODO: Add Comment
 /// It does not take into account SOUND_GENERAL_COIN_SPURT(2/EU)
-#define BUGFIX_BHV_COIN_LOOP (0 || VERSION_US || VERSION_EU || VERSION_SH || VERSION_JP_ULTIMATE)
+#define BUGFIX_DEATH_BARRIER (0 || VERSION_US || VERSION_EU || VERSION_SH || VERSION_JP_ULTIMATE)
 /// TODO: Implement, but might be difficult as it is different between all versions.
 //#define BUGFIX_LAKITU_INTRO_SOUND (0 || VERSION_US || VERSION_EU || VERSION_SH || VERSION_JP_ULTIMATE)
 

@@ -85,14 +85,14 @@ void bhv_coin_loop(void) {
     if (o->oVelY < 0)
         cur_obj_become_tangible();
     if (o->oMoveFlags & OBJ_MOVE_LANDED) {
-#if BUGFIX_BHV_COIN_LOOP
+#if BUGFIX_DEATH_BARRIER
         if (o->oMoveFlags & (OBJ_MOVE_ABOVE_DEATH_BARRIER | OBJ_MOVE_ABOVE_LAVA))
 #else
         if (o->oMoveFlags & OBJ_MOVE_ABOVE_LAVA)
 #endif
             obj_mark_for_deletion(o);
     }
-#if BUGFIX_BHV_COIN_LOOP
+#if BUGFIX_DEATH_BARRIER
     if (o->oMoveFlags & OBJ_MOVE_BOUNCE) {
         if (o->oCoinUnk1B0 < 5)
             cur_obj_play_sound_2(SOUND_GENERAL_COIN_DROP);
