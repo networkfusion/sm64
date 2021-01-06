@@ -51,16 +51,16 @@
 /// This allows the Z button to perform an action in various menus
 #define FEATURE_Z_BUTTON_MENU_ACTION (0 || VERSION_EU || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_SH_ULTIMATE)
 
-// --| UB Bug Fixes (These can also be defined independently)
+// --| UB Bug Fixes (These can also be defined independently (and are as default for non matching ROM's which include ultimate versions))
 /// No return statement was specified, despite return value being used. Goddard lucked out that `v0` return from alloc_displaylist() 
 /// is not overwriten, as that pointer is what should be returned. (Un-necessary if using AVOID_UB)
-#define BUGFIX_GODDARD_DISPLAYLIST_RETURN (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE) // Verified original fix
+#define BUGFIX_GODDARD_DISPLAYLIST_RETURN 0 // Verified original fix
 /// Pointer casting is technically UB, and avoiding it gets rid of endian issues as well as a nice side effect.
-#define BUGFIX_POINTER_CAST_AND_ENDIAN (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE) // Verified original fix
+#define BUGFIX_POINTER_CAST_AND_ENDIAN 0 // Verified original fix
 // level_script.c assumes that the frame buffers are adjacent, while game.c's
 // -g codegen implies that they are separate variables. This is impossible to
 // reconcile without undefined behavior. Avoid that when possible.
-#define BUGFIX_FRAMEBUFFER (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE) // Verified original fix
+#define BUGFIX_FRAMEBUFFER 0 // Verified original fix
 
 // --| Ultimate Version Bug Fixes
 /// Fixes bug where it shows burn smoke incorrectly
