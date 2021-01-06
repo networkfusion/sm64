@@ -90,6 +90,7 @@ void bhv_intro_lakitu_loop(void) {
 
             switch (gCurrentObject->oTimer) {
 #if defined(VERSION_US) || defined(VERSION_SH)
+// BUGFIX_LAKITU_INTRO_SOUND
                 case 534:
                     cur_obj_play_sound_2(SOUND_ACTION_FLYING_FAST);
                     break;
@@ -111,6 +112,7 @@ void bhv_intro_lakitu_loop(void) {
                     break;
             }
 #ifdef VERSION_EU
+// BUGFIX_LAKITU_INTRO_SOUND
             if (gCurrentObject->oTimer == 446)
                 cur_obj_play_sound_2(SOUND_ACTION_FLYING_FAST);
             if (gCurrentObject->oTimer == 485)
@@ -172,6 +174,7 @@ void bhv_intro_lakitu_loop(void) {
                 obj_mark_for_deletion(gCurrentObject->oIntroLakituCloud);
             }
 #ifndef VERSION_JP
+// BUGFIX_LAKITU_INTRO_SOUND
             if (gCurrentObject->oTimer == 14)
                 cur_obj_play_sound_2(SOUND_ACTION_INTRO_UNK45F);
 #endif
