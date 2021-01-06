@@ -1732,7 +1732,7 @@ static void cur_obj_update_floor(void) {
         if (floor->type == SURFACE_BURNING) {
             o->oMoveFlags |= OBJ_MOVE_ABOVE_LAVA;
         }
-#ifndef VERSION_JP
+#if BUGFIX_DEATH_BARRIER
         else if (floor->type == SURFACE_DEATH_PLANE) {
             //! This misses SURFACE_VERTICAL_WIND (and maybe SURFACE_WARP)
             o->oMoveFlags |= OBJ_MOVE_ABOVE_DEATH_BARRIER;
@@ -1748,10 +1748,10 @@ static void cur_obj_update_floor(void) {
 }
 
 static void cur_obj_update_floor_and_resolve_wall_collisions(s16 steepSlopeDegrees) {
-#ifdef VERSION_JP
-    o->oMoveFlags &= ~OBJ_MOVE_ABOVE_LAVA;
-#else
+#if BUGFIX_DEATH_BARRIER
     o->oMoveFlags &= ~(OBJ_MOVE_ABOVE_LAVA | OBJ_MOVE_ABOVE_DEATH_BARRIER);
+#else
+    o->oMoveFlags &= ~OBJ_MOVE_ABOVE_LAVA;
 #endif
 
     if (o->activeFlags & (ACTIVE_FLAG_FAR_AWAY | ACTIVE_FLAG_IN_DIFFERENT_ROOM)) {

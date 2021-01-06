@@ -28,6 +28,11 @@
 #define BUGFIX_SOUND_MARIO_OOOF (0 || VERSION_US || VERSION_EU || VERSION_SH || VERSION_JP_ULTIMATE)
 /// TODO: Add Comment (healthcheck)
 #define BUGFIX_HOLDING_POLE_HEALTH (0 || VERSION_US || VERSION_EU || VERSION_SH || VERSION_JP_ULTIMATE)
+/// TODO: Add Comment
+/// It does not take into account SOUND_GENERAL_COIN_SPURT(2/EU)
+#define BUGFIX_DEATH_BARRIER (0 || VERSION_US || VERSION_EU || VERSION_SH || VERSION_JP_ULTIMATE)
+/// TODO: Implement, but might be difficult as it is different between all versions.
+//#define BUGFIX_LAKITU_INTRO_SOUND (0 || VERSION_US || VERSION_EU || VERSION_SH || VERSION_JP_ULTIMATE)
 
 // --| Shindou Version Nintendo Bug Fixes
 /// BLJ (Backwards Long Jump) speed build up fix, crushing SimpleFlips's dreams since July 1997
@@ -50,6 +55,17 @@
 #define BUGFIX_NO_SLOW_CLIMB_LEDGES_A_BUTTON (0 || VERSION_EU)
 /// This allows the Z button to perform an action in various menus
 #define FEATURE_Z_BUTTON_MENU_ACTION (0 || VERSION_EU || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_SH_ULTIMATE)
+
+// --| UB Bug Fixes (These can also be defined independently (and are as default for non matching ROM's which include ultimate versions))
+/// No return statement was specified, despite return value being used. Goddard lucked out that `v0` return from alloc_displaylist() 
+/// is not overwriten, as that pointer is what should be returned. (Un-necessary if using AVOID_UB)
+#define BUGFIX_GODDARD_DISPLAYLIST_RETURN 0 // Verified original fix
+/// Pointer casting is technically UB, and avoiding it gets rid of endian issues as well as a nice side effect.
+#define BUGFIX_POINTER_CAST_AND_ENDIAN 0 // Verified original fix
+// level_script.c assumes that the frame buffers are adjacent, while game.c's
+// -g codegen implies that they are separate variables. This is impossible to
+// reconcile without undefined behavior. Avoid that when possible.
+#define BUGFIX_FRAMEBUFFER 0 // Verified original fix
 
 // --| Ultimate Version Bug Fixes
 /// Fixes bug where it shows burn smoke incorrectly

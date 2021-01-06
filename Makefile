@@ -48,6 +48,7 @@ ifeq      ($(VERSION),jp)
 else ifeq ($(VERSION),jpu)
   BASE_VERSION ?= jp
   DEFINES   += VERSION_JP=1 VERSION_JP_ULTIMATE=1
+  NON_MATCHING ?= 1
   OPT_FLAGS := -O2
   GRUCODE   ?= f3dzex
   VERSION_JP_US  ?= true
@@ -60,6 +61,7 @@ else ifeq ($(VERSION),us)
 else ifeq ($(VERSION),usu)
   BASE_VERSION ?= us
   DEFINES   += VERSION_US=1 VERSION_US_ULTIMATE=1
+  NON_MATCHING ?= 1
   OPT_FLAGS := -O2
   GRUCODE   ?= f3dzex
   VERSION_JP_US  ?= true
@@ -72,6 +74,7 @@ else ifeq ($(VERSION),eu)
 else ifeq ($(VERSION),euu)
   BASE_VERSION ?= eu
   DEFINES   += VERSION_EU=1 VERSION_EU_ULTIMATE=1
+  NON_MATCHING ?= 1
   OPT_FLAGS := -O2
   #TODO: does not work with f3dzex (guLookAtReflect defined in discarded section .text)
   GRUCODE   ?= f3d_new
@@ -85,6 +88,7 @@ else ifeq ($(VERSION),sh)
 else ifeq ($(VERSION),shu)
   BASE_VERSION ?= sh
   DEFINES   += VERSION_SH=1 VERSION_SH_ULTIMATE=1
+  NON_MATCHING ?= 1
   OPT_FLAGS := -O2
   #TODO: does not work with f3dzex (guLookAtReflect defined in discarded section .text)
   GRUCODE   ?= f3d_new

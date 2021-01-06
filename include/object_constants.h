@@ -1,6 +1,8 @@
 #ifndef OBJECT_CONSTANTS_H
 #define OBJECT_CONSTANTS_H
 
+#include "config.h"
+
 // This file contains macros that provide descriptive names for
 // field-specific and object-specific constants, e.g. actions.
 
@@ -86,7 +88,7 @@
 #define OBJ_MOVE_ABOVE_LAVA            (1 << 11) // 0x0800
 #define OBJ_MOVE_LEAVING_WATER         (1 << 12) // 0x1000
 #define OBJ_MOVE_BOUNCE                (1 << 13) // 0x2000
-#ifndef VERSION_JP
+#if BUGFIX_DEATH_BARRIER
 #define OBJ_MOVE_ABOVE_DEATH_BARRIER   (1 << 14) // 0x4000
 #endif
 

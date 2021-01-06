@@ -75,24 +75,24 @@ void bhv_coin_loop(void) {
         }
     }
     if (o->oTimer == 0)
-#if defined(VERSION_US)
-        cur_obj_play_sound_2(SOUND_GENERAL_COIN_SPURT_2);
-#elif defined(VERSION_EU) || defined(VERSION_SH)
-        cur_obj_play_sound_2(SOUND_GENERAL_COIN_SPURT_EU);
-#else
+#if defined(VERSION_JP)
         cur_obj_play_sound_2(SOUND_GENERAL_COIN_SPURT);
+#elif defined(VERSION_US)
+        cur_obj_play_sound_2(SOUND_GENERAL_COIN_SPURT_2);
+#else
+        cur_obj_play_sound_2(SOUND_GENERAL_COIN_SPURT_EU);
 #endif
     if (o->oVelY < 0)
         cur_obj_become_tangible();
     if (o->oMoveFlags & OBJ_MOVE_LANDED) {
-#ifndef VERSION_JP
+#if BUGFIX_DEATH_BARRIER
         if (o->oMoveFlags & (OBJ_MOVE_ABOVE_DEATH_BARRIER | OBJ_MOVE_ABOVE_LAVA))
 #else
         if (o->oMoveFlags & OBJ_MOVE_ABOVE_LAVA)
 #endif
             obj_mark_for_deletion(o);
     }
-#ifndef VERSION_JP
+#if BUGFIX_DEATH_BARRIER
     if (o->oMoveFlags & OBJ_MOVE_BOUNCE) {
         if (o->oCoinUnk1B0 < 5)
             cur_obj_play_sound_2(SOUND_GENERAL_COIN_DROP);

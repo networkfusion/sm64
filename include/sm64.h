@@ -23,7 +23,7 @@
 
 // Pointer casting is technically UB, and avoiding it gets rid of endian issues
 // as well as a nice side effect.
-#ifdef AVOID_UB
+#if BUGFIX_POINTER_CAST_AND_ENDIAN || defined(AVOID_UB)
 #define GET_HIGH_U16_OF_32(var) ((u16)((var) >> 16))
 #define GET_HIGH_S16_OF_32(var) ((s16)((var) >> 16))
 #define GET_LOW_U16_OF_32(var) ((u16)((var) & 0xFFFF))
