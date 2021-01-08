@@ -9610,7 +9610,7 @@ void CDirectiveConditional::setContent(std::unique_ptr<CAssemblerCommand> ifBloc
 
 bool CDirectiveConditional::evaluate()
 {
-	int64_t value;
+	int64_t value = 0;
 	if (expression.isLoaded())
 	{
 		if (expression.evaluateInteger(value) == false)
@@ -14975,7 +14975,7 @@ void TextFile::bufFillRead()
 
 wchar_t TextFile::readCharacter()
 {
-	wchar_t value;
+	wchar_t value = '\0';
 
 	switch (encoding)
 	{
