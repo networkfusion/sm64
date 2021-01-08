@@ -15046,7 +15046,7 @@ wchar_t TextFile::readCharacter()
 		contentPos++;
 		break;
 	case GUESS:
-		value = "";
+		value = '\0';
 		errorText = formatString(L"Cannot read from GUESS encoding");
 		break;
 	}
