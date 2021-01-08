@@ -1269,7 +1269,7 @@ struct ExpressionValue
 		return type != ExpressionValueType::Invalid;
 	}
 
-	struct
+	union
 	{
 		int64_t intValue;
 		double floatValue;
@@ -15046,7 +15046,6 @@ wchar_t TextFile::readCharacter()
 		contentPos++;
 		break;
 	case GUESS:
-		value = '\0';
 		errorText = formatString(L"Cannot read from GUESS encoding");
 		break;
 	}

@@ -15,10 +15,11 @@ pool:
 
 steps:
 
-# Some of these packages may already be installed, but update just incase (it doesn't hurt)!
+# Some of these packages are installed on the pipeline already, they are commented out to speed up builds!
 - script: |
-    sudo apt-get update
-    sudo apt install -y binutils-mips-linux-gnu build-essential git libcapstone-dev pkgconf python3
+    # sudo apt-get update
+    # sudo apt install -y build-essential python3 git
+    sudo apt install -y binutils-mips-linux-gnu libcapstone-dev pkgconf 
   displayName: 'Install Required Packages'
   continueOnError: false
 
