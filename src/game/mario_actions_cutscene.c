@@ -594,7 +594,7 @@ void general_star_dance_handler(struct MarioState *m, s32 isInWater) {
     if (m->actionState == 0) {
         switch (++m->actionTimer) {
             case 1:
-#if RESURECT_PROPER_SHOW_COLLECTABLE
+#if RESURRECT_PROPER_SHOW_COLLECTABLE
                 spawn_object(m->marioObj, MODEL_NONE, bhvCelebrationStar)->header.gfx.sharedChild = m->interactObj->header.gfx.sharedChild;
 #else
                 spawn_object(m->marioObj, MODEL_STAR, bhvCelebrationStar);
