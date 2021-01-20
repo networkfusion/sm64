@@ -130,6 +130,8 @@
 #define BUGFIX_HUD_TEXTURE_FILTER (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE) // TODO: test the change is valid. Possibily should be split into 2 and added to the rom bugfixes.
 /// Removes extra close tags from GEO_NODEs
 #define BUGFIX_GEO_NODE_CLOSE (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE)
+/// Fixes fall damage height when groundpounding
+#define BUGFIX_GROUNDPOUND_FALL_DAMAGE_HEIGHT (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE)
 
 // --| Ultimate Version resurrection of lost features
 /// Correctly changes blue star model when Klepto is holding it (First star in SSL)
