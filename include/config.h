@@ -140,18 +140,18 @@
 /// More information in 'unused_poundable_platform.inc.c' comment
 #define RESURRECT_CRACKED_ICE (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE)
 /// Properly adds unused SSL Pyramid cutscene after standing on the 4 pillars
-#define RESURRECT_PYRAMID_EXPLODE_CUTSCENE (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE) //TODO: verify fix.
+#define RESURRECT_PYRAMID_EXPLODE_CUTSCENE (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE) //TODO: verify fix, as fails so far.
 /// Changes how Mario grabs a star/key by calling his interactObj define
 /// This also makes it so a blue star is shown when grabbing it
-#define RESURRECT_PROPER_SHOW_COLLECTABLE (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE)
+#define RESURRECT_PROPER_SHOW_COLLECTABLE (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE) //verified correct
 /// Adds unused sad eyes for the penguin mother when he lost it's baby
-#define RESURRECT_TUXIES_MOTHER_SAD_EYES (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE) //TODO: verify fix.
+#define RESURRECT_TUXIES_MOTHER_SAD_EYES (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE) //verified correct
 /// Adds more actions to the special triple jump such as wallkick and grabbing
-#define RESURRECT_MORE_SPECIAL_TRIPLE_JUMP_ACTIONS (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE)
+#define RESURRECT_MORE_SPECIAL_TRIPLE_JUMP_ACTIONS (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE) //TODO: looses 4th jump, should it be fixed?
 
 // --| Ultimate Version change of features to improve experience
 // Always use fog and skybox to JRB fist star selection regardless of whether it has already been collected and saved.
-#define FEATURE_KEEP_JRB_ATMOSPHERE_FIRST_STAR (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE)
+#define FEATURE_KEEP_JRB_ATMOSPHERE_FIRST_STAR (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE) //verified correct
 
 // Screen Size Defines
 #define SCREEN_WIDTH 320
