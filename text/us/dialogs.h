@@ -1,3 +1,5 @@
+#include "config.h"
+
 // Parameters: dialog enum ID, (unused), lines per box, left offset, width
 
 #ifdef VERSION_EU
