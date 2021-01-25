@@ -150,7 +150,7 @@
 #define RESURRECT_MORE_SPECIAL_TRIPLE_JUMP_ACTIONS (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE)
 
 // --| Ultimate Version change of features to improve experience
-// Always use fog and skybox for fist star selection regardless of whether it has already been collected and saved.
+// Always use fog and skybox to JRB fist star selection regardless of whether it has already been collected and saved.
 #define FEATURE_KEEP_JRB_ATMOSPHERE_FIRST_STAR (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE)
 
 // Screen Size Defines
