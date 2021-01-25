@@ -303,6 +303,7 @@ Gfx *create_skybox_facing_camera(s8 player, s8 background, f32 fov,
     s8 colorIndex = 1;
 
     // If the first star is collected in JRB, make the sky darker and slightly green
+    //TODO Ultimate: How can we check if playing the first star when collected and still have this skybox?! 
     if (background == 8 && !(save_file_get_star_flags(gCurrSaveFileNum - 1, COURSE_JRB - 1) & 1)) {
         colorIndex = 0;
     }

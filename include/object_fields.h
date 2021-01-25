@@ -1,6 +1,8 @@
 #ifndef OBJECT_FIELDS_H
 #define OBJECT_FIELDS_H
 
+#include "config.h"
+
 /**
  * The array [0x88, 0x1C8) in struct Object consists of fields that can vary by
  * object type. These macros provide access to these fields.

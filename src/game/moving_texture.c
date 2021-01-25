@@ -647,6 +647,7 @@ Gfx *geo_movtex_draw_water_regions(s32 callContext, struct GraphNode *node, UNUS
             if (gLakituState.goalPos[1] < 1024.0) { // if camera under water
                 return NULL;
             }
+            //TODO Ultimate: How can we check if playing the first star when collected and still have fog?! 
             if (save_file_get_star_flags(gCurrSaveFileNum - 1, COURSE_JRB - 1) & 1) { // first star in JRB complete
                 return NULL;
             }
