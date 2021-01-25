@@ -308,7 +308,7 @@ Gfx *create_skybox_facing_camera(s8 player, s8 background, f32 fov,
     }
 #if FEATURE_KEEP_JRB_ATMOSPHERE_FIRST_STAR
     //check if playing the first star when collected and still have fog! 
-     else if (background == 8 && (gCurrLevelNum == LEVEL_JRB && gCurrAreaIndex == 1 && gCurrActNum == 1)) {
+     else if (background == 8 && gCurrLevelNum == LEVEL_JRB && gCurrAreaIndex == 1 && gCurrActNum == 1) {
         colorIndex = 0;
     }
 #endif
