@@ -647,10 +647,17 @@ Gfx *geo_movtex_draw_water_regions(s32 callContext, struct GraphNode *node, UNUS
             if (gLakituState.goalPos[1] < 1024.0) { // if camera under water
                 return NULL;
             }
-            //TODO Ultimate: How can we check if playing the first star when collected and still have fog?! 
+#if FEATURE_KEEP_JRB_ATMOSPHERE_FIRST_STAR
+            //keep fog for first star in JRB, regardless if it is collected! 
+            if (gCurrLevelNum == LEVEL_JRB && gCurrAreaIndex == 1 && gCurrActNum == 1) {
+                //just ignore, we dont want to return in this case!
+            }
+            else 
+#endif
             if (save_file_get_star_flags(gCurrSaveFileNum - 1, COURSE_JRB - 1) & 1) { // first star in JRB complete
                 return NULL;
             }
+
         } else if (asGenerated->parameter == HMC_MOVTEX_TOXIC_MAZE_MIST) {
             gMovtexVtxColor = MOVTEX_VTX_COLOR_YELLOW;
         } else if (asGenerated->parameter == SSL_MOVTEX_TOXBOX_QUICKSAND_MIST) {

@@ -2023,7 +2023,7 @@ s32 act_special_triple_jump(struct MarioState *m) {
 
     switch (perform_air_step(m, 0)) {
         case AIR_STEP_LANDED:
-#if RESURRECT_MORE_SPECIAL_TRIPLE_JUMP_ACTIONS
+#if RESURRECT_MORE_SPECIAL_TRIPLE_JUMP_ACTIONS //TODO Ultimate: Stops forth jump? - but adds precision...
             if (m->actionState++ != 0) {
                 set_mario_action(m, ACT_FREEFALL_LAND_STOP, 0);
             }
