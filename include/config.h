@@ -107,7 +107,7 @@
 /// TODO: add comment!
 #define BUGFIX_RESOLVE_OBJECT_COLLISIONS 0 // TODO: fixme, Fixing the atan2s actually causes more issues than it helps. In my own fix I ended up having to rewrite the entire function lol
 /// Fixes open door key cutscene on 90-270 degrees
-#define BUGFIX_DOOR_KEY_CUTSCENE (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE)
+#define BUGFIX_DOOR_KEY_CUTSCENE 0 //TODO: fixme, unlocking on the rightmost side makes Mario shift farther over to the right and makes him stick the key into the wall instead of the keyhole
 /// Fixes cap cloning when Mario takes a fade warp
 #define BUGFIX_HAT_CLONE_FADE (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE)
 /// Fixes completed course not giving extra lives every 50 coins after 150 coins
@@ -131,7 +131,7 @@
 /// Removes extra close tags from GEO_NODEs
 #define BUGFIX_GEO_NODE_CLOSE (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE)
 /// Fixes fall damage height when groundpounding
-#define BUGFIX_GROUNDPOUND_FALL_DAMAGE_HEIGHT (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE)
+#define BUGFIX_GROUNDPOUND_FALL_DAMAGE_HEIGHT 0 //TODO: fixme
 
 // --| Ultimate Version resurrection of lost features
 /// Correctly changes blue star model when Klepto is holding it (First star in SSL)
@@ -140,10 +140,10 @@
 /// More information in 'unused_poundable_platform.inc.c' comment
 #define RESURRECT_CRACKED_ICE (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE)
 /// Properly adds unused SSL Pyramid cutscene after standing on the 4 pillars
-#define RESURRECT_PYRAMID_EXPLODE_CUTSCENE (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE) //TODO: verify fix, as fails so far.
+#define RESURRECT_PYRAMID_EXPLODE_CUTSCENE 0 //TODO: fixme, Still freezes camera when riding on a shell and hitting the top of 4th pillar
 /// Changes how Mario grabs a star/key by calling his interactObj define
 /// This also makes it so a blue star is shown when grabbing it
-#define RESURRECT_PROPER_SHOW_COLLECTABLE (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE) //verified correct
+#define RESURRECT_PROPER_SHOW_COLLECTABLE 0 //verified correct //TODO: fixme, seems to glitch out with wrong objects on occasion.
 /// Adds unused sad eyes for the penguin mother when he lost it's baby
 #define RESURRECT_TUXIES_MOTHER_SAD_EYES (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE) //verified correct
 /// Adds more actions to the special triple jump such as wallkick and grabbing
