@@ -107,7 +107,7 @@
 /// TODO: add comment!
 #define BUGFIX_RESOLVE_OBJECT_COLLISIONS 0 // TODO: fixme, Fixing the atan2s actually causes more issues than it helps. In my own fix I ended up having to rewrite the entire function lol
 /// Fixes open door key cutscene on 90-270 degrees
-#define BUGFIX_DOOR_KEY_CUTSCENE 0 //TODO: fixme, unlocking on the rightmost side makes Mario shift farther over to the right and makes him stick the key into the wall instead of the keyhole
+#define BUGFIX_DOOR_KEY_CUTSCENE 0 //TODO: fixme, unlocking on the door on the rightmost side makes Mario shift further over to the right and makes him stick the key into the wall instead of the keyhole
 /// Fixes cap cloning when Mario takes a fade warp
 #define BUGFIX_HAT_CLONE_FADE (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE)
 /// Fixes completed course not giving extra lives every 50 coins after 150 coins
