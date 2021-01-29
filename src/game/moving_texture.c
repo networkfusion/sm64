@@ -648,13 +648,12 @@ Gfx *geo_movtex_draw_water_regions(s32 callContext, struct GraphNode *node, UNUS
                 return NULL;
             }
 #if FEATURE_KEEP_JRB_ATMOSPHERE_FIRST_STAR
-            //keep fog for first star in JRB, regardless if it is collected! 
-            if (gCurrLevelNum == LEVEL_JRB && gCurrAreaIndex == 1 && gCurrActNum == 1) {
-                //just ignore, we dont want to return in this case!
-            }
-            else 
+            //keep fog for first star in JRB, regardless if it is collected in the save file! 
+            if (gCurrLevelNum == LEVEL_JRB && gCurrAreaIndex == 1 && gCurrActNum == 1)
+#else
+            if (save_file_get_star_flags(gCurrSaveFileNum - 1, COURSE_JRB - 1) & 1)
 #endif
-            if (save_file_get_star_flags(gCurrSaveFileNum - 1, COURSE_JRB - 1) & 1) { // first star in JRB complete
+            { // first star in JRB complete
                 return NULL;
             }
 

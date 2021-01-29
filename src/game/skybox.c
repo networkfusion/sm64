@@ -302,16 +302,16 @@ Gfx *create_skybox_facing_camera(s8 player, s8 background, f32 fov,
     f32 cameraFaceZ = focZ - posZ;
     s8 colorIndex = 1;
 
-    // If the first star is collected in JRB, make the sky darker and slightly green
-    if (background == 8 && !(save_file_get_star_flags(gCurrSaveFileNum - 1, COURSE_JRB - 1) & 1)) {
-        colorIndex = 0;
-    }
 #if FEATURE_KEEP_JRB_ATMOSPHERE_FIRST_STAR
     //check if playing the first star when collected and still have sky darker and slightly green sky! 
-     else if (background == 8 && gCurrLevelNum == LEVEL_JRB && gCurrAreaIndex == 1 && gCurrActNum == 1) {
+     if (background == 8 && gCurrLevelNum == LEVEL_JRB && gCurrAreaIndex != 1 && gCurrActNum != 1)
+#else
+    // If the first star is collected in JRB, make the sky darker and slightly green
+    if (background == 8 && !(save_file_get_star_flags(gCurrSaveFileNum - 1, COURSE_JRB - 1) & 1))
+#endif
+    {
         colorIndex = 0;
     }
-#endif
 
     //! fov is always set to 90.0f. If this line is removed, then the game crashes because fov is 0 on
     //! the first frame, which causes a floating point divide by 0
