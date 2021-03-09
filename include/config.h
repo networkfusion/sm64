@@ -140,7 +140,7 @@
 /// More information in 'unused_poundable_platform.inc.c' comment
 #define RESURRECT_CRACKED_ICE (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE)
 /// Properly adds unused SSL Pyramid cutscene after standing on the 4 pillars
-#define RESURRECT_PYRAMID_EXPLODE_CUTSCENE 0 //TODO: fixme, Still freezes camera when riding on a shell and hitting the top of 4th pillar
+#define RESURRECT_PYRAMID_EXPLODE_CUTSCENE (0 || VERSION_US_ULTIMATE || VERSION_JP_ULTIMATE || VERSION_EU_ULTIMATE || VERSION_SH_ULTIMATE)
 /// Changes how Mario grabs a star/key by calling his interactObj define
 /// This also makes it so a blue star is shown when grabbing it
 #define RESURRECT_PROPER_SHOW_COLLECTABLE 0 //verified correct //TODO: fixme, seems to glitch out with wrong objects on occasion.
